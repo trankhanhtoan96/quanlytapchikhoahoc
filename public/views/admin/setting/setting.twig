@@ -1,0 +1,45 @@
+{% extends "admin/base.twig" %}
+{% block content %}
+    <div class="content-header">
+        <div class="container-fluid">
+            <div class="row mb-2">
+                <div class="col-sm-12 text-center">
+                    <h1 class="m-0 text-dark">Cài đặt chung</h1>
+                </div>
+            </div>
+        </div>
+    </div>
+    <section class="content">
+        <div class="container-fluid">
+            <div class="card card-info">
+                <form class="form-horizontal" method="post" enctype="multipart/form-data" action="{{ base_url }}/admin/setting">
+                    <div class="card-body">
+                        <div class="row">
+                            <div class="col-sm-6">
+                                <div class="form-group row">
+                                    <label class="col-sm-4 col-form-label text-right">Favicon</label>
+                                    <div class="col-sm-8">
+                                        <input type="file" class="form-control" name="favicon"/>
+                                        <img style="width: 64px" src="{{ base_url }}/public/media/upload/{{ settings.favicon }}"/>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-sm-6">
+                                <div class="form-group row">
+                                    <label class="col-sm-4 col-form-label text-right">Logo</label>
+                                    <div class="col-sm-8">
+                                        <input type="file" class="form-control" name="logo"/>
+                                        <img style="width: 64px" src="{{ base_url }}/public/media/upload/{{ settings.logo }}"/>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="card-footer">
+                        <button type="submit" class="btn btn-info">{{ lang.SAVE }}</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </section>
+{% endblock %}
