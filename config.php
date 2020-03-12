@@ -9,5 +9,5 @@ $appSettings = ['settings' => [
         'host' => 'localhost'
     ],
     'base_url' => 'http://localhost/asokalaw.vn',
-    'theme'=>'asokalaw'
+    'theme' => 'asokalaw'
 ]];
