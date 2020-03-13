@@ -1,5 +1,5 @@
 <?php
-$db_tables = [
+$tables = [
     'users' => [
         'id' => [
             'type' => 'varchar(36) primary key',
@@ -71,7 +71,7 @@ $db_tables = [
         ],
     ]
 ];
-$db_default_values = [
+$values = [
     'users' => [
         [
             'id' => '1',

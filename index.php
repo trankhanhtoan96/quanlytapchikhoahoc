@@ -8,104 +8,197 @@ use Slim\Views\TwigExtension;
 
 session_start();
 require 'vendor/autoload.php';
-require 'settings.php';
+require 'config.php';
 require 'helper.php';
-$GLOBALS['app_settings'] = $appSettings;
-$app = new App($appSettings);
+$GLOBALS['config'] = $config;
+
+$app = new App(array('settings' => $config));
+
 $container = $app->getContainer();
-$container['view'] = function ($container) {
-    $view = new Twig('public/views', ['cache' => $GLOBALS['app_settings']['settings']['cache']]);
-    $view->addExtension(new TwigExtension($container->router, $container->request->getUri()));
-    return $view;
+
+$container['upload_directory'] = $config['upload_directory'];
+
+$container['view'] = function ($c) {
+    $v = new Twig('public/views', ['cache' => $GLOBALS['config']['cache']]);
+    $v->addExtension(new TwigExtension($c->router, $c->request->getUri()));
+    return $v;
 };
+
 $container['db'] = function () {
-    global $app_settings;
-    if (!empty($app_settings['settings']['db']['host'])) {
-        $conn = new mysqli($app_settings['settings']['db']['host'], $app_settings['settings']['db']['user'], $app_settings['settings']['db']['pass'], $app_settings['settings']['db']['db_name']);
-        return $conn;
-    }
+    global $config;
+    if (!empty($config['db']['host']))
+        return new mysqli($config['db']['host'], $config['db']['user'], $config['db']['pass'], $config['db']['db_name']);
     return null;
 };
-$container['upload_directory'] = 'public/media/upload';
-$app->add(function (ServerRequestInterface $req, ResponseInterface $res, $next) use ($app, $container) {
-    if (!empty($_SESSION['lang']) && file_exists('public/languages/' . $_SESSION['lang'] . '.php')) $GLOBALS['lang'] = require 'public/languages/' . $_SESSION['lang'] . '.php';
-    else $GLOBALS['lang'] = require 'public/languages/vi.php';
-    $uri = $req->getUri();
+
+$app->add(function (ServerRequestInterface $rq, ResponseInterface $rs, $n) use ($app, $container) {
+    global $config;
+
+    $langs = array();
+    if (!empty($_SESSION['lang'])) {
+        if (file_exists('admin/languages/' . $_SESSION['lang'] . '.php')) {
+            include 'admin/languages/' . $_SESSION['lang'] . '.php';
+        }
+    } else {
+        if (file_exists('admin/languages/' . $config['language_default'] . '.php')) {
+            include 'admin/languages/' . $config['language_default'] . '.php';
+        }
+    }
+    $GLOBALS['lang']['admin'] = $langs;
+
+    $langs = array();
+    if (!empty($config['theme'])) {
+        if (!empty($_SESSION['lang'])) {
+            if (file_exists($config['theme'] . '/languages/' . $_SESSION['lang'] . '.php')) {
+                include $config['theme'] . '/languages/' . $_SESSION['lang'] . '.php';
+            }
+        } else {
+            if (file_exists($config['theme'] . '/languages/' . $config['language_default'] . '.php')) {
+                include $config['theme'] . '/languages/' . $config['language_default'] . '.php';
+            }
+        }
+    }
+    $GLOBALS['lang']['theme'] = $langs;
+
+    $uri = $rq->getUri();
     $uri = trim($uri->getPath(), '/');
+    $GLOBALS['uri'] = explode('/', $uri);
     $view = $container->view->getEnvironment();
     $view->addGlobal("lang", $GLOBALS['lang']);
+    $view->addGlobal("config", $config);
     $view->addGlobal("cur_lang", $_SESSION['lang']);
     $view->addGlobal("lang_js", json_encode($GLOBALS['lang']));
-    $view->addGlobal("base_url", $GLOBALS['app_settings']['settings']['base_url']);
+    $view->addGlobal("base_url", $config['base_url']);
     $view->addGlobal("cur_uri", $uri);
-    $view->addGlobal("uri", explode('/', $uri));
+    $view->addGlobal("uri", $GLOBALS['uri']);
 
-    if ($result = $this->db->query("SELECT * FROM settings")) {
+    if ($result = $container->db->query("SELECT * FROM settings")) {
         if ($row = $result->fetch_assoc()) {
             $GLOBALS['settings'] = $row;
             $view->addGlobal("settings", $row);
         }
     }
 
-    if (empty($_SESSION['login'])) {
-        $_SESSION['login'] = null;
-        if (preg_match('/^admin/', $uri) && $uri != 'admin/login' && $uri != 'admin/repair')
-            return $res->withRedirect($GLOBALS['app_settings']['settings']['base_url'] . '/admin/login');
-    }
-    $view->addGlobal("login", $_SESSION['login']);
-    $response = $next($req, $res);
-    return $response;
-});
-$app->get('/admin/repair', function (ServerRequestInterface $req, ResponseInterface $res, array $args) {
-    require 'database.php';
-    if (empty($db_tables)) $db_tables = array();
-    foreach ($db_tables as $table => $table_detail) {
-        $result = $this->db->query("SHOW TABLES LIKE '{$table}'");
-        if ($result->num_rows > 0) {
-            foreach ($table_detail as $col => $col_detail) {
-                $result = $this->db->query("SHOW COLUMNS FROM $table LIKE '$col'");
-                if ($result->num_rows > 0) $this->db->query("ALTER TABLE $table MODIFY  $col {$col_detail['type']} " . (!empty($col_detail['required']) ? 'not null' : ''));
-                else $this->db->query("ALTER TABLE $table ADD COLUMN  $col {$col_detail['type']}" . (!empty($col_detail['required']) ? 'not null' : ''));
-            }
+    $ex = array(
+        'admin/login',
+        'admin/repair'
+    );
+    $_SESSION['login'] = array();
+    if (preg_match('/^admin/', $uri) && !in_array($uri, $ex)) {
+        if (empty($_SESSION['login'])) {
+            return $rs->withRedirect($config['base_url'] . '/admin/login');
         } else {
-            //create table
-            $sql = "create table " . $table . " (";
-            foreach ($table_detail as $col => $col_detail) $sql .= $col . ' ' . $col_detail['type'] . ' ' . (!empty($col_detail['required']) ? 'not null' : '') . ',';
-            $sql = rtrim($sql, ',') . ')';
-            $this->db->query($sql);
+            $view->addGlobal("login", $_SESSION['login']);
+        }
+    }
 
-            require 'database.php';
-            //import default data
-            if (empty($db_default_values)) $db_default_values = array();
-            foreach ($db_default_values as $table => $datas) {
-                foreach ($datas as $data) {
-                    $sql = "insert into $table (";
-                    $sql2 = 'values(';
-                    foreach ($data as $col => $val) {
-                        $sql .= $col . ',';
-                        $sql2 .= '"' . $val . '",';
+    return $n($rq, $rs);
+});
+
+$app->get('/admin/repair', function (ServerRequestInterface $rq, ResponseInterface $rs, array $ag) {
+    require 'database.php';
+    if (empty($tables)) return 'Empty database!';
+    if (empty($this->db)) return 'Database not config yet!';
+    foreach ($tables as $tableName => $table) {
+        if ($r1 = $this->db->query("SHOW TABLES LIKE '{$tableName}'")) {
+            if ($r1->num_rows > 0) {
+                /*
+                 * table exist
+                 * check field to add or modify
+                 */
+                foreach ($table as $fieldName => $field) {
+                    if ($r2 = $this->db->query("SHOW COLUMNS FROM $table LIKE '$fieldName'")) {
+                        if ($r2->num_rows > 0) {
+                            $required = (empty($field['required']) ? '' : 'not null');
+                            $this->db->query("ALTER TABLE {$table} MODIFY {$fieldName} {$field['type']} {$required}");
+                        }
+                    } else {
+                        $required = (empty($field['required']) ? '' : 'not null');
+                        $this->db->query("ALTER TABLE $table ADD COLUMN  {$fieldName} {$field['type']} {$required}");
                     }
-                    $sql = rtrim($sql, ',') . ') ' . rtrim($sql2, ',') . ')';
-                    $this->db->query($sql);
+                }
+            } else {
+                /**
+                 * table not exist
+                 * create table for new
+                 */
+                $sql = "create table " . $tableName . " (";
+                foreach ($table as $fieldName => $field) {
+                    $required = (empty($field['required']) ? '' : 'not null');
+                    $sql .= "{$fieldName} {$field['type']} {$required} ,";
+                }
+                $sql = rtrim($sql, ',') . ')';
+                $this->db->query($sql);
+
+                /**
+                 * insert default data
+                 */
+                if (!empty($values)) {
+                    foreach ($values as $table => $datas) {
+                        foreach ($datas as $data) {
+                            $sql = "insert into {$table} (";
+                            $sql2 = 'values(';
+                            foreach ($data as $col => $val) {
+                                $sql .= $col . ',';
+                                $sql2 .= '"' . $val . '",';
+                            }
+                            $sql = rtrim($sql, ',') . ') ' . rtrim($sql2, ',') . ')';
+                            $this->db->query($sql);
+                        }
+                    }
                 }
             }
         }
     }
     return 'Done!';
 });
-$app->post('/setLang', function (ServerRequestInterface $req, ResponseInterface $res, array $args) {
-    $_SESSION['lang'] = $req->getParam('lang');
-    return $res->withJson(array('success' => 1));
+
+/**
+ * set language for current user
+ */
+$app->post('/setLang', function (ServerRequestInterface $rq, ResponseInterface $rs, array $ag) {
+    $_SESSION['lang'] = $rq->getParam('lang');
+    return $rs->withJson(array('success' => 1));
 });
-require 'router_admin.php';
-require 'router_' . $GLOBALS['app_settings']['settings']['theme'] . '.php';
-$app->map(['GET', 'POST', 'PUT', 'DELETE', 'PATCH'], '/{routes:.+}', function (ServerRequestInterface $req, ResponseInterface $res) {
-    $uri = $req->getUri();
-    $uri = trim($uri->getPath(), '/');
-    if (preg_match('/^admin/', $uri)) {
-        return $res->withRedirect($GLOBALS['app_settings']['settings']['base_url'] . '/admin');
-    } else {
-        return $res->withRedirect($GLOBALS['app_settings']['settings']['base_url']);
+
+/**
+ * admin router
+ */
+if ($routers = scandir('admin/routers')) {
+    foreach ($routers as $router) {
+        if (is_file('admin/routers/' . $router)) {
+            include 'admin/routers/' . $router;
+        }
     }
+}
+
+/**
+ * router of theme
+ */
+if (!empty($GLOBALS['config']['theme'])) {
+    if ($routers = scandir($GLOBALS['config']['theme'] . '/routers')) {
+        foreach ($routers as $router) {
+            if (is_file($GLOBALS['config']['theme'] . '/routers/' . $router)) {
+                include $GLOBALS['config']['theme'] . '/routers/' . $router;
+            }
+        }
+    }
+}
+
+/**
+ * 404 handle and redirect
+ */
+$app->map(['GET', 'POST', 'PUT', 'DELETE', 'PATCH'], '/{routes:.+}', function (ServerRequestInterface $rq, ResponseInterface $rs) {
+    global $config;
+    $uri = $rq->getUri();
+    $uri = $uri->getPath();
+    if (preg_match('/^admin/', $uri)) {
+        return $rs->withRedirect($config['base_url'] . '/admin');
+    }
+    return $rs->withRedirect($config['base_url']);
 });
+
+/**
+ * run app
+ */
 $app->run();

@@ -7,7 +7,10 @@ use PHPMailer\PHPMailer\SMTP;
 function moveUploadedFile($directory, UploadedFile $uploadedFile)
 {
     $extension = pathinfo($uploadedFile->getClientFilename(), PATHINFO_EXTENSION);
-    $basename = bin2hex(random_bytes(8));
+    try {
+        $basename = bin2hex(random_bytes(8));
+    } catch (Exception $e) {
+    }
     $filename = sprintf('%s.%0.8s', $basename, $extension);
     $uploadedFile->moveTo($directory . DIRECTORY_SEPARATOR . $filename);
     return $filename;
@@ -24,22 +27,6 @@ class KTEncrypt
     {
         if (preg_match('/[^a-zA-Z0-9\/\+=]/', $string) OR base64_encode(base64_decode($string)) !== $string) return FALSE;
         return $this->mcrypt_decode(base64_decode($string), md5($key));
-    }
-
-    protected function _xor_decode($string, $key)
-    {
-        $string = $this->_xor_merge($string, $key);
-        $dec = '';
-        for ($i = 0, $l = self::strlen($string); $i < $l; $i++) $dec .= ($string[$i++] ^ $string[$i]);
-        return $dec;
-    }
-
-    protected function _xor_merge($string, $key)
-    {
-        $hash = hash('sha1', $key);
-        $str = '';
-        for ($i = 0, $ls = self::strlen($string), $lh = self::strlen($hash); $i < $ls; $i++) $str .= $string[$i] ^ $hash[($i % $lh)];
-        return $str;
     }
 
     protected function mcrypt_encode($data, $key)
@@ -112,20 +99,35 @@ function sendEmail($subject, $body, array $attachments, array $reveicer, array $
     $mail->Password = $kte->decode($settings['mailer_pass'], 'tkt');
     $mail->SMTPSecure = 'tls';
     $mail->Port = 587;
-    $mail->setFrom($settings['mailer_from'], $settings['mailer_fromname']);
-    $mail->addReplyTo($settings['mailer_replyto'], $settings['mailer_replytoname']);
+    try {
+        $mail->setFrom($settings['mailer_from'], $settings['mailer_fromname']);
+    } catch (\PHPMailer\PHPMailer\Exception $e) {
+    }
+    try {
+        $mail->addReplyTo($settings['mailer_replyto'], $settings['mailer_replytoname']);
+    } catch (\PHPMailer\PHPMailer\Exception $e) {
+    }
 
     if (!empty($reveicer))
         foreach ($reveicer as $r)
-            if (!empty($r['email'])) $mail->addAddress($r['email'], $r['name']);
+            if (!empty($r['email'])) try {
+                $mail->addAddress($r['email'], $r['name']);
+            } catch (\PHPMailer\PHPMailer\Exception $e) {
+            }
 
     if (!empty($cc))
         foreach ($cc as $r)
-            if (!empty($r['email'])) $mail->addCC($r['email'], $r['name']);
+            if (!empty($r['email'])) try {
+                $mail->addCC($r['email'], $r['name']);
+            } catch (\PHPMailer\PHPMailer\Exception $e) {
+            }
 
     if (!empty($bcc))
         foreach ($bcc as $r)
-            if (!empty($r['email'])) $mail->addBCC($r['email'], $r['name']);
+            if (!empty($r['email'])) try {
+                $mail->addBCC($r['email'], $r['name']);
+            } catch (\PHPMailer\PHPMailer\Exception $e) {
+            }
 
     $mail->isHTML(true);
     $mail->Subject = $subject;
@@ -133,7 +135,13 @@ function sendEmail($subject, $body, array $attachments, array $reveicer, array $
 
     if (!empty($attachments))
         foreach ($attachments as $at)
-            if (!empty($at['path'])) $mail->addAttachment($at['path'], $at['name']);
+            if (!empty($at['path'])) try {
+                $mail->addAttachment($at['path'], $at['name']);
+            } catch (\PHPMailer\PHPMailer\Exception $e) {
+            }
 
-    return $mail->send();
+    try {
+        return $mail->send();
+    } catch (\PHPMailer\PHPMailer\Exception $e) {
+    }
 }
