@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Admin</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="icon" href="{{ base_url }}/upload/{{ settings.favicon }}" type="image/png">
+    <link rel="stylesheet" href="{{ base_url }}/admin/assets/font-awesome/css/all.min.css">
+    <link rel="stylesheet" href="{{ base_url }}/admin/assets/plugins/icheck-bootstrap/icheck-bootstrap.min.css">
+    <link rel="stylesheet" href="{{ base_url }}/admin/assets/dist/css/adminlte.min.css">
+    <link rel="stylesheet" href="{{ base_url }}/admin/assets/dist/css/app.css">
+    <script>
+        var lang = {{ lang_js|raw }};
+        var cur_lang = "{{ cur_lang }}";
+        var base_url = "{{ base_url }}";
+    </script>
+</head>
+<body class="hold-transition login-page">
+<div class="login-box">
+    <div class="card">
+        <div class="card-body login-card-body">
+            <div class="login-logo">
+                <img style="width: 200px" src="{{ base_url }}/upload/{{ settings.logo }}" alt=""/>
+            </div>
+            <div class="input-group mb-3">
+                <select class="form-control change-language">
+                    {% for lkey,lname in config.languages %}
+                        <option value="{{ lkey }}" {% if cur_lang==lkey %}selected{% endif %}>{{ lname }}</option>
+                    {% endfor %}
+                </select>
+                <div class="input-group-append">
+                    <div class="input-group-text">
+                        <span class="far fa-flag"></span>
+                    </div>
+                </div>
+            </div>
+            <div class="input-group mb-3">
+                <input type="text" class="form-control username" placeholder="{{ lang.admin.USER_NAME }}">
+                <div class="input-group-append">
+                    <div class="input-group-text">
+                        <span class="far fa-user"></span>
+                    </div>
+                </div>
+            </div>
+            <div class="input-group mb-3">
+                <input type="password" class="form-control password" placeholder="{{ lang.admin.PASSWORD }}">
+                <div class="input-group-append">
+                    <div class="input-group-text">
+                        <span class="far fa-lock"></span>
+                    </div>
+                </div>
+            </div>
+            <div class="row text-center">
+                <div class="col-md-12">
+                    <button type="button" class="btn btn-primary btn-login">
+                        <i class="far fa-sign-in-alt"></i>
+                        {{ lang.admin.LOGIN }}
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<script src="{{ base_url }}/admin/assets/plugins/jquery/jquery.min.js"></script>
+<script src="{{ base_url }}/admin/assets/plugins/bootstrap/js/bootstrap.bundle.min.js"></script>
+<script src="{{ base_url }}/admin/assets/dist/js/adminlte.min.js"></script>
+<script src="{{ base_url }}/admin/views/admin/login/login.js"></script>
+</body>
+</html>
