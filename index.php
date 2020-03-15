@@ -20,8 +20,8 @@ $container['upload_directory'] = $config['upload_directory'];
 
 $container['view'] = function ($c) {
     global $config;
-    $themepath = array('admin/views');
-    if (!empty($config['theme'])) $themepath[] = $config['theme'].'/views';
+    $themepath = array('app/views');
+    if (!empty($config['theme'])) $themepath[] = $config['theme'] . '/views';
     $v = new Twig($themepath, ['cache' => $GLOBALS['config']['cache']]);
     $v->addExtension(new TwigExtension($c->router, $c->request->getUri()));
     return $v;
@@ -39,15 +39,15 @@ $app->add(function (ServerRequestInterface $rq, ResponseInterface $rs, $n) use (
 
     $langs = array();
     if (!empty($_SESSION['lang'])) {
-        if (file_exists('admin/languages/' . $_SESSION['lang'] . '.php')) {
-            include 'admin/languages/' . $_SESSION['lang'] . '.php';
+        if (file_exists('app/languages/' . $_SESSION['lang'] . '.php')) {
+            include 'app/languages/' . $_SESSION['lang'] . '.php';
         }
     } else {
-        if (file_exists('admin/languages/' . $config['language_default'] . '.php')) {
-            include 'admin/languages/' . $config['language_default'] . '.php';
+        if (file_exists('app/languages/' . $config['language_default'] . '.php')) {
+            include 'app/languages/' . $config['language_default'] . '.php';
         }
     }
-    $GLOBALS['lang']['admin'] = $langs;
+    $GLOBALS['lang']['app'] = $langs;
 
     $langs = array();
     if (!empty($config['theme'])) {
@@ -100,10 +100,10 @@ $app->add(function (ServerRequestInterface $rq, ResponseInterface $rs, $n) use (
 /**
  * admin router
  */
-if ($routers = scandir('admin/routers')) {
+if ($routers = scandir('app/routers')) {
     foreach ($routers as $router) {
-        if (is_file('admin/routers/' . $router)) {
-            include 'admin/routers/' . $router;
+        if (is_file('app/routers/' . $router)) {
+            include 'app/routers/' . $router;
         }
     }
 }

@@ -1,0 +1,90 @@
+{% extends "admin/base.twig" %}
+{% block content %}
+    <div class="content-header">
+        <div class="container-fluid">
+            <div class="row mb-2">
+                <div class="col-sm-12 text-center">
+                    <h1 class="m-0 text-dark">Email</h1>
+                </div>
+            </div>
+        </div>
+    </div>
+    <section class="content">
+        <div class="container-fluid">
+            <div class="card card-info">
+                <form class="form-horizontal" method="post" action="{{ base_url }}/admin/setting/email">
+                    <div class="card-body">
+                        <div class="row">
+                            <div class="col-sm-6">
+                                <div class="form-group row">
+                                    <label class="col-sm-4 col-form-label text-right">Host</label>
+                                    <div class="col-sm-8">
+                                        <input type="text" class="form-control" name="mailer_host" value="{{ settings.mailer_host }}"/>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-sm-6"></div>
+                        </div>
+                        <div class="row">
+                            <div class="col-sm-6">
+                                <div class="form-group row">
+                                    <label class="col-sm-4 col-form-label text-right">User</label>
+                                    <div class="col-sm-8">
+                                        <input type="email" class="form-control" name="mailer_user" value="{{ settings.mailer_user }}"/>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-sm-6">
+                                <div class="form-group row">
+                                    <label class="col-sm-4 col-form-label text-right">Password</label>
+                                    <div class="col-sm-8">
+                                        <input type="password" class="form-control" name="mailer_pass" value="{{ settings.mailer_pass }}"/>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-sm-6">
+                                <div class="form-group row">
+                                    <label class="col-sm-4 col-form-label text-right">From email</label>
+                                    <div class="col-sm-8">
+                                        <input type="email" class="form-control" name="mailer_from" value="{{ settings.mailer_from }}"/>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-sm-6">
+                                <div class="form-group row">
+                                    <label class="col-sm-4 col-form-label text-right">Reply to email</label>
+                                    <div class="col-sm-8">
+                                        <input type="email" class="form-control" name="mailer_replyto" value="{{ settings.mailer_replyto }}"/>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-sm-6">
+                                <div class="form-group row">
+                                    <label class="col-sm-4 col-form-label text-right">From name</label>
+                                    <div class="col-sm-8">
+                                        <input type="text" class="form-control" name="mailer_fromname" value="{{ settings.mailer_fromname }}"/>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-sm-6">
+                                <div class="form-group row">
+                                    <label class="col-sm-4 col-form-label text-right">Reply to name</label>
+                                    <div class="col-sm-8">
+                                        <input type="text" class="form-control" name="mailer_replytoname" value="{{ settings.mailer_replytoname }}"/>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="card-footer">
+                        <button type="submit" class="btn btn-info">{{ lang.app.SAVE }}</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </section>
+{% endblock %}
