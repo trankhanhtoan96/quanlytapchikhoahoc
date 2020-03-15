@@ -1,30 +1,151 @@
+/*normal*/
 @font-face {
-    font-family: 'SFUIText-Regular';
+    font-family: 'SFUIText';
+    src: url('../../font/SFUIText/SFUIText-Light.ttf');
+    font-weight: 100;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'SFUIText';
+    src: url('../../font/SFUIText/SFUIText-Light.ttf');
+    font-weight: 200;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'SFUIText';
+    src: url('../../font/SFUIText/SFUIText-Light.ttf');
+    font-weight: 300;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'SFUIText';
     src: url('../../font/SFUIText/SFUIText-Regular.ttf');
+    font-weight: normal;
+    font-style: normal;
 }
 
 @font-face {
-    font-family: 'SFUIText-RegularItalic';
-    src: url('../../font/SFUIText/SFUIText-RegularItalic.ttf');
+    font-family: 'SFUIText';
+    src: url('../../font/SFUIText/SFUIText-SemiBold.ttf');
+    font-weight: bold;
+    font-style: normal;
 }
 
 @font-face {
-    font-family: 'SFUIText-Bold';
+    font-family: 'SFUIText';
+    src: url('../../font/SFUIText/SFUIText-SemiBold.ttf');
+    font-weight: 500;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'SFUIText';
+    src: url('../../font/SFUIText/SFUIText-SemiBold.ttf');
+    font-weight: 600;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'SFUIText';
     src: url('../../font/SFUIText/SFUIText-Bold.ttf');
+    font-weight: 700;
+    font-style: normal;
 }
 
 @font-face {
-    font-family: 'SFUIText-BoldItalic';
-    src: url('../../font/SFUIText/SFUIText-BoldItalic.ttf');
+    font-family: 'SFUIText';
+    src: url('../../font/SFUIText/SFUIText-Bold.ttf');
+    font-weight: 800;
+    font-style: normal;
 }
 
-h1, h2, h3, h4, h5, h6, b {
-    font-family: SFUIText-bold, serif !important;
+@font-face {
+    font-family: 'SFUIText';
+    src: url('../../font/SFUIText/SFUIText-Bold.ttf');
+    font-weight: 900;
+    font-style: normal;
+}
+
+/*italic*/
+@font-face {
+    font-family: 'SFUIText';
+    src: url('../../font/SFUIText/SFUIText-LightItalic.ttf');
+    font-weight: 100;
+    font-style: italic;
+}
+
+@font-face {
+    font-family: 'SFUIText';
+    src: url('../../font/SFUIText/SFUIText-LightItalic.ttf');
+    font-weight: 200;
+    font-style: italic;
+}
+
+@font-face {
+    font-family: 'SFUIText';
+    src: url('../../font/SFUIText/SFUIText-LightItalic.ttf');
+    font-weight: 300;
+    font-style: italic;
+}
+
+@font-face {
+    font-family: 'SFUIText';
+    src: url('../../font/SFUIText/SFUIText-RegularItalic.ttf');
+    font-weight: normal;
+    font-style: italic;
+}
+
+@font-face {
+    font-family: 'SFUIText';
+    src: url('../../font/SFUIText/SFUIText-SemiboldItalic.ttf');
+    font-weight: bold;
+    font-style: italic;
+}
+
+@font-face {
+    font-family: 'SFUIText';
+    src: url('../../font/SFUIText/SFUIText-SemiboldItalic.ttf');
+    font-weight: 500;
+    font-style: italic;
+}
+
+@font-face {
+    font-family: 'SFUIText';
+    src: url('../../font/SFUIText/SFUIText-SemiboldItalic.ttf');
+    font-weight: 600;
+    font-style: italic;
+}
+
+@font-face {
+    font-family: 'SFUIText';
+    src: url('../../font/SFUIText/SFUIText-boldItalic.ttf');
+    font-weight: 700;
+    font-style: italic;
+}
+
+@font-face {
+    font-family: 'SFUIText';
+    src: url('../../font/SFUIText/SFUIText-boldItalic.ttf');
+    font-weight: 800;
+    font-style: italic;
+}
+
+@font-face {
+    font-family: 'SFUIText';
+    src: url('../../font/SFUIText/SFUIText-boldItalic.ttf');
+    font-weight: 900;
+    font-style: italic;
+}
+
+* {
+    font-family: SFUIText, sans-serif;
 }
 
 html, body {
-    font-family: SFUIText-Regular, serif !important;
-    font-size: 14px;
+    font-size: 15px;
 }
 
 [class*=sidebar-dark-] .nav-treeview > .nav-item > .nav-link.active {
