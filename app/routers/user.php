@@ -25,7 +25,7 @@ $app->post('/admin/user/login', function (ServerRequestInterface $req, ResponseI
     return $res->withJson(array('success' => 0));
 });
 $app->get('/admin/user/change_password', function (ServerRequestInterface $req, ResponseInterface $res, array $args) {
-    return $this->view->render($res, 'admin/change_password.twig', $args);
+    return $this->view->render($res, 'app/user/change_password.twig', $args);
 });
 $app->post('/admin/user/change_password', function (ServerRequestInterface $req, ResponseInterface $res, array $args) {
     if (password_verify($req->getParam('cur_pass'), $_SESSION['login']['password'])) {
