@@ -83,12 +83,12 @@ $app->add(function (ServerRequestInterface $rq, ResponseInterface $rs, $n) use (
     }
 
     $ex = array(
-        'admin/login',
+        'admin/user/login',
         'admin/repair'
     );
     if (preg_match('/^admin/', $uri) && !in_array($uri, $ex)) {
         if (empty($_SESSION['login'])) {
-            return $rs->withRedirect($config['base_url'] . '/admin/login');
+            return $rs->withRedirect($config['base_url'] . '/admin/user/login');
         } else {
             $view->addGlobal("login", $_SESSION['login']);
         }

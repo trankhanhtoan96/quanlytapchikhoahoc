@@ -14,7 +14,7 @@ $(document).ready(function () {
     $('.btn-login').on('click', function () {
         $(this).find('i').removeClass('fa-sign-in-alt').addClass('fa-spin fa-spinner');
         $.ajax({
-            url: base_url + '/admin/login',
+            url: base_url + '/admin/user/login',
             data: {
                 'username': $('.username').val(),
                 'password': $('.password').val()
