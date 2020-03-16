@@ -3,7 +3,7 @@
 - MySQL with mysqli support
 
 # Helper
-- Repair for sync database: project/admin/repair
+- Repair for sync and backup database: `project/admin/repair` file backup in `app/database/backup.database.sql`
 
 # Variable in twig view
 - lang (array): lang.admin | lang.theme
