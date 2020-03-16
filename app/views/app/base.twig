@@ -44,12 +44,14 @@
     <div class="content-wrapper">
         {% block content %}{% endblock %}
     </div>
-    <footer class="main-footer text-sm">
-        <strong>Copyright &copy; 2018-2020 TKT.</strong> All rights reserved.
-        <div class="float-right d-none d-sm-inline-block">
-            <b>Version</b> 4.3
-        </div>
-    </footer>
+    {% block action_record_view %}
+        <footer class="main-footer text-sm">
+            <strong>Copyright &copy; 2020 TKT.</strong> All rights reserved.
+            <div class="float-right d-none d-sm-inline-block">
+                <b>Version</b> 4.3
+            </div>
+        </footer>
+    {% endblock %}
 </div>
 
 <!-- jQuery -->

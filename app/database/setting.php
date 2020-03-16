@@ -3,47 +3,47 @@ $tables = array(
     'settings' => array(
         'favicon' => array(
             'dbType' => 'varchar(255)',
-            'label' => ''
+            'label' => 'LBL_FAVICON'
         ),
         'logo' => array(
             'dbType' => 'varchar(255)',
-            'label' => ''
+            'label' => 'LBL_LOGO'
         ),
         'mailer_host' => array(
             'dbType' => 'varchar(100)',
-            'label' => ''
+            'label' => 'LBL_MAILER_HOST'
         ),
         'mailer_user' => array(
             'dbType' => 'varchar(100)',
-            'label' => ''
+            'label' => 'LBL_MAILER_USER'
         ),
         'mailer_pass' => array(
             'dbType' => 'varchar(60)',
-            'label' => ''
+            'label' => 'LBL_MAILER_PASS'
         ),
         'mailer_port' => array(
             'dbType' => 'varchar(100)',
-            'label' => ''
+            'label' => 'LBL_MAILER_PORT'
         ),
         'mailer_secure' => array(
             'dbType' => 'varchar(100)',
-            'label' => ''
+            'label' => 'LBL_MAILER_SECURE'
         ),
         'mailer_replyto' => array(
             'dbType' => 'varchar(100)',
-            'label' => ''
+            'label' => 'LBL_MAILER_REPLYTO'
         ),
         'mailer_from' => array(
             'dbType' => 'varchar(100)',
-            'label' => ''
+            'label' => 'LBL_MAILER_FROM'
         ),
         'mailer_fromname' => array(
             'dbType' => 'varchar(255)',
-            'label' => ''
+            'label' => 'LBL_MAILER_FROMNAME'
         ),
         'mailer_replytoname' => array(
             'dbType' => 'varchar(255)',
-            'label' => ''
+            'label' => 'LBL_MAILER_REPLYTONAME'
         ),
     )
 );

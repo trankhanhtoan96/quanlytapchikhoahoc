@@ -4,6 +4,8 @@ use Psr\Http\Message\ResponseInterface;
 use Psr\Http\Message\ServerRequestInterface;
 
 $app->get('/admin/setting', function (ServerRequestInterface $rq, ResponseInterface $rs, array $ag) {
+    include 'app/database/setting.php';
+    $ag['database'] = empty($tables) ? null : $tables;
     return $this->view->render($rs, 'app/setting/setting.twig', $ag);
 });
 $app->post('/admin/setting', function (ServerRequestInterface $rq, ResponseInterface $rs, array $ag) {
@@ -25,6 +27,8 @@ $app->post('/admin/setting', function (ServerRequestInterface $rq, ResponseInter
     return $rs->withRedirect($GLOBALS['config']['base_url'] . '/admin/setting');
 });
 $app->get('/admin/setting/email', function (ServerRequestInterface $rq, ResponseInterface $rs, array $ag) {
+    include 'app/database/setting.php';
+    $ag['database'] = empty($tables) ? null : $tables;
     return $this->view->render($rs, 'app/setting/setting_email.twig', $ag);
 });
 $app->post('/admin/setting/email', function (ServerRequestInterface $rq, ResponseInterface $rs, array $ag) {

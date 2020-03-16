@@ -152,3 +152,7 @@ html, body {
     background-color: #17a2b8;
     color: #fff;
 }
+
+.buton-action-record {
+    padding: 7px 14px 7px 14px;
+}
