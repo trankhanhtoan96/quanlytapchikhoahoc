@@ -16,5 +16,9 @@ $langOptions = [
     'post_category_status_options' => array(
         'active' => 'Kích hoạt',
         'inactive' => 'Không kích hoạt'
+    ),
+    'post_status_options'=>array(
+        'published'=>'Đã xuất bản',
+        'draft'=>'Bản nháp'
     )
 ];

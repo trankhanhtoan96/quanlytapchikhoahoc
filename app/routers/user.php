@@ -18,6 +18,12 @@ $app->post('/admin/user/login', function (ServerRequestInterface $req, ResponseI
         if ($row = $result->fetch_assoc()) {
             if (password_verify($data['password'], $row['password'])) {
                 $_SESSION['login'] = $row;
+
+                /**
+                 * update last_login
+                 */
+                $nowDb = date("Y-m-d H:i:s");
+                $this->db->query("update users set last_login='{$nowDb}'");
                 return $res->withJson(array('success' => 1));
             }
         }

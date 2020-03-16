@@ -1,18 +1,18 @@
 <?php
 $tables = array(
-    'post_category' => array(
+    'post_tags' => array(
         'id' => array(
             'dbType' => 'varchar(36) primary key',
             'label' => ''
         ),
-        'category_id' => array(
+        'tags_id' => array(
             'dbType' => 'varchar(36)',
-            'rel_table' => 'category'
+            'rel_table' => 'tags'
         ),
         'post_id' => array(
             'dbType' => 'varchar(36)',
             'rel_table' => 'post'
-        )
+        ),
     )
 );
 $values = array();
