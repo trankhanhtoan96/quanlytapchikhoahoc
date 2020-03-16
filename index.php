@@ -36,9 +36,12 @@ $container['view'] = function ($c) {
 
 $container['db'] = function () {
     global $config;
-    if (!empty($config['db']['host']))
-        return new mysqli($config['db']['host'], $config['db']['user'], $config['db']['pass'], $config['db']['db_name']);
-    return null;
+    $conn = null;
+    if (!empty($config['db']['host'])) {
+        $conn = new mysqli($config['db']['host'], $config['db']['user'], $config['db']['pass'], $config['db']['db_name']);
+        $conn->set_charset("utf8");
+    }
+    return $conn;
 };
 
 $app->add(function (ServerRequestInterface $rq, ResponseInterface $rs, $n) use ($app, $container) {

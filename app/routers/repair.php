@@ -64,6 +64,36 @@ $app->get('/admin/repair', function (ServerRequestInterface $rq, ResponseInterfa
         }
     }
 
+    /**
+     * backup SQL
+     */
+    $tables = array();
+    $result = $this->db->query("SHOW TABLES");
+    while ($row = $result->fetch_row()) $tables[] = $row[0];
+    $sqlScript = "";
+    foreach ($tables as $table) {
+        $result = $this->db->query("SHOW CREATE TABLE $table");
+        $row = $result->fetch_row();
+        $sqlScript .= $row[1] . ";\n\n";
+
+
+        $result = $this->db->query("SELECT * FROM $table");
+        while ($row = $result->fetch_assoc()) {
+            $tmp1 = "insert into " . $table . "(";
+            $tmp2 = "values(";
+            foreach ($row as $key => $val) {
+                $tmp1 .= $key . ',';
+                $tmp2 .= '"' . $val . '",';
+            }
+            $tmp1 = rtrim($tmp1, ',') . ')';
+            $tmp2 = rtrim($tmp2, ',') . ');';
+            $sqlScript .= $tmp1 . ' ' . $tmp2 . "\n\n";
+        }
+
+        $sqlScript .= "\n";
+    }
+    file_put_contents('app/database/backup.database.sql', $sqlScript);
+    ob_clean();
     return 'Done!';
 });
 
