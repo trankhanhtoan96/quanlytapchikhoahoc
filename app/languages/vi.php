@@ -12,3 +12,9 @@ $langs = [
     'RETYPE_NEW_PASSWORD' => 'Nhập lại mật khẩu mới',
     'SAVE' => 'Lưu'
 ];
+$langOptions = [
+    'post_category_status_options' => array(
+        'active' => 'Kích hoạt',
+        'inactive' => 'Không kích hoạt'
+    )
+];

@@ -9,7 +9,14 @@ use Slim\Views\TwigExtension;
 session_start();
 require 'vendor/autoload.php';
 require 'config.php';
-require 'helper.php';
+
+$helpers = scandir('app/helpers');
+foreach ($helpers as $helper) {
+    if (is_file('app/helpers/' . $helper)) {
+        require 'app/helpers/' . $helper;
+    }
+}
+
 $GLOBALS['config'] = $config;
 
 $app = new App(array('settings' => $config));

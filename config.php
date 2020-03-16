@@ -8,7 +8,7 @@ $config = [
         'pass' => '123456',
         'host' => 'localhost'
     ],
-    'base_url' => 'http://localhost/tkframework',
+    'base_url' => 'http://localhost/tkt/tkframework',
     'theme' => 'asokalaw',
     'upload_directory' => 'upload',
     'languages' => array(
