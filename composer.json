@@ -2,9 +2,6 @@
   "require": {
     "slim/slim": "3.*",
     "slim/twig-view": "2.*",
-    "phpmailer/phpmailer": "^6.1",
-    "ext-mysqli": "*",
-    "ext-json": "*",
-    "ext-mcrypt": "*"
+    "phpmailer/phpmailer": "^6.1"
   }
 }
