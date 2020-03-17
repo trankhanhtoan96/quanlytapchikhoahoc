@@ -18,6 +18,7 @@ $app->post('/admin/user/login', function (ServerRequestInterface $req, ResponseI
         if ($row = $result->fetch_assoc()) {
             if (password_verify($data['password'], $row['password'])) {
                 $_SESSION['login'] = $row;
+                if(empty($_SESSION['lang'])) $_SESSION['lang']=$GLOBALS['config']['language_default'];
 
                 /**
                  * update last_login
