@@ -27,7 +27,7 @@ $app->post('/admin/category/create', function (ServerRequestInterface $rq, Respo
         'status' => $rq->getParam('status'),
         'description' => $rq->getParam('description'),
         'parent_id' => $rq->getParam('parent_id'),
-        'for_lang' => $rq->getParam('for_lang')
+        'for_lang' => serialize($rq->getParam('for_lang'))
     );
     insertDB($this->db, 'category', $data);
 

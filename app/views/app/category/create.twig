@@ -40,7 +40,7 @@
                                 <div class="form-group row">
                                     <label class="col-sm-4 col-form-label text-sm-left text-md-right">{{ lang.app[database.category.for_lang.label] }}</label>
                                     <div class="col-sm-8">
-                                        <select class="form-control select2" multiple="multiple" required name="for_lang" style="width: 100%">
+                                        <select class="form-control select2" multiple="multiple" name="for_lang" style="width: 100%">
                                             {% for key,val in config.languages %}
                                                 <option value="{{ key }}">{{ val }}</option>
                                             {% endfor %}
