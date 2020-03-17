@@ -167,6 +167,12 @@ $app->add(function (ServerRequestInterface $rq, ResponseInterface $rs, $n) use (
     });
     $view->addFunction($extFunction);
 
+    $extFunction = new TwigFunction("lang", function ($key, $location = 'app') {
+        if (isset($GLOBALS['lang'][$location][$key])) return $GLOBALS['lang'][$location][$key];
+        return $key;
+    });
+    $view->addFunction($extFunction);
+
     return $n($rq, $rs);
 });
 
