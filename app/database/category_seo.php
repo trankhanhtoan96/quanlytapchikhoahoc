@@ -1,6 +1,6 @@
 <?php
 $tables = array(
-    'post_category' => array(
+    'category_seo' => array(
         'id' => array(
             'dbType' => 'varchar(36) primary key',
         ),
@@ -8,9 +8,9 @@ $tables = array(
             'dbType' => 'varchar(36)',
             'rel_table' => 'category'
         ),
-        'post_id' => array(
+        'seo_id' => array(
             'dbType' => 'varchar(36)',
-            'rel_table' => 'post'
+            'rel_table' => 'seo'
         )
     )
 );

@@ -13,7 +13,6 @@ $tables = array(
             'label' => 'LBL_SLUG'
         ),
         'status' => array(
-            'type' => 'enum',
             'dbType' => 'varchar(255)',
             'options' => 'post_category_status_options',
             'label' => 'LBL_STATUS'
@@ -26,6 +25,10 @@ $tables = array(
             'dbType' => 'varchar(36)',
             'rel_table' => 'post_category',
             'label' => 'LBL_PARENT'
+        ),
+        'for_lang'=>array(
+            'dbType' => 'varchar(255)',
+            'label' => 'LBL_LANGUAGE'
         )
     )
 );

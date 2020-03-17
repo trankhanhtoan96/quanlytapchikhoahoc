@@ -11,7 +11,13 @@ $app->get('/admin/category', function (ServerRequestInterface $rq, ResponseInter
 $app->get('/admin/category/create', function (ServerRequestInterface $rq, ResponseInterface $rs, array $ag) {
     include 'app/database/category.php';
     $ag['database'] = empty($tables) ? null : $tables;
-    $result = $this->db->query("select * from category");
-    while ($row = $result->fetch_assoc()) $ag['parent_id']['list'][$row['id']] = $row;
+
+    $tables = null;
+    include 'app/database/seo.php';
+    $ag['seo'] = empty($tables) ? null : $tables['seo'];
+
     return $this->view->render($rs, 'app/category/create.twig', $ag);
+});
+$app->post('/admin/category/create', function (ServerRequestInterface $rq, ResponseInterface $rs, array $ag) {
+
 });

@@ -30,6 +30,8 @@ $langs = [
     'LBL_STATUS' => 'Trạng thái',
     'LBL_SLUG' => 'Slug',
     'LBL_NAME' => 'Tên',
+    'LBL_SEO'=>'SEO',
+    'LBL_TITLE'=>'Tiêu đề',
     'post_category_status_options' => array(
         'active' => 'Kích hoạt',
         'inactive' => 'Không kích hoạt'
@@ -37,5 +39,7 @@ $langs = [
     'post_status_options' => array(
         'published' => 'Đã xuất bản',
         'draft' => 'Bản nháp'
-    )
+    ),
+    'LBL_KEYWORD'=>'Từ khoá',
+    'LBL_LANGUAGE'=>'Ngôn ngữ'
 ];

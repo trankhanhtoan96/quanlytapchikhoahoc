@@ -48,14 +48,6 @@
     <div class="content-wrapper">
         {% block content %}{% endblock %}
     </div>
-    {% block action_record_view %}
-        <footer class="main-footer text-sm">
-            <strong>Copyright &copy; 2020 TKT.</strong> All rights reserved.
-            <div class="float-right d-none d-sm-inline-block">
-                <b>Version</b> 4.3
-            </div>
-        </footer>
-    {% endblock %}
 </div>
 
 <!-- jQuery -->
@@ -67,7 +59,7 @@
 <!-- Bootstrap 4 -->
 <script src="{{ base_url }}/app/assets/plugins/bootstrap/js/bootstrap.bundle.min.js"></script>
 <!-- Select2 -->
-<script src="{{base_url}}/app/assets/plugins/select2/js/select2.full.min.js"></script>
+<script src="{{ base_url }}/app/assets/plugins/select2/js/select2.full.min.js"></script>
 <!-- bs-custom-file-input -->
 <script src="{{ base_url }}/app/assets/plugins/bs-custom-file-input/bs-custom-file-input.min.js"></script>
 <!-- ChartJS -->
