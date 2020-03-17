@@ -5,6 +5,7 @@ use Psr\Http\Message\ServerRequestInterface;
 use Slim\App;
 use Slim\Views\Twig;
 use Slim\Views\TwigExtension;
+use Twig\TwigFunction;
 
 session_start();
 require 'vendor/autoload.php';
@@ -104,6 +105,67 @@ $app->add(function (ServerRequestInterface $rq, ResponseInterface $rs, $n) use (
             $view->addGlobal("login", $_SESSION['login']);
         }
     }
+
+    /**
+     * add function to twig view
+     */
+    $extFunction = new TwigFunction("form_field", function ($type, $name, $required = "", $listOption = array(), $val = "", $addNullOption = 0) {
+        $html = "";
+        switch ($type) {
+            case "text":
+                $html = "<input type='text' class='form-control' value='{$val}' name='{$name}' {$required}/>";
+                break;
+            case "editor":
+                $html = "<textarea class='ckeditor' name='{$name}' {$required}>{$val}</textarea>";
+                break;
+            case "textarea":
+                $html = "<textarea class='form-control' name='{$name}' {$required}>{$val}</textarea>";
+                break;
+            case "multienum":
+                $html = "<select class='form-control select2' multiple='multiple' name='{$name}[]' style='width: 100%'>";
+                if ($addNullOption) $html .= "<option value=''>#</option>";
+                if (is_array($listOption)) {
+                    foreach ($listOption as $k => $v) {
+                        $html .= "<option value='{$k}' " . ($k == $val ? 'selected' : '') . ">$v</option>";
+                    }
+                }
+                $html .= "</select>";
+                break;
+            case "enum":
+                $html = "<select class='form-control select2' name='{$name}' style='width: 100%'>";
+                if ($addNullOption) $html .= "<option value=''>#</option>";
+                if (is_array($listOption)) {
+                    foreach ($listOption as $k => $v) {
+                        $html .= "<option value='{$k}' " . ($k == $val ? 'selected' : '') . ">$v</option>";
+                    }
+                }
+                $html .= "</select>";
+                break;
+        }
+        return $html;
+    });
+    $view->addFunction($extFunction);
+
+    $extFunction = new TwigFunction("view_field", function ($type, $name, $val, $listOption = array()) {
+        $html = "";
+        switch ($type) {
+            case "text":
+                $html = "<div data-field-name='{$name}'>{$val}</div>";
+                break;
+            case "enum":
+                $html = "<div data-field-name='{$name}' data-field-value='{$val}'>{$listOption[$val]}</div>";
+                break;
+            case "multienum":
+                $html = "<div data-field-name='{$name}'><ul>";
+                foreach ($val as $k) {
+                    $html .= "<li data-field-value='{$k}'>{$listOption[$k]}</li>";
+                }
+                $html .= "</ul></div>";
+                break;
+        }
+        return $html;
+    });
+    $view->addFunction($extFunction);
 
     return $n($rq, $rs);
 });

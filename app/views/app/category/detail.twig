@@ -1,0 +1,118 @@
+{% extends "app/base.twig" %}
+{% block content %}
+    <div class="content-header">
+        <div class="container-fluid">
+            <div class="row mb-2">
+                <div class="col-sm-12 text-center">
+                    <h1 class="m-0 text-dark">{{ lang.app.LBL_CATEGORY }}</h1>
+                </div>
+            </div>
+        </div>
+    </div>
+    <section class="content">
+        <div class="container-fluid">
+            <div class="card card-info">
+                <div class="card-header">
+                    <h3 class="card-title">{{ lang.app.LBL_CATEGORY }}</h3>
+                </div>
+                <div class="card-body">
+                    <div class="row">
+                        <div class="col-sm-6">
+                            <div class="form-group row">
+                                <label class="col-sm-4 col-form-label text-sm-left text-md-right">{{ lang.app[database.category.name.label] }}</label>
+                                <div class="col-sm-8">
+                                    {{ record.name }}
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-sm-6">
+                            <div class="form-group row">
+                                <label class="col-sm-4 col-form-label text-sm-left text-md-right">{{ lang.app[database.category.slug.label] }}</label>
+                                <div class="col-sm-8">
+                                    {{ record.slug }}
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-sm-6">
+                            <div class="form-group row">
+                                <label class="col-sm-4 col-form-label text-sm-left text-md-right">{{ lang.app[database.category.for_lang.label] }}</label>
+                                <div class="col-sm-8">
+                                    {% for key in record.for_lang %}
+                                        {{ config.languages[key] }},
+                                    {% endfor %}
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-sm-6">
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-sm-6">
+                            <div class="form-group row">
+                                <label class="col-sm-4 col-form-label text-sm-left text-md-right">{{ lang.app[database.category.parent_id.label] }}</label>
+                                <div class="col-sm-8">
+
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-sm-6">
+                            <div class="form-group row">
+                                <label class="col-sm-4 col-form-label text-sm-left text-md-right">{{ lang.app[database.category.status.label] }}</label>
+                                <div class="col-sm-8">
+                                    {{ lang.app[record.status] }}
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-sm-12">
+                            <div class="form-group row">
+                                <label class="col-sm-2 col-form-label text-sm-left text-md-right">{{ lang.app[database.category.description.label] }}</label>
+                                <div class="col-sm-10">
+                                    {{ record.description }}
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="card card-info">
+                <div class="card-header">
+                    <h3 class="card-title">{{ lang.app.LBL_SEO }}</h3>
+                </div>
+                <div class="card-body">
+                    <div class="row">
+                        <div class="col-sm-6">
+                            <div class="form-group row">
+                                <label class="col-sm-4 col-form-label text-sm-left text-md-right">{{ lang.app[seo.title.label] }}</label>
+                                <div class="col-sm-8">
+                                    {{ record.seo.title }}
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-sm-6">
+                            <div class="form-group row">
+                                <label class="col-sm-4 col-form-label text-sm-left text-md-right">{{ lang.app[seo.description.label] }}</label>
+                                <div class="col-sm-8">
+                                    {{ record.seo.description }}
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-sm-6">
+                            <div class="form-group row">
+                                <label class="col-sm-4 col-form-label text-sm-left text-md-right">{{ lang.app[seo.keyword.label] }}</label>
+                                <div class="col-sm-8">
+                                    {{ record.seo.keyword }}
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+{% endblock %}

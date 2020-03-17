@@ -22,7 +22,7 @@
                                 <div class="form-group row">
                                     <label class="col-sm-4 col-form-label text-sm-left text-md-right">{{ lang.app[database.category.name.label] }} (*)</label>
                                     <div class="col-sm-8">
-                                        <input type="text" class="form-control" name="name" required/>
+                                        {{ form_field("text","name","required")|raw }}
                                     </div>
                                 </div>
                             </div>
@@ -30,7 +30,7 @@
                                 <div class="form-group row">
                                     <label class="col-sm-4 col-form-label text-sm-left text-md-right">{{ lang.app[database.category.slug.label] }}</label>
                                     <div class="col-sm-8">
-                                        <input type="text" class="form-control" name="slug"/>
+                                        {{ form_field("text","slug")|raw }}
                                     </div>
                                 </div>
                             </div>
@@ -40,11 +40,7 @@
                                 <div class="form-group row">
                                     <label class="col-sm-4 col-form-label text-sm-left text-md-right">{{ lang.app[database.category.for_lang.label] }}</label>
                                     <div class="col-sm-8">
-                                        <select class="form-control select2" multiple="multiple" name="for_lang" style="width: 100%">
-                                            {% for key,val in config.languages %}
-                                                <option value="{{ key }}">{{ val }}</option>
-                                            {% endfor %}
-                                        </select>
+                                        {{ form_field("multienum","for_lang","",config.languages,cur_lang)|raw }}
                                     </div>
                                 </div>
                             </div>
@@ -56,12 +52,7 @@
                                 <div class="form-group row">
                                     <label class="col-sm-4 col-form-label text-sm-left text-md-right">{{ lang.app[database.category.parent_id.label] }}</label>
                                     <div class="col-sm-8">
-                                        <select class="form-control select2" name="parent_id" style="width: 100%">
-                                            <option value="">#</option>
-                                            {% for key,val in parent_id.list %}
-                                                <option value="{{ key }}">{{ val.name }}</option>
-                                            {% endfor %}
-                                        </select>
+                                        {{ form_field("enum","parent_id","",parent_id.list,'',1)|raw }}
                                     </div>
                                 </div>
                             </div>
@@ -69,11 +60,7 @@
                                 <div class="form-group row">
                                     <label class="col-sm-4 col-form-label text-sm-left text-md-right">{{ lang.app[database.category.status.label] }}</label>
                                     <div class="col-sm-8">
-                                        <select class="form-control select2" name="status" style="width: 100%">
-                                            {% for key,val in lang.app[database.category.status.options] %}
-                                                <option value="{{ key }}">{{ val }}</option>
-                                            {% endfor %}
-                                        </select>
+                                        {{ form_field("enum","status","",lang.app[database.category.status.options])|raw }}
                                     </div>
                                 </div>
                             </div>
@@ -83,7 +70,7 @@
                                 <div class="form-group row">
                                     <label class="col-sm-2 col-form-label text-sm-left text-md-right">{{ lang.app[database.category.description.label] }}</label>
                                     <div class="col-sm-10">
-                                        <textarea class="ckeditor" name="description"></textarea>
+                                        {{ form_field('editor','description')|raw }}
                                     </div>
                                 </div>
                             </div>
@@ -100,7 +87,7 @@
                                 <div class="form-group row">
                                     <label class="col-sm-4 col-form-label text-sm-left text-md-right">{{ lang.app[seo.title.label] }}</label>
                                     <div class="col-sm-8">
-                                        <input type="text" class="form-control" name="seo_title"/>
+                                        {{ form_field("text","seo_title")|raw }}
                                     </div>
                                 </div>
                             </div>
@@ -110,7 +97,7 @@
                                 <div class="form-group row">
                                     <label class="col-sm-4 col-form-label text-sm-left text-md-right">{{ lang.app[seo.description.label] }}</label>
                                     <div class="col-sm-8">
-                                        <textarea class="form-control" name="seo_description"></textarea>
+                                        {{ form_field("textarea","seo_description")|raw }}
                                     </div>
                                 </div>
                             </div>
@@ -118,7 +105,7 @@
                                 <div class="form-group row">
                                     <label class="col-sm-4 col-form-label text-sm-left text-md-right">{{ lang.app[seo.keyword.label] }}</label>
                                     <div class="col-sm-8">
-                                        <textarea class="form-control" name="seo_keyword"></textarea>
+                                        {{ form_field("textarea","seo_keyword")|raw }}
                                     </div>
                                 </div>
                             </div>

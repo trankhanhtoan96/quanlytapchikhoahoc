@@ -152,7 +152,7 @@ function insertDB($conn, $table, $data)
     $tmp2 = "values(";
     foreach ($data as $key => $val) {
         $tmp1 .= $key . ',';
-        $tmp2 .= '"' . $val . '",';
+        $tmp2 .= "'" . $val . "',";
     }
     $tmp1 = rtrim($tmp1, ',') . ')';
     $tmp2 = rtrim($tmp2, ',') . ');';

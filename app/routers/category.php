@@ -49,3 +49,19 @@ $app->post('/admin/category/create', function (ServerRequestInterface $rq, Respo
 
     return $rs->withRedirect($GLOBALS['config']['base_url'] . '/admin/category/detail/' . $id);
 });
+$app->get('/admin/category/detail/{id}', function (ServerRequestInterface $rq, ResponseInterface $rs, array $ag) {
+    if (empty($ag['id'])) return $rs->withRedirect($GLOBALS['config']['base_url'] . '/admin/category');
+
+    include 'app/database/category.php';
+    $ag['database'] = empty($tables) ? null : $tables;
+
+    $tables = null;
+    include 'app/database/seo.php';
+    $ag['seo'] = empty($tables) ? null : $tables['seo'];
+
+    $result = $this->db->query("SELECT * from category where id='{$ag['id']}'");
+    while ($row = $result->fetch_assoc()) {
+
+    }
+    return $this->view->render($rs, 'app/category/detail.twig', $ag);
+});

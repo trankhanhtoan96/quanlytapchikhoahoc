@@ -41,5 +41,6 @@ $langs = [
         'draft' => 'Bản nháp'
     ),
     'LBL_KEYWORD'=>'Từ khoá',
-    'LBL_LANGUAGE'=>'Ngôn ngữ'
+    'LBL_LANGUAGE'=>'Ngôn ngữ',
+    'LBL_CATEGORY'=>'Danh mục bài viết'
 ];
