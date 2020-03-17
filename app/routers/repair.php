@@ -25,7 +25,7 @@ $app->get('/admin/repair', function (ServerRequestInterface $rq, ResponseInterfa
                                 }
                             } else {
                                 $required = (empty($field['required']) ? '' : 'not null');
-                                $this->db->query("ALTER TABLE $table ADD COLUMN  {$fieldName} {$field['dbType']} {$required}");
+                                $this->db->query("ALTER TABLE $tableName ADD COLUMN  {$fieldName} {$field['dbType']} {$required}");
                             }
                         }
                     } else {

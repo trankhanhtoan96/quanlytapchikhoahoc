@@ -145,3 +145,27 @@ function sendEmail($subject, $body, array $attachments, array $reveicer, array $
     } catch (\PHPMailer\PHPMailer\Exception $e) {
     }
 }
+
+function insertDB($conn, $table, $data)
+{
+    $tmp1 = "insert into " . $table . "(";
+    $tmp2 = "values(";
+    foreach ($data as $key => $val) {
+        $tmp1 .= $key . ',';
+        $tmp2 .= '"' . $val . '",';
+    }
+    $tmp1 = rtrim($tmp1, ',') . ')';
+    $tmp2 = rtrim($tmp2, ',') . ');';
+    $sql = $tmp1 . ' ' . $tmp2;
+    return $conn->query($sql);
+}
+
+function createID()
+{
+    $id = md5(time());
+    $stringToRandom = '0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ';
+    for ($i = 0; $i < 4; $i++) {
+        $id .= $stringToRandom[rand(0, 61)];
+    }
+    return $id;
+}
