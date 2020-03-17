@@ -12,13 +12,3 @@ $langs = [
     'RETYPE_NEW_PASSWORD' => 'Retype new password',
     'SAVE' => 'Save'
 ];
-$langOptions = [
-    'post_category_status_options' => array(
-        'active' => 'Active',
-        'inactive' => 'Inactive'
-    ),
-    'post_status_options'=>array(
-        'published'=>'Published',
-        'draft'=>'Draft'
-    )
-];

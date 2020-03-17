@@ -6,21 +6,26 @@ $tables = array(
         ),
         'name' => array(
             'dbType' => 'varchar(255)',
+            'label' => 'LBL_NAME'
         ),
         'slug' => array(
-            'dbType' => 'varchar(255)'
+            'dbType' => 'varchar(255)',
+            'label' => 'LBL_SLUG'
         ),
         'status' => array(
             'type' => 'enum',
             'dbType' => 'varchar(255)',
-            'options' => 'post_category_status_options'
+            'options' => 'post_category_status_options',
+            'label' => 'LBL_STATUS'
         ),
         'description' => array(
-            'dbType' => 'text'
+            'dbType' => 'text',
+            'label' => 'LBL_DESCRIPTION'
         ),
         'parent_id' => array(
             'dbType' => 'varchar(36)',
-            'rel_table' => 'post_category'
+            'rel_table' => 'post_category',
+            'label' => 'LBL_PARENT'
         )
     )
 );

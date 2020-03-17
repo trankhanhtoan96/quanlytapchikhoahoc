@@ -22,11 +22,14 @@ $langs = [
     'LBL_MAILER_FROM' => 'From',
     'LBL_MAILER_FROMNAME' => 'From name',
     'LBL_MAILER_REPLYTONAME' => 'Reply to name',
-    'LBL_SETTING_EMAIL'=>'Cấu hình email',
-    'LBL_GENERAL_SETTINGS'=>'Cài đặt chung'
-
-];
-$langOptions = [
+    'LBL_SETTING_EMAIL' => 'Cấu hình email',
+    'LBL_GENERAL_SETTINGS' => 'Cài đặt chung',
+    'LBL_CREATE_CATEGORY' => 'Tạo danh mục bài viết',
+    'LBL_PARENT' => 'Cha',
+    'LBL_DESCRIPTION' => 'Mô tả',
+    'LBL_STATUS' => 'Trạng thái',
+    'LBL_SLUG' => 'Slug',
+    'LBL_NAME' => 'Tên',
     'post_category_status_options' => array(
         'active' => 'Kích hoạt',
         'inactive' => 'Không kích hoạt'

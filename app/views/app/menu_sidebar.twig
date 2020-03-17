@@ -4,31 +4,54 @@
     </a>
     <div class="sidebar">
         <nav class="mt-2">
-            <ul class="nav nav-pills nav-sidebar flex-column nav-child-indent" data-widget="treeview" role="menu" data-accordion="false">
+            <ul class="nav nav-pills nav-sidebar flex-column nav-child-indent" data-widget="treeview" role="menu" data-accordion="farse">
                 <li class="nav-item">
                     <a href="{{ base_url }}/admin" class="nav-link {% if cur_uri=='admin' %}active{% endif %}">
-                        <i class="nav-icon fal fa-tachometer-alt "></i>
+                        <i class="nav-icon far fa-tachometer-alt "></i>
                         <p>Dashboard</p>
                     </a>
                 </li>
+                <li class="nav-item has-treeview {% if uri[1]=='category' %}menu-open{% endif %}">
+                    <a href="#" class="nav-link">
+                        <i class="nav-icon far fa-cubes"></i>
+                        <p>
+                            Danh mục bài viết
+                            <i class="far fa-angle-left right"></i>
+                        </p>
+                    </a>
+                    <ul class="nav nav-treeview">
+                        <li class="nav-item">
+                            <a href="{{ base_url }}/admin/category" class="nav-link {% if cur_uri=='admin/category' %}active{% endif %}">
+                                <i class="far fa-cube nav-icon"></i>
+                                <p>Tất cả danh mục</p>
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="{{ base_url }}/admin/category/create" class="nav-link {% if cur_uri=='admin/category/create' %}active{% endif %}">
+                                <i class="far fa-plus nav-icon"></i>
+                                <p>Tạo mới</p>
+                            </a>
+                        </li>
+                    </ul>
+                </li>
                 <li class="nav-item has-treeview {% if uri[1]=='setting' %}menu-open{% endif %}">
                     <a href="#" class="nav-link">
-                        <i class="nav-icon fal fa-cogs"></i>
+                        <i class="nav-icon far fa-cogs"></i>
                         <p>
                             Cài đặt
-                            <i class="fal fa-angle-left right"></i>
+                            <i class="far fa-angle-left right"></i>
                         </p>
                     </a>
                     <ul class="nav nav-treeview">
                         <li class="nav-item">
                             <a href="{{ base_url }}/admin/setting" class="nav-link {% if cur_uri=='admin/setting' %}active{% endif %}">
-                                <i class="fal fa-cog nav-icon"></i>
+                                <i class="far fa-cog nav-icon"></i>
                                 <p>Cài đặt chung</p>
                             </a>
                         </li>
                         <li class="nav-item">
                             <a href="{{ base_url }}/admin/setting/email" class="nav-link {% if cur_uri=='admin/setting/email' %}active{% endif %}">
-                                <i class="fal fa-cog nav-icon"></i>
+                                <i class="far fa-cog nav-icon"></i>
                                 <p>Email</p>
                             </a>
                         </li>

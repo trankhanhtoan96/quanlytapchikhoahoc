@@ -18,6 +18,7 @@ foreach ($helpers as $helper) {
 }
 
 $GLOBALS['config'] = $config;
+$_SESSION['config'] = $config;
 
 $app = new App(array('settings' => $config));
 
