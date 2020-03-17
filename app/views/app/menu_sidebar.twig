@@ -3,14 +3,6 @@
         <span class="brand-text font-weight-light">Adminitration Center</span>
     </a>
     <div class="sidebar">
-        <div class="user-panel mt-3 pb-3 mb-3 d-flex">
-            <div class="image">
-                <img src="{{ base_url }}/app/assets/dist/img/user2-160x160.jpg" class="img-circle elevation-2" alt="User Image">
-            </div>
-            <div class="info">
-                <a href="#" class="d-block" style="white-space: pre-wrap">{{ login.name }}</a>
-            </div>
-        </div>
         <nav class="mt-2">
             <ul class="nav nav-pills nav-sidebar flex-column nav-child-indent" data-widget="treeview" role="menu" data-accordion="false">
                 <li class="nav-item">
@@ -18,29 +10,6 @@
                         <i class="nav-icon fal fa-tachometer-alt "></i>
                         <p>Dashboard</p>
                     </a>
-                </li>
-                <li class="nav-item has-treeview {% if uri[1]=='user' %}menu-open {% endif %}">
-                    <a href="#" class="nav-link">
-                        <i class="nav-icon fal fa-user"></i>
-                        <p>
-                            {{ lang.app.PROFILE }}
-                            <i class="fal fa-angle-left right"></i>
-                        </p>
-                    </a>
-                    <ul class="nav nav-treeview">
-                        <li class="nav-item">
-                            <a href="{{ base_url }}/admin/user/change_password" class="nav-link {% if cur_uri=='admin/user/change_password' %}active{% endif %}">
-                                <i class="fal fa-key nav-icon"></i>
-                                <p>{{ lang.app.CHANGE_PASSWORD }}</p>
-                            </a>
-                        </li>
-                        <li class="nav-item">
-                            <a href="{{ base_url }}/admin/user/login" class="nav-link">
-                                <i class="fal fa-sign-out-alt nav-icon"></i>
-                                <p>{{ lang.app.LOGOUT }}</p>
-                            </a>
-                        </li>
-                    </ul>
                 </li>
                 <li class="nav-item has-treeview {% if uri[1]=='setting' %}menu-open{% endif %}">
                     <a href="#" class="nav-link">
