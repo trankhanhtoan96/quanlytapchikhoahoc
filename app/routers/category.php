@@ -4,12 +4,20 @@ use Psr\Http\Message\ResponseInterface as RS;
 use Psr\Http\Message\ServerRequestInterface as SR;
 
 $app->get('/admin/category', function (SR $rq, RS $rs, array $ag) {
-    include 'app/database/category.php';
-    $ag['database'] = empty($tables) ? null : $tables;
+    $ag['db_def'] = getAllDBDef();
+    $sql = "select * from category order by create_at DESC";
+    $ag['records'] = getDBRecords($this->db, $sql);
+    foreach ($ag['records'] as $k => $v) {
+        $ag['records'][$k]['for_lang'] = unserialize($v['for_lang']);
+        $ag['records'][$k]['parent_id'] = getDBRecord($this->db, "select * from category where id='{$v['parent_id']}'");
+    }
     return $this->view->render($rs, 'app/category/list.twig', $ag);
 });
 $app->get('/admin/category/create', function (SR $rq, RS $rs, array $ag) {
     $ag['db_def'] = getAllDBDef();
+    $sql = "select * from category order by name";
+    $ag['db_def']['category']['parent_id']['options'] = getDBRecords($this->db, $sql);
+    foreach ($ag['db_def']['category']['parent_id']['options'] as $k => $v) $ag['db_def']['category']['parent_id']['options'][$k] = $v['name'];
     return $this->view->render($rs, 'app/category/create.twig', $ag);
 });
 $app->post('/admin/category/create', function (SR $rq, RS $rs, array $ag) {
@@ -21,7 +29,8 @@ $app->post('/admin/category/create', function (SR $rq, RS $rs, array $ag) {
         'status' => $rq->getParam('status'),
         'description' => $rq->getParam('description'),
         'parent_id' => $rq->getParam('parent_id'),
-        'for_lang' => serialize($rq->getParam('for_lang'))
+        'for_lang' => serialize($rq->getParam('for_lang')),
+        'create_at' => date("Y-m-d H:i:s")
     );
     insertDB($this->db, 'category', $data);
 

@@ -52,7 +52,7 @@
                                 <div class="form-group row">
                                     <label class="col-sm-4 col-form-label text-sm-left text-md-right">{{ lang(db_def.category.parent_id.label) }}</label>
                                     <div class="col-sm-8">
-                                        {{ form_field("enum","parent_id","",parent_id.list,'',1)|raw }}
+                                        {{ form_field("enum","parent_id","",db_def.category.parent_id.options,'',1)|raw }}
                                     </div>
                                 </div>
                             </div>

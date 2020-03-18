@@ -8,5 +8,7 @@ $(function () {
         "ordering": true,
         "order":[],
         "info": true,
+        "pageLength": 20,
+        "bLengthChange": false,
     });
 });

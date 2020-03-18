@@ -6,20 +6,23 @@ CREATE TABLE `category` (
   `description` text,
   `parent_id` varchar(36) DEFAULT NULL,
   `for_lang` varchar(255) DEFAULT NULL,
+  `create_at` datetime DEFAULT NULL,
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
-insert into category(id,name,slug,status,description,parent_id,for_lang) values("4d650ea76931152e121614e25c138b51mQGD","qqq","","active","","","s:2:"vi";");
+insert into category(id,name,slug,status,description,parent_id,for_lang,create_at) values("22d7b35e45e4392eb14545a5067caedemcsh","1zzz","","active","","","a:1:{i:0;s:2:"vi";}","");
 
-insert into category(id,name,slug,status,description,parent_id,for_lang) values("97c3c8ab1b5d41bb6d5dcfa98a8586186BzT","1","","active","","","a:1:{i:0;s:2:"vi";}");
+insert into category(id,name,slug,status,description,parent_id,for_lang,create_at) values("4d650ea76931152e121614e25c138b51mQGD","qqq","","active","","","s:2:"vi";","");
 
-insert into category(id,name,slug,status,description,parent_id,for_lang) values("c82ebce6e84ce251a4a77c5b7927c2be5VAO","qq111","","active","","","s:2:"en";");
+insert into category(id,name,slug,status,description,parent_id,for_lang,create_at) values("97c3c8ab1b5d41bb6d5dcfa98a8586186BzT","1","","active","","","a:1:{i:0;s:2:"vi";}","");
 
-insert into category(id,name,slug,status,description,parent_id,for_lang) values("cb6c7c432943f36f58adf63bcf3c2fe4cX4U","2","","active","","","a:2:{i:0;s:2:"vi";i:1;s:2:"en";}");
+insert into category(id,name,slug,status,description,parent_id,for_lang,create_at) values("c82ebce6e84ce251a4a77c5b7927c2be5VAO","qq111","","active","","","s:2:"en";","");
 
-insert into category(id,name,slug,status,description,parent_id,for_lang) values("ed6e49e4caa89b3fadaf4d8ece95e6faNhHY","qqq","","active","","","s:2:"vi";");
+insert into category(id,name,slug,status,description,parent_id,for_lang,create_at) values("cb6c7c432943f36f58adf63bcf3c2fe4cX4U","2","","active","","","a:2:{i:0;s:2:"vi";i:1;s:2:"en";}","");
 
-insert into category(id,name,slug,status,description,parent_id,for_lang) values("f78a6b2eb722f18e9336bf9946c6f613p3U5","aaa","","active","","","N;");
+insert into category(id,name,slug,status,description,parent_id,for_lang,create_at) values("ed6e49e4caa89b3fadaf4d8ece95e6faNhHY","qqq","","active","","","s:2:"vi";","");
+
+insert into category(id,name,slug,status,description,parent_id,for_lang,create_at) values("f78a6b2eb722f18e9336bf9946c6f613p3U5","aaa","","active","","","N;","");
 
 
 CREATE TABLE `category_seo` (
@@ -28,6 +31,8 @@ CREATE TABLE `category_seo` (
   `seo_id` varchar(36) DEFAULT NULL,
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+insert into category_seo(id,category_id,seo_id) values("22d7b35e45e4392eb14545a5067caedezvvA","22d7b35e45e4392eb14545a5067caedemcsh","22d7b35e45e4392eb14545a5067caedep9qq");
 
 insert into category_seo(id,category_id,seo_id) values("3886a32fe5862a8013f73c81420f6e70j67x","3886a32fe5862a8013f73c81420f6e70FrBN","3886a32fe5862a8013f73c81420f6e70CBHx");
 
@@ -95,6 +100,8 @@ CREATE TABLE `seo` (
   `description` varchar(255) DEFAULT NULL,
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+insert into seo(id,title,keyword,description) values("22d7b35e45e4392eb14545a5067caedep9qq","","","");
 
 insert into seo(id,title,keyword,description) values("3886a32fe5862a8013f73c81420f6e70CBHx","","","");
 

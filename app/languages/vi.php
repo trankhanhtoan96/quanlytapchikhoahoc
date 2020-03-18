@@ -45,5 +45,6 @@ $langs = [
     'LBL_CATEGORY'=>'Danh mục bài viết',
     'LBL_CREATE'=>'Tạo mới',
     'LBL_GENERAL_INFO'=>'Thông tin chung',
-    'LBL_CANCEL'=>'Huỷ'
+    'LBL_CANCEL'=>'Huỷ',
+    'LBL_CREATE_AT'=>'Tạo lúc'
 ];

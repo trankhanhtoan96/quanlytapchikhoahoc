@@ -196,3 +196,27 @@ function getAllDBDef()
     }
     return $def;
 }
+
+function getDBRecords($conn, $sql)
+{
+    $data = array();
+    $result = $conn->query($sql);
+    while ($row = $result->fetch_assoc()) {
+        if (isset($row['id'])) {
+            $data[$row['id']] = $row;
+        } else {
+            $data[] = $row;
+        }
+    }
+    return $data;
+}
+
+function getDBRecord($conn, $sql)
+{
+    $data = array();
+    $result = $conn->query($sql);
+    if ($row = $result->fetch_assoc()) {
+        $data = $row;
+    }
+    return $data;
+}
