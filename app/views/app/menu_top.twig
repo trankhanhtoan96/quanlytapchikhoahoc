@@ -5,15 +5,58 @@
         </li>
     </ul>
 
-{#    <form class="form-inline ml-3">#}
-{#        <div class="input-group input-group-sm">#}
-{#            <input class="form-control form-control-navbar" type="search" placeholder="Search" aria-label="Search">#}
-{#            <div class="input-group-append">#}
-{#                <button class="btn btn-navbar" type="submit">#}
-{#                    <i class="fal fa-search"></i>#}
-{#                </button>#}
-{#            </div>#}
-{#        </div>#}
-{#    </form>#}
-    {% include 'app/notify.twig' %}
+    <form class="form-inline ml-3">
+        <div class="input-group input-group-sm">
+            <input class="form-control form-control-navbar" type="search" placeholder="Search" aria-label="Search">
+            <div class="input-group-append">
+                <button class="btn btn-navbar" type="submit">
+                    <i class="fal fa-search"></i>
+                </button>
+            </div>
+        </div>
+    </form>
+    <ul class="navbar-nav ml-auto">
+        {#    <li class="nav-item dropdown">#}
+        {#        <a class="nav-link" data-toggle="dropdown" href="#">#}
+        {#            <i class="far fa-bell" style="font-size: 1.3rem"></i>#}
+        {#            <span class="badge badge-warning navbar-badge">0</span>#}
+        {#        </a>#}
+        {#        <div class="dropdown-menu dropdown-menu-lg dropdown-menu-right">#}
+        {#            <span class="dropdown-item dropdown-header">0 Notifications</span>#}
+        {#            <div class="dropdown-divider"></div>#}
+        {#            <a href="#" class="dropdown-item">#}
+        {#                <i class="fal fa-envelope mr-2"></i> 4 new messages#}
+        {#                <span class="float-right text-muted text-sm">3 mins</span>#}
+        {#            </a>#}
+        {#            <div class="dropdown-divider"></div>#}
+        {#            <a href="#" class="dropdown-item">#}
+        {#                <i class="fal fa-users mr-2"></i> 8 friend requests#}
+        {#                <span class="float-right text-muted text-sm">12 hours</span>#}
+        {#            </a>#}
+        {#            <div class="dropdown-divider"></div>#}
+        {#            <a href="#" class="dropdown-item">#}
+        {#                <i class="fal fa-file mr-2"></i> 3 new reports#}
+        {#                <span class="float-right text-muted text-sm">2 days</span>#}
+        {#            </a>#}
+        {#            <div class="dropdown-divider"></div>#}
+        {#            <a href="#" class="dropdown-item dropdown-footer">See All Notifications</a>#}
+        {#        </div>#}
+        {#    </li>#}
+        <li class="nav-item dropdown">
+            <a class="nav-link" data-toggle="dropdown" href="#">
+                <img src="{{ base_url }}/app/assets/dist/img/user2-160x160.jpg" class="img-circle" style="width: 30px;margin-top:-5px">
+                {{ login.name }}
+                <i class="far fa-chevron-down"></i>
+            </a>
+            <div class="dropdown-menu dropdown-menu-lg dropdown-menu-right">
+                <a href="{{ base_url }}/admin/user/change_password" class="dropdown-item">
+                    <i class="far fa-key mr-2"></i> {{ lang('CHANGE_PASSWORD') }}
+                </a>
+                <div class="dropdown-divider"></div>
+                <a href="{{ base_url }}/admin/user/login" class="dropdown-item">
+                    <i class="fal fa-sign-out-alt mr-2"></i> {{ lang('LOGOUT') }}
+                </a>
+            </div>
+        </li>
+    </ul>
 </nav>

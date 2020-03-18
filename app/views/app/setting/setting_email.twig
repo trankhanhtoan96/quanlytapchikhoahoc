@@ -4,7 +4,7 @@
         <div class="container-fluid">
             <div class="row mb-2">
                 <div class="col-sm-12 text-center">
-                    <h1 class="m-0 text-dark">{{ lang.app.LBL_SETTING_EMAIL }}</h1>
+                    <h1 class="m-0 text-dark">{{ lang('LBL_SETTING_EMAIL') }}</h1>
                 </div>
             </div>
         </div>
@@ -14,13 +14,13 @@
             <form class="form-horizontal" method="post" action="{{ base_url }}/admin/setting/email">
                 <div class="card card-info">
                     <div class="card-header">
-                        <h3 class="card-title">{{ lang.app.LBL_SETTING_EMAIL }}</h3>
+                        <h3 class="card-title">{{ lang('LBL_SETTING_EMAIL') }}</h3>
                     </div>
                     <div class="card-body">
                         <div class="row">
                             <div class="col-sm-6">
                                 <div class="form-group row">
-                                    <label class="col-sm-4 col-form-label text-sm-left text-md-right">{{ lang.app[database.settings.mailer_host.label] }}</label>
+                                    <label class="col-sm-4 col-form-label text-sm-left text-md-right">{{ lang(database.settings.mailer_host.label) }}</label>
                                     <div class="col-sm-8">
                                         <input type="text" class="form-control" name="mailer_host" value="{{ settings.mailer_host }}"/>
                                     </div>
@@ -31,7 +31,7 @@
                         <div class="row">
                             <div class="col-sm-6">
                                 <div class="form-group row">
-                                    <label class="col-sm-4 col-form-label text-sm-left text-md-right">{{ lang.app[database.settings.mailer_user.label] }}</label>
+                                    <label class="col-sm-4 col-form-label text-sm-left text-md-right">{{ lang(database.settings.mailer_user.label) }}</label>
                                     <div class="col-sm-8">
                                         <input type="email" class="form-control" name="mailer_user" value="{{ settings.mailer_user }}"/>
                                     </div>
@@ -39,7 +39,7 @@
                             </div>
                             <div class="col-sm-6">
                                 <div class="form-group row">
-                                    <label class="col-sm-4 col-form-label text-sm-left text-md-right">{{ lang.app[database.settings.mailer_pass.label] }}</label>
+                                    <label class="col-sm-4 col-form-label text-sm-left text-md-right">{{ lang(database.settings.mailer_pass.label) }}</label>
                                     <div class="col-sm-8">
                                         <input type="password" class="form-control" name="mailer_pass" value="{{ settings.mailer_pass }}"/>
                                     </div>
@@ -49,7 +49,7 @@
                         <div class="row">
                             <div class="col-sm-6">
                                 <div class="form-group row">
-                                    <label class="col-sm-4 col-form-label text-sm-left text-md-right">{{ lang.app[database.settings.mailer_from.label] }}</label>
+                                    <label class="col-sm-4 col-form-label text-sm-left text-md-right">{{ lang(database.settings.mailer_from.label) }}</label>
                                     <div class="col-sm-8">
                                         <input type="email" class="form-control" name="mailer_from" value="{{ settings.mailer_from }}"/>
                                     </div>
@@ -57,7 +57,7 @@
                             </div>
                             <div class="col-sm-6">
                                 <div class="form-group row">
-                                    <label class="col-sm-4 col-form-label text-sm-left text-md-right">{{ lang.app[database.settings.mailer_replyto.label] }}</label>
+                                    <label class="col-sm-4 col-form-label text-sm-left text-md-right">{{ lang(database.settings.mailer_replyto.label) }}</label>
                                     <div class="col-sm-8">
                                         <input type="email" class="form-control" name="mailer_replyto" value="{{ settings.mailer_replyto }}"/>
                                     </div>
@@ -67,7 +67,7 @@
                         <div class="row">
                             <div class="col-sm-6">
                                 <div class="form-group row">
-                                    <label class="col-sm-4 col-form-label text-sm-left text-md-right">{{ lang.app[database.settings.mailer_fromname.label] }}</label>
+                                    <label class="col-sm-4 col-form-label text-sm-left text-md-right">{{ lang(database.settings.mailer_fromname.label) }}</label>
                                     <div class="col-sm-8">
                                         <input type="text" class="form-control" name="mailer_fromname" value="{{ settings.mailer_fromname }}"/>
                                     </div>
@@ -75,7 +75,7 @@
                             </div>
                             <div class="col-sm-6">
                                 <div class="form-group row">
-                                    <label class="col-sm-4 col-form-label text-sm-left text-md-right">{{ lang.app[database.settings.mailer_replytoname.label] }}</label>
+                                    <label class="col-sm-4 col-form-label text-sm-left text-md-right">{{ lang(database.settings.mailer_replytoname.label) }}</label>
                                     <div class="col-sm-8">
                                         <input type="text" class="form-control" name="mailer_replytoname" value="{{ settings.mailer_replytoname }}"/>
                                     </div>
@@ -88,7 +88,7 @@
                     <div class="card-body buton-action-record">
                         <div class="row">
                             <div class="col-sm-12 text-center">
-                                <button type="submit" class="btn btn-info">{{ lang.app.SAVE }}</button>
+                                <button type="submit" class="btn btn-info">{{ lang('SAVE') }}</button>
                             </div>
                         </div>
                     </div>
