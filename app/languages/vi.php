@@ -42,5 +42,8 @@ $langs = [
     ),
     'LBL_KEYWORD'=>'Từ khoá',
     'LBL_LANGUAGE'=>'Ngôn ngữ',
-    'LBL_CATEGORY'=>'Danh mục bài viết'
+    'LBL_CATEGORY'=>'Danh mục bài viết',
+    'LBL_CREATE'=>'Tạo mới',
+    'LBL_GENERAL_INFO'=>'Thông tin chung',
+    'LBL_CANCEL'=>'Huỷ'
 ];

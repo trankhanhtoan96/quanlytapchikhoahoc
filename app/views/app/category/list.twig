@@ -11,89 +11,99 @@
     </div>
     <section class="content">
         <div class="container-fluid">
-            <form class="form-horizontal" method="post" action="{{ base_url }}/admin/setting/email">
-                <div class="card card-info">
-                    <div class="card-header">
-                        <h3 class="card-title">{{ lang('LBL_SETTING_EMAIL') }}</h3>
-                    </div>
-                    <div class="card-body">
-                        <div class="row">
-                            <div class="col-sm-6">
-                                <div class="form-group row">
-                                    <label class="col-sm-4 col-form-label text-sm-left text-md-right">{{ lang(database.settings.mailer_host.label) }}</label>
-                                    <div class="col-sm-8">
-                                        <input type="text" class="form-control" name="mailer_host" value="{{ settings.mailer_host }}"/>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="col-sm-6"></div>
-                        </div>
-                        <div class="row">
-                            <div class="col-sm-6">
-                                <div class="form-group row">
-                                    <label class="col-sm-4 col-form-label text-sm-left text-md-right">{{ lang(database.settings.mailer_user.label) }}</label>
-                                    <div class="col-sm-8">
-                                        <input type="email" class="form-control" name="mailer_user" value="{{ settings.mailer_user }}"/>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="col-sm-6">
-                                <div class="form-group row">
-                                    <label class="col-sm-4 col-form-label text-sm-left text-md-right">{{ lang(database.settings.mailer_pass.label) }}</label>
-                                    <div class="col-sm-8">
-                                        <input type="password" class="form-control" name="mailer_pass" value="{{ settings.mailer_pass }}"/>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="row">
-                            <div class="col-sm-6">
-                                <div class="form-group row">
-                                    <label class="col-sm-4 col-form-label text-sm-left text-md-right">{{ lang(database.settings.mailer_from.label) }}</label>
-                                    <div class="col-sm-8">
-                                        <input type="email" class="form-control" name="mailer_from" value="{{ settings.mailer_from }}"/>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="col-sm-6">
-                                <div class="form-group row">
-                                    <label class="col-sm-4 col-form-label text-sm-left text-md-right">{{ lang(database.settings.mailer_replyto.label) }}</label>
-                                    <div class="col-sm-8">
-                                        <input type="email" class="form-control" name="mailer_replyto" value="{{ settings.mailer_replyto }}"/>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="row">
-                            <div class="col-sm-6">
-                                <div class="form-group row">
-                                    <label class="col-sm-4 col-form-label text-sm-left text-md-right">{{ lang(database.settings.mailer_fromname.label) }}</label>
-                                    <div class="col-sm-8">
-                                        <input type="text" class="form-control" name="mailer_fromname" value="{{ settings.mailer_fromname }}"/>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="col-sm-6">
-                                <div class="form-group row">
-                                    <label class="col-sm-4 col-form-label text-sm-left text-md-right">{{ lang(database.settings.mailer_replytoname.label) }}</label>
-                                    <div class="col-sm-8">
-                                        <input type="text" class="form-control" name="mailer_replytoname" value="{{ settings.mailer_replytoname }}"/>
-                                    </div>
-                                </div>
-                            </div>
+            <div class="card">
+                <div class="card-body buton-action-record">
+                    <div class="row">
+                        <div class="col-sm-12 text-left">
+                            <a href="{{ base_url }}/admin/category/create" class="btn btn-info">
+                                <i class="far fa-plus"></i> {{ lang('LBL_CREATE') }}
+                            </a>
                         </div>
                     </div>
                 </div>
-                <div class="card">
-                    <div class="card-body buton-action-record">
-                        <div class="row">
-                            <div class="col-sm-12 text-center">
-                                <button type="submit" class="btn btn-info">{{ lang('SAVE') }}</button>
-                            </div>
-                        </div>
-                    </div>
+            </div>
+            <div class="card card-info">
+                <div class="card-header">
+                    <h3 class="card-title">{{ lang('LBL_SETTING_EMAIL') }}</h3>
                 </div>
-            </form>
+                <div class="card-body">
+                    <table class="table table-bordered table-striped datatable">
+                        <thead>
+                        <tr>
+                            <th>Rendering engine</th>
+                            <th>Browser</th>
+                            <th>Platform(s)</th>
+                            <th>Engine version</th>
+                            <th>CSS grade</th>
+                        </tr>
+                        </thead>
+                        <tbody>
+                        <tr>
+                            <td>Trident</td>
+                            <td>Internet
+                                Explorer 4.0
+                            </td>
+                            <td>Win 95+</td>
+                            <td> 4</td>
+                            <td>X</td>
+                        </tr>
+                        <tr>
+                            <td>Trident</td>
+                            <td>Internet
+                                Explorer 5.0
+                            </td>
+                            <td>Win 95+</td>
+                            <td>5</td>
+                            <td>C</td>
+                        </tr>
+                        <tr>
+                            <td>Trident</td>
+                            <td>Internet
+                                Explorer 5.5
+                            </td>
+                            <td>Win 95+</td>
+                            <td>5.5</td>
+                            <td>A</td>
+                        </tr>
+                        <tr>
+                            <td>Trident</td>
+                            <td>Internet
+                                Explorer 6
+                            </td>
+                            <td>Win 98+</td>
+                            <td>6</td>
+                            <td>A</td>
+                        </tr>
+                        <tr>
+                            <td>Trident</td>
+                            <td>Internet Explorer 7</td>
+                            <td>Win XP SP2+</td>
+                            <td>7</td>
+                            <td>A</td>
+                        </tr>
+                        <tr>
+                            <td>Other browsers</td>
+                            <td>All others</td>
+                            <td>-</td>
+                            <td>-</td>
+                            <td>U</td>
+                        </tr>
+                        </tbody>
+                        <tfoot>
+                        <tr>
+                            <th>Rendering engine</th>
+                            <th>Browser</th>
+                            <th>Platform(s)</th>
+                            <th>Engine version</th>
+                            <th>CSS grade</th>
+                        </tr>
+                        </tfoot>
+                    </table>
+                </div>
+            </div>
         </div>
     </section>
+{% endblock %}
+{% block extra_footer %}
+    <script src="{{ base_url }}/app/views/app/category/list.js"></script>
 {% endblock %}

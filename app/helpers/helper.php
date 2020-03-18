@@ -169,3 +169,30 @@ function createID()
     }
     return $id;
 }
+
+function getDBDef($table)
+{
+    if (file_exists('app/database/' . $table . '.php')) {
+        include 'app/database/' . $table . '.php';
+        if (!empty($tables[$table])) {
+            return $tables[$table];
+        }
+    }
+    return false;
+}
+
+function getAllDBDef()
+{
+    $def = array();
+    $files = scandir('app/database');
+    foreach ($files as $file) {
+        $tables = array();
+        if (is_file('app/database/' . $file)) {
+            include 'app/database/' . $file;
+            foreach ($tables as $table => $tableDetail) {
+                $def[$table] = $tableDetail;
+            }
+        }
+    }
+    return $def;
+}

@@ -1,24 +1,18 @@
 <?php
 
-use Psr\Http\Message\ResponseInterface;
-use Psr\Http\Message\ServerRequestInterface;
+use Psr\Http\Message\ResponseInterface as RS;
+use Psr\Http\Message\ServerRequestInterface as SR;
 
-$app->get('/admin/category', function (ServerRequestInterface $rq, ResponseInterface $rs, array $ag) {
+$app->get('/admin/category', function (SR $rq, RS $rs, array $ag) {
     include 'app/database/category.php';
     $ag['database'] = empty($tables) ? null : $tables;
     return $this->view->render($rs, 'app/category/list.twig', $ag);
 });
-$app->get('/admin/category/create', function (ServerRequestInterface $rq, ResponseInterface $rs, array $ag) {
-    include 'app/database/category.php';
-    $ag['database'] = empty($tables) ? null : $tables;
-
-    $tables = null;
-    include 'app/database/seo.php';
-    $ag['seo'] = empty($tables) ? null : $tables['seo'];
-
+$app->get('/admin/category/create', function (SR $rq, RS $rs, array $ag) {
+    $ag['db_def'] = getAllDBDef();
     return $this->view->render($rs, 'app/category/create.twig', $ag);
 });
-$app->post('/admin/category/create', function (ServerRequestInterface $rq, ResponseInterface $rs, array $ag) {
+$app->post('/admin/category/create', function (SR $rq, RS $rs, array $ag) {
     $id = createID();
     $data = array(
         'id' => $id,
@@ -49,7 +43,7 @@ $app->post('/admin/category/create', function (ServerRequestInterface $rq, Respo
 
     return $rs->withRedirect($GLOBALS['config']['base_url'] . '/admin/category/detail/' . $id);
 });
-$app->get('/admin/category/detail/{id}', function (ServerRequestInterface $rq, ResponseInterface $rs, array $ag) {
+$app->get('/admin/category/detail/{id}', function (SR $rq, RS $rs, array $ag) {
     if (empty($ag['id'])) return $rs->withRedirect($GLOBALS['config']['base_url'] . '/admin/category');
 
     include 'app/database/category.php';

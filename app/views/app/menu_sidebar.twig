@@ -11,28 +11,11 @@
                         <p>Dashboard</p>
                     </a>
                 </li>
-                <li class="nav-item has-treeview {% if uri[1]=='category' %}menu-open{% endif %}">
-                    <a href="#" class="nav-link">
-                        <i class="nav-icon far fa-cubes"></i>
-                        <p>
-                            Danh mục bài viết
-                            <i class="far fa-angle-left right"></i>
-                        </p>
+                <li class="nav-item">
+                    <a href="{{ base_url }}/admin/category" class="nav-link {% if uri[1]=='category' %}active{% endif %}">
+                        <i class="nav-icon far fa-cube "></i>
+                        <p>Danh mục bài viết</p>
                     </a>
-                    <ul class="nav nav-treeview">
-                        <li class="nav-item">
-                            <a href="{{ base_url }}/admin/category" class="nav-link {% if cur_uri=='admin/category' %}active{% endif %}">
-                                <i class="far fa-cube nav-icon"></i>
-                                <p>Tất cả danh mục</p>
-                            </a>
-                        </li>
-                        <li class="nav-item">
-                            <a href="{{ base_url }}/admin/category/create" class="nav-link {% if cur_uri=='admin/category/create' %}active{% endif %}">
-                                <i class="far fa-plus nav-icon"></i>
-                                <p>Tạo mới</p>
-                            </a>
-                        </li>
-                    </ul>
                 </li>
                 <li class="nav-item has-treeview {% if uri[1]=='setting' %}menu-open{% endif %}">
                     <a href="#" class="nav-link">

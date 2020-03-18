@@ -1,9 +1,9 @@
 <?php
 
-use Psr\Http\Message\ResponseInterface;
-use Psr\Http\Message\ServerRequestInterface;
+use Psr\Http\Message\ResponseInterface as RS;
+use Psr\Http\Message\ServerRequestInterface as SR;
 
-$app->get('/admin/repair', function (ServerRequestInterface $rq, ResponseInterface $rs, array $ag) {
+$app->get('/admin/repair', function (SR $rq, RS $rs, array $ag) {
     if (empty($this->db)) return 'Database not config yet!';
     $databases = scandir('app/database');
     foreach ($databases as $database) {
@@ -92,7 +92,7 @@ $app->get('/admin/repair', function (ServerRequestInterface $rq, ResponseInterfa
 
         $sqlScript .= "\n";
     }
-    file_put_contents('app/database/backup.database.sql', $sqlScript);
+    file_put_contents('app/backup/database.sql', $sqlScript);
     ob_clean();
     return 'Done!';
 });
@@ -100,7 +100,7 @@ $app->get('/admin/repair', function (ServerRequestInterface $rq, ResponseInterfa
 /**
  * set language for current user
  */
-$app->post('/setLang', function (ServerRequestInterface $rq, ResponseInterface $rs, array $ag) {
+$app->post('/setLang', function (SR $rq, RS $rs, array $ag) {
     $_SESSION['lang'] = $rq->getParam('lang');
     return $rs->withJson(array('success' => 1));
 });
