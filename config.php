@@ -15,5 +15,7 @@ $config = [
         'vi' => 'Tiếng Việt',
         'en' => 'English'
     ),
-    'language_default' => 'vi'
+    'language_default' => 'vi',
+    'date_format' => 'd/m/Y',
+    'date_format_js' => 'DD/MM/YYYY'
 ];

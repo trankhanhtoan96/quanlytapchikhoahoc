@@ -66,7 +66,7 @@
                                 <div class="form-group row">
                                     <label class="col-sm-4 col-form-label text-sm-left text-md-right">{{ lang(db_def.post.publish_at.label) }}</label>
                                     <div class="col-sm-8">
-                                        {{ form_field("datetime","publish_at")|raw }}
+                                        {{ form_field("datetime","publish_at",'','','now')|raw }}
                                     </div>
                                 </div>
                             </div>

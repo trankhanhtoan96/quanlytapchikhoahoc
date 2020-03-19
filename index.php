@@ -81,11 +81,15 @@ $app->add(function (ServerRequestInterface $rq, ResponseInterface $rs, $n) use (
     $uri = trim($uri->getPath(), '/');
     $GLOBALS['uri'] = explode('/', $uri);
     $view = $container->view->getEnvironment();
-    $view->addGlobal("lang", $GLOBALS['lang']);
-    $view->addGlobal("config", $config);
     $view->addGlobal("cur_lang", $_SESSION['lang']);
+    $view->addGlobal("lang", $GLOBALS['lang']);
     $view->addGlobal("lang_js", json_encode($GLOBALS['lang']));
+
+    $view->addGlobal("config", $config);
+    $view->addGlobal("config_js", json_encode($config));
+
     $view->addGlobal("base_url", $config['base_url']);
+
     $view->addGlobal("cur_uri", $uri);
     $view->addGlobal("uri", $GLOBALS['uri']);
     $view->addGlobal("db_def", $GLOBALS['db_def']);
@@ -119,6 +123,7 @@ $app->add(function (ServerRequestInterface $rq, ResponseInterface $rs, $n) use (
                 $html = "<input type='text' class='form-control' value='{$val}' name='{$name}' {$required}/>";
                 break;
             case "datetime":
+                if ($val == 'now') $val = date($GLOBALS['config']['date_format'] . ' H:i');
                 $html = '<div class="input-group">
                                 <input type="text" class="form-control datetimepicker" value="' . $val . '" name="' . $name . '" ' . $required . '/>
                                 <div class="input-group-append">
