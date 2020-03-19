@@ -122,6 +122,9 @@ $app->add(function (ServerRequestInterface $rq, ResponseInterface $rs, $n) use (
             case "text":
                 $html = "<input type='text' class='form-control' value='{$val}' name='{$name}' {$required}/>";
                 break;
+            case "slug":
+                $html = "<input type='text' onchange='this.value=convertToURLString(this.value)' class='form-control' value='{$val}' name='{$name}' {$required}/>";
+                break;
             case "datetime":
                 if ($val == 'now') $val = date($GLOBALS['config']['date_format'] . ' H:i');
                 $html = '<div class="input-group">
