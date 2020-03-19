@@ -4,7 +4,6 @@ use Psr\Http\Message\ResponseInterface as RS;
 use Psr\Http\Message\ServerRequestInterface as SR;
 
 $app->get('/admin/category', function (SR $rq, RS $rs, array $ag) {
-    $ag['db_def'] = getAllDBDef();
     $sql = "select * from category order by create_at DESC";
     $ag['records'] = getDBRecords($this->db, $sql);
     foreach ($ag['records'] as $k => $v) {
@@ -14,10 +13,9 @@ $app->get('/admin/category', function (SR $rq, RS $rs, array $ag) {
     return $this->view->render($rs, 'app/category/list.twig', $ag);
 });
 $app->get('/admin/category/create', function (SR $rq, RS $rs, array $ag) {
-    $ag['db_def'] = getAllDBDef();
-    $sql = "select * from category order by name";
-    $ag['db_def']['category']['parent_id']['options'] = getDBRecords($this->db, $sql);
-    foreach ($ag['db_def']['category']['parent_id']['options'] as $k => $v) $ag['db_def']['category']['parent_id']['options'][$k] = $v['name'];
+    $sql = "select id,name from category order by name";
+    $ag['parent_id']['options'] = getDBRecords($this->db, $sql);
+    foreach ($ag['parent_id']['options'] as $k => $v) $ag['parent_id']['options'][$k] = $v['name'];
     return $this->view->render($rs, 'app/category/create.twig', $ag);
 });
 $app->post('/admin/category/create', function (SR $rq, RS $rs, array $ag) {
@@ -54,17 +52,20 @@ $app->post('/admin/category/create', function (SR $rq, RS $rs, array $ag) {
 });
 $app->get('/admin/category/detail/{id}', function (SR $rq, RS $rs, array $ag) {
     if (empty($ag['id'])) return $rs->withRedirect($GLOBALS['config']['base_url'] . '/admin/category');
+    $ag['record'] = getDBRecord($this->db, "select * from category where id='{$ag['id']}'");
 
-    include 'app/database/category.php';
-    $ag['database'] = empty($tables) ? null : $tables;
+    $ag['record']['for_lang'] = unserialize($ag['record']['for_lang']);
 
-    $tables = null;
-    include 'app/database/seo.php';
-    $ag['seo'] = empty($tables) ? null : $tables['seo'];
+    $ag['record']['parent_id'] = getDBRecord($this->db, "select * from category where id='{$ag['record']['parent_id']}'");
 
-    $result = $this->db->query("SELECT * from category where id='{$ag['id']}'");
-    while ($row = $result->fetch_assoc()) {
+    $ag['record']['seo'] = getDBRecord($this->db, "select seo.title,seo.keyword,seo.description from seo inner join category_seo on seo.id = category_seo.seo_id where category_seo.category_id='{$ag['id']}'");
 
-    }
     return $this->view->render($rs, 'app/category/detail.twig', $ag);
+});
+$app->get('/admin/category/edit/{id}', function (SR $rq, RS $rs, array $ag) {
+    if (empty($ag['id'])) return $rs->withRedirect($GLOBALS['config']['base_url'] . '/admin/category');
+    $ag['record'] = getDBRecord($this->db, "select * from category where id='{$ag['id']}'");
+    $ag['record']['for_lang'] = unserialize($ag['record']['for_lang']);
+    $ag['record']['seo'] = getDBRecord($this->db, "select seo.title,seo.keyword,seo.description from seo inner join category_seo on seo.id = category_seo.seo_id where category_seo.category_id='{$ag['id']}'");
+    return $this->view->render($rs, 'app/category/edit.twig', $ag);
 });

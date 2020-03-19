@@ -75,6 +75,8 @@ $app->add(function (ServerRequestInterface $rq, ResponseInterface $rs, $n) use (
     }
     $GLOBALS['lang']['theme'] = $langs;
 
+    $GLOBALS['db_def'] = getAllDBDef();
+
     $uri = $rq->getUri();
     $uri = trim($uri->getPath(), '/');
     $GLOBALS['uri'] = explode('/', $uri);
@@ -86,6 +88,7 @@ $app->add(function (ServerRequestInterface $rq, ResponseInterface $rs, $n) use (
     $view->addGlobal("base_url", $config['base_url']);
     $view->addGlobal("cur_uri", $uri);
     $view->addGlobal("uri", $GLOBALS['uri']);
+    $view->addGlobal("db_def", $GLOBALS['db_def']);
 
     if ($result = $container->db->query("SELECT * FROM settings")) {
         if ($row = $result->fetch_assoc()) {

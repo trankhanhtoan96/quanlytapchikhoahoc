@@ -12,3 +12,4 @@
 - base_url (string)
 - cur_uri (string)
 - uri (array)
+- db_def

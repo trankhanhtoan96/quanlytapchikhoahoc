@@ -164,3 +164,7 @@ html, body {
 .table td, .table th {
     padding: .5rem;
 }
+
+.col-form-value {
+    padding-top: calc(.375rem + 1px)
+}

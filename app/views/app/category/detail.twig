@@ -11,6 +11,23 @@
     </div>
     <section class="content">
         <div class="container-fluid">
+            <div class="card">
+                <div class="card-body buton-action-record">
+                    <div class="row">
+                        <div class="col-sm-12 text-left">
+                            <a href="{{ base_url }}/admin/category/edit/{{ record.id }}" class="btn btn-info">
+                                <i class="far fa-pencil"></i> {{ lang('LBL_EDIT') }}
+                            </a>
+                            <a href="{{ base_url }}/admin/category/create" class="btn btn-outline-info">
+                                <i class="far fa-plus"></i> {{ lang('LBL_CREATE') }}
+                            </a>
+                            <a href="{{ base_url }}/admin/category" class="btn btn-outline-info">
+                                <i class="far fa-tasks"></i> {{ lang('LBL_LIST') }}
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
             <div class="card card-info">
                 <div class="card-header">
                     <h3 class="card-title">{{ lang('LBL_CATEGORY') }}</h3>
@@ -19,16 +36,16 @@
                     <div class="row">
                         <div class="col-sm-6">
                             <div class="form-group row">
-                                <label class="col-sm-4 col-form-label text-sm-left text-md-right">{{ lang(database.category.name.label) }}</label>
-                                <div class="col-sm-8">
+                                <label class="col-sm-4 col-form-label text-sm-left text-md-right">{{ lang(db_def.category.name.label) }}</label>
+                                <div class="col-sm-8 col-form-value">
                                     {{ record.name }}
                                 </div>
                             </div>
                         </div>
                         <div class="col-sm-6">
                             <div class="form-group row">
-                                <label class="col-sm-4 col-form-label text-sm-left text-md-right">{{ lang(database.category.slug.label) }}</label>
-                                <div class="col-sm-8">
+                                <label class="col-sm-4 col-form-label text-sm-left text-md-right">{{ lang(db_def.category.slug.label) }}</label>
+                                <div class="col-sm-8 col-form-value">
                                     {{ record.slug }}
                                 </div>
                             </div>
@@ -37,10 +54,10 @@
                     <div class="row">
                         <div class="col-sm-6">
                             <div class="form-group row">
-                                <label class="col-sm-4 col-form-label text-sm-left text-md-right">{{ lang(database.category.for_lang.label) }}</label>
-                                <div class="col-sm-8">
+                                <label class="col-sm-4 col-form-label text-sm-left text-md-right">{{ lang(db_def.category.for_lang.label) }}</label>
+                                <div class="col-sm-8 col-form-value">
                                     {% for key in record.for_lang %}
-                                        {{ config.languages[key] }},
+                                        <label class="badge badge-info">{{ config.languages[key] }}</label>
                                     {% endfor %}
                                 </div>
                             </div>
@@ -51,17 +68,17 @@
                     <div class="row">
                         <div class="col-sm-6">
                             <div class="form-group row">
-                                <label class="col-sm-4 col-form-label text-sm-left text-md-right">{{ lang(database.category.parent_id.label) }}</label>
-                                <div class="col-sm-8">
-
+                                <label class="col-sm-4 col-form-label text-sm-left text-md-right">{{ lang(db_def.category.parent_id.label) }}</label>
+                                <div class="col-sm-8 col-form-value">
+                                    <a href="{{ base_url }}/admin/category/detail/{{ record.parent_id.id }}">{{ record.parent_id.name }}</a>
                                 </div>
                             </div>
                         </div>
                         <div class="col-sm-6">
                             <div class="form-group row">
-                                <label class="col-sm-4 col-form-label text-sm-left text-md-right">{{ lang(database.category.status.label) }}</label>
-                                <div class="col-sm-8">
-                                    {{ lang(record.status) }}
+                                <label class="col-sm-4 col-form-label text-sm-left text-md-right">{{ lang(db_def.category.status.label) }}</label>
+                                <div class="col-sm-8 col-form-value">
+                                    {{ lang(db_def.category.status.options)[record.status] }}
                                 </div>
                             </div>
                         </div>
@@ -69,9 +86,9 @@
                     <div class="row">
                         <div class="col-sm-12">
                             <div class="form-group row">
-                                <label class="col-sm-2 col-form-label text-sm-left text-md-right">{{ lang(database.category.description.label) }}</label>
-                                <div class="col-sm-10">
-                                    {{ record.description }}
+                                <label class="col-sm-2 col-form-label text-sm-left text-md-right">{{ lang(db_def.category.description.label) }}</label>
+                                <div class="col-sm-10 col-form-value">
+                                    <textarea name="description" class="ckeditor" readonly>{{ record.description|raw }}</textarea>
                                 </div>
                             </div>
                         </div>
@@ -86,8 +103,8 @@
                     <div class="row">
                         <div class="col-sm-6">
                             <div class="form-group row">
-                                <label class="col-sm-4 col-form-label text-sm-left text-md-right">{{ lang(seo.title.label) }}</label>
-                                <div class="col-sm-8">
+                                <label class="col-sm-4 col-form-label text-sm-left text-md-right">{{ lang(db_def.seo.title.label) }}</label>
+                                <div class="col-sm-8 col-form-value">
                                     {{ record.seo.title }}
                                 </div>
                             </div>
@@ -96,16 +113,16 @@
                     <div class="row">
                         <div class="col-sm-6">
                             <div class="form-group row">
-                                <label class="col-sm-4 col-form-label text-sm-left text-md-right">{{ lang(seo.description.label) }}</label>
-                                <div class="col-sm-8">
+                                <label class="col-sm-4 col-form-label text-sm-left text-md-right">{{ lang(db_def.seo.description.label) }}</label>
+                                <div class="col-sm-8 col-form-value">
                                     {{ record.seo.description }}
                                 </div>
                             </div>
                         </div>
                         <div class="col-sm-6">
                             <div class="form-group row">
-                                <label class="col-sm-4 col-form-label text-sm-left text-md-right">{{ lang(seo.keyword.label) }}</label>
-                                <div class="col-sm-8">
+                                <label class="col-sm-4 col-form-label text-sm-left text-md-right">{{ lang(db_def.seo.keyword.label) }}</label>
+                                <div class="col-sm-8 col-form-value">
                                     {{ record.seo.keyword }}
                                 </div>
                             </div>

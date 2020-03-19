@@ -46,5 +46,7 @@ $langs = [
     'LBL_CREATE'=>'Tạo mới',
     'LBL_GENERAL_INFO'=>'Thông tin chung',
     'LBL_CANCEL'=>'Huỷ',
-    'LBL_CREATE_AT'=>'Tạo lúc'
+    'LBL_CREATE_AT'=>'Tạo lúc',
+    'LBL_EDIT'=>'Sửa',
+    'LBL_LIST'=>'Danh sách'
 ];
