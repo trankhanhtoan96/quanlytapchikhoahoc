@@ -48,5 +48,7 @@ $langs = [
     'LBL_CANCEL'=>'Huỷ',
     'LBL_CREATE_AT'=>'Tạo lúc',
     'LBL_EDIT'=>'Sửa',
-    'LBL_LIST'=>'Danh sách'
+    'LBL_LIST'=>'Danh sách',
+    'LBL_MODIFIED_AT'=>'Sửa lúc',
+    'LBL_DELETE'=>'Xoá'
 ];

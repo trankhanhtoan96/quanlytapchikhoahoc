@@ -33,6 +33,10 @@ $tables = array(
         'create_at'=>array(
             'dbType'=>'datetime',
             'label'=>'LBL_CREATE_AT'
+        ),
+        'modified_at'=>array(
+            'dbType'=>'datetime',
+            'label'=>'LBL_MODIFIED_AT'
         )
     )
 );

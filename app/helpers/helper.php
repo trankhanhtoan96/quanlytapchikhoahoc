@@ -160,6 +160,23 @@ function insertDB($conn, $table, $data)
     return $conn->query($sql);
 }
 
+function updateDB($conn, $table, $data, $id)
+{
+    $sql = "update {$table} set ";
+    foreach ($data as $k => $v) {
+        $sql .= $k . '="' . $v . '",';
+    }
+    $sql = rtrim($sql, ',');
+    $sql .= ' where id="' . $id . '"';
+    return $conn->query($sql);
+}
+
+function deleteDB($conn, $table, $id)
+{
+    $sql = "delete from $table where id='$id'";
+    return $conn->query($sql);
+}
+
 function createID()
 {
     $id = md5(time());

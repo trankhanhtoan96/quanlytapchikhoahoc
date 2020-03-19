@@ -12,6 +12,8 @@
     <section class="content">
         <div class="container-fluid">
             <form class="form-horizontal" method="post" action="{{ base_url }}/admin/category/create">
+                <input type="hidden" name="id" value="{{ record.id }}"/>
+                <input type="hidden" name="seo_id" value="{{ record.seo.id }}"/>
                 <div class="card card-info">
                     <div class="card-header">
                         <h3 class="card-title">{{ lang('LBL_GENERAL_INFO') }}</h3>
@@ -22,7 +24,7 @@
                                 <div class="form-group row">
                                     <label class="col-sm-4 col-form-label text-sm-left text-md-right">{{ lang(db_def.category.name.label) }} (*)</label>
                                     <div class="col-sm-8">
-                                        {{ form_field("text","name","required")|raw }}
+                                        {{ form_field("text","name","required",'',record.name)|raw }}
                                     </div>
                                 </div>
                             </div>
@@ -30,7 +32,7 @@
                                 <div class="form-group row">
                                     <label class="col-sm-4 col-form-label text-sm-left text-md-right">{{ lang(db_def.category.slug.label) }}</label>
                                     <div class="col-sm-8">
-                                        {{ form_field("text","slug")|raw }}
+                                        {{ form_field("text","slug",'','',record.slug)|raw }}
                                     </div>
                                 </div>
                             </div>
@@ -40,7 +42,7 @@
                                 <div class="form-group row">
                                     <label class="col-sm-4 col-form-label text-sm-left text-md-right">{{ lang(db_def.category.for_lang.label) }}</label>
                                     <div class="col-sm-8">
-                                        {{ form_field("multienum","for_lang","",config.languages,cur_lang)|raw }}
+                                        {{ form_field("multienum","for_lang","",config.languages,record.for_lang)|raw }}
                                     </div>
                                 </div>
                             </div>
@@ -52,7 +54,7 @@
                                 <div class="form-group row">
                                     <label class="col-sm-4 col-form-label text-sm-left text-md-right">{{ lang(db_def.category.parent_id.label) }}</label>
                                     <div class="col-sm-8">
-                                        {{ form_field("enum","parent_id","",parent_id.options,'',1)|raw }}
+                                        {{ form_field("enum","parent_id","",parent_id.options,record.parent_id,1)|raw }}
                                     </div>
                                 </div>
                             </div>
@@ -60,7 +62,7 @@
                                 <div class="form-group row">
                                     <label class="col-sm-4 col-form-label text-sm-left text-md-right">{{ lang(db_def.category.status.label) }}</label>
                                     <div class="col-sm-8">
-                                        {{ form_field("enum","status","",lang.app[db_def.category.status.options])|raw }}
+                                        {{ form_field("enum","status","",lang(db_def.category.status.options),record.status)|raw }}
                                     </div>
                                 </div>
                             </div>
@@ -70,7 +72,7 @@
                                 <div class="form-group row">
                                     <label class="col-sm-2 col-form-label text-sm-left text-md-right">{{ lang(db_def.category.description.label) }}</label>
                                     <div class="col-sm-10">
-                                        {{ form_field('editor','description')|raw }}
+                                        {{ form_field('editor','description','','',record.description)|raw }}
                                     </div>
                                 </div>
                             </div>
@@ -87,7 +89,7 @@
                                 <div class="form-group row">
                                     <label class="col-sm-4 col-form-label text-sm-left text-md-right">{{ lang(db_def.seo.title.label) }}</label>
                                     <div class="col-sm-8">
-                                        {{ form_field("text","seo_title")|raw }}
+                                        {{ form_field("text","seo_title",'','',record.seo.title)|raw }}
                                     </div>
                                 </div>
                             </div>
@@ -97,7 +99,7 @@
                                 <div class="form-group row">
                                     <label class="col-sm-4 col-form-label text-sm-left text-md-right">{{ lang(db_def.seo.description.label) }}</label>
                                     <div class="col-sm-8">
-                                        {{ form_field("textarea","seo_description")|raw }}
+                                        {{ form_field("textarea","seo_description",'','',record.seo.description)|raw }}
                                     </div>
                                 </div>
                             </div>
@@ -105,7 +107,7 @@
                                 <div class="form-group row">
                                     <label class="col-sm-4 col-form-label text-sm-left text-md-right">{{ lang(db_def.seo.keyword.label) }}</label>
                                     <div class="col-sm-8">
-                                        {{ form_field("textarea","seo_keyword")|raw }}
+                                        {{ form_field("textarea","seo_keyword",'','',record.seo.keyword)|raw }}
                                     </div>
                                 </div>
                             </div>
@@ -117,7 +119,7 @@
                         <div class="row">
                             <div class="col-sm-12 text-center">
                                 <button type="submit" class="btn btn-info">{{ lang('SAVE') }}</button>
-                                <a href="{{ base_url }}/admin/category" class="btn btn-outline-danger">{{ lang('LBL_CANCEL') }}</a>
+                                <a href="{{ base_url }}/admin/category/detail/{{ record.id }}" class="btn btn-outline-danger">{{ lang('LBL_CANCEL') }}</a>
                             </div>
                         </div>
                     </div>

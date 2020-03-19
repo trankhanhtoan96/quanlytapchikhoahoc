@@ -129,7 +129,8 @@ $app->add(function (ServerRequestInterface $rq, ResponseInterface $rs, $n) use (
                 if ($addNullOption) $html .= "<option value=''>#</option>";
                 if (is_array($listOption)) {
                     foreach ($listOption as $k => $v) {
-                        $html .= "<option value='{$k}' " . ($k == $val ? 'selected' : '') . ">$v</option>";
+                        if(is_array($val)) $html .= "<option value='{$k}' " . (in_array($k,$val) ? 'selected' : '') . ">$v</option>";
+                        else $html .= "<option value='{$k}' " . ($k == $val ? 'selected' : '') . ">$v</option>";
                     }
                 }
                 $html .= "</select>";

@@ -13,3 +13,8 @@
 - cur_uri (string)
 - uri (array)
 - db_def
+
+# function in twigview
+- `TwigFunction("view_field", function ($type, $name, $val, $listOption = array())`
+- `TwigFunction("lang", function ($key, $location = 'app')`
+- `TwigFunction("form_field", function ($type, $name, $required = "", $listOption = array(), $val = "", $addNullOption = 0)`

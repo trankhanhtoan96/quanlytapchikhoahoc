@@ -7,22 +7,34 @@ CREATE TABLE `category` (
   `parent_id` varchar(36) DEFAULT NULL,
   `for_lang` varchar(255) DEFAULT NULL,
   `create_at` datetime DEFAULT NULL,
+  `modified_at` datetime DEFAULT NULL,
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
-insert into category(id,name,slug,status,description,parent_id,for_lang,create_at) values("22d7b35e45e4392eb14545a5067caedemcsh","1zzz","","active","","","a:1:{i:0;s:2:"vi";}","");
+insert into category(id,name,slug,status,description,parent_id,for_lang,create_at,modified_at) values("22d7b35e45e4392eb14545a5067caedemcsh","1zzz","","active","","","a:1:{i:0;s:2:"vi";}","","");
 
-insert into category(id,name,slug,status,description,parent_id,for_lang,create_at) values("4d650ea76931152e121614e25c138b51mQGD","qqq","","active","","","s:2:"vi";","");
+insert into category(id,name,slug,status,description,parent_id,for_lang,create_at,modified_at) values("2ba6a3d3901ad16d843bba3cf7671af6pRWM","123","456","inactive","<p>adsfsdf</p>
 
-insert into category(id,name,slug,status,description,parent_id,for_lang,create_at) values("97c3c8ab1b5d41bb6d5dcfa98a8586186BzT","1","","active","","","a:1:{i:0;s:2:"vi";}","");
+<p><img alt="" src="http://localhost/tkt/tkframework/upload/images/1.png" style="height:974px; width:775px" /></p>
+","9748d4dd8f42a8b89f517803daa9f1fclbEi","a:2:{i:0;s:2:"vi";i:1;s:2:"en";}","2020-03-19 10:56:56","");
 
-insert into category(id,name,slug,status,description,parent_id,for_lang,create_at) values("c82ebce6e84ce251a4a77c5b7927c2be5VAO","qq111","","active","","","s:2:"en";","");
+insert into category(id,name,slug,status,description,parent_id,for_lang,create_at,modified_at) values("499f646e7c10fb5f814e587bd5db2663yXOV","danh muc bia viet 2","","active","","9748d4dd8f42a8b89f517803daa9f1fclbEi","a:1:{i:0;s:2:"vi";}","2020-03-19 00:26:16","");
 
-insert into category(id,name,slug,status,description,parent_id,for_lang,create_at) values("cb6c7c432943f36f58adf63bcf3c2fe4cX4U","2","","active","","","a:2:{i:0;s:2:"vi";i:1;s:2:"en";}","");
+insert into category(id,name,slug,status,description,parent_id,for_lang,create_at,modified_at) values("4d650ea76931152e121614e25c138b51mQGD","qqq","","active","","","s:2:"vi";","","");
 
-insert into category(id,name,slug,status,description,parent_id,for_lang,create_at) values("ed6e49e4caa89b3fadaf4d8ece95e6faNhHY","qqq","","active","","","s:2:"vi";","");
+insert into category(id,name,slug,status,description,parent_id,for_lang,create_at,modified_at) values("6a1484a20038f1218011aa5ef6e78a1fWd89","pouipiou","","active","","97c3c8ab1b5d41bb6d5dcfa98a8586186BzT","a:1:{i:0;s:2:"vi";}","2020-03-19 10:50:10","");
 
-insert into category(id,name,slug,status,description,parent_id,for_lang,create_at) values("f78a6b2eb722f18e9336bf9946c6f613p3U5","aaa","","active","","","N;","");
+insert into category(id,name,slug,status,description,parent_id,for_lang,create_at,modified_at) values("9748d4dd8f42a8b89f517803daa9f1fclbEi","danh muc bai viet 1","","active","","f78a6b2eb722f18e9336bf9946c6f613p3U5","a:1:{i:0;s:2:"vi";}","","");
+
+insert into category(id,name,slug,status,description,parent_id,for_lang,create_at,modified_at) values("97c3c8ab1b5d41bb6d5dcfa98a8586186BzT","1","","active","","","a:1:{i:0;s:2:"vi";}","","");
+
+insert into category(id,name,slug,status,description,parent_id,for_lang,create_at,modified_at) values("c82ebce6e84ce251a4a77c5b7927c2be5VAO","qq111","","active","","","s:2:"en";","","");
+
+insert into category(id,name,slug,status,description,parent_id,for_lang,create_at,modified_at) values("cb6c7c432943f36f58adf63bcf3c2fe4cX4U","2","","active","","","a:2:{i:0;s:2:"vi";i:1;s:2:"en";}","","");
+
+insert into category(id,name,slug,status,description,parent_id,for_lang,create_at,modified_at) values("ed6e49e4caa89b3fadaf4d8ece95e6faNhHY","qqq","","active","","","s:2:"vi";","","");
+
+insert into category(id,name,slug,status,description,parent_id,for_lang,create_at,modified_at) values("f78a6b2eb722f18e9336bf9946c6f613p3U5","aaa","","active","","","N;","","");
 
 
 CREATE TABLE `category_seo` (
@@ -34,15 +46,23 @@ CREATE TABLE `category_seo` (
 
 insert into category_seo(id,category_id,seo_id) values("22d7b35e45e4392eb14545a5067caedezvvA","22d7b35e45e4392eb14545a5067caedemcsh","22d7b35e45e4392eb14545a5067caedep9qq");
 
+insert into category_seo(id,category_id,seo_id) values("2ba6a3d3901ad16d843bba3cf7671af6ERDW","2ba6a3d3901ad16d843bba3cf7671af6pRWM","2ba6a3d3901ad16d843bba3cf7671af6lJwr");
+
 insert into category_seo(id,category_id,seo_id) values("3886a32fe5862a8013f73c81420f6e70j67x","3886a32fe5862a8013f73c81420f6e70FrBN","3886a32fe5862a8013f73c81420f6e70CBHx");
 
 insert into category_seo(id,category_id,seo_id) values("3b40d5434fccbd8d1783004bc29dce8aWB4D","3b40d5434fccbd8d1783004bc29dce8aCePj","3b40d5434fccbd8d1783004bc29dce8aPV3s");
 
+insert into category_seo(id,category_id,seo_id) values("499f646e7c10fb5f814e587bd5db2663J6pi","499f646e7c10fb5f814e587bd5db2663yXOV","499f646e7c10fb5f814e587bd5db2663adBK");
+
 insert into category_seo(id,category_id,seo_id) values("4d650ea76931152e121614e25c138b51Qsgx","4d650ea76931152e121614e25c138b51mQGD","4d650ea76931152e121614e25c138b51W3ie");
+
+insert into category_seo(id,category_id,seo_id) values("6a1484a20038f1218011aa5ef6e78a1f8K2o","6a1484a20038f1218011aa5ef6e78a1fWd89","6a1484a20038f1218011aa5ef6e78a1fgfTR");
 
 insert into category_seo(id,category_id,seo_id) values("6afd42680fc068c9499b1607601eeba9EhIk","6afd42680fc068c9499b1607601eeba9qqPz","6afd42680fc068c9499b1607601eeba9abzl");
 
 insert into category_seo(id,category_id,seo_id) values("6c1b3bf0ed8d086c2ed8e9deb6f20475vhTJ","6c1b3bf0ed8d086c2ed8e9deb6f20475Dlmu","6c1b3bf0ed8d086c2ed8e9deb6f20475dsFl");
+
+insert into category_seo(id,category_id,seo_id) values("9748d4dd8f42a8b89f517803daa9f1fcrbM9","9748d4dd8f42a8b89f517803daa9f1fclbEi","9748d4dd8f42a8b89f517803daa9f1fcJUGD");
 
 insert into category_seo(id,category_id,seo_id) values("97c3c8ab1b5d41bb6d5dcfa98a858618Fn9W","97c3c8ab1b5d41bb6d5dcfa98a8586186BzT","97c3c8ab1b5d41bb6d5dcfa98a858618d803");
 
@@ -103,15 +123,23 @@ CREATE TABLE `seo` (
 
 insert into seo(id,title,keyword,description) values("22d7b35e45e4392eb14545a5067caedep9qq","","","");
 
+insert into seo(id,title,keyword,description) values("2ba6a3d3901ad16d843bba3cf7671af6lJwr","qq","eeee","www");
+
 insert into seo(id,title,keyword,description) values("3886a32fe5862a8013f73c81420f6e70CBHx","","","");
 
 insert into seo(id,title,keyword,description) values("3b40d5434fccbd8d1783004bc29dce8aPV3s","tieu de","tu khoa","mo ta");
 
+insert into seo(id,title,keyword,description) values("499f646e7c10fb5f814e587bd5db2663adBK","","","");
+
 insert into seo(id,title,keyword,description) values("4d650ea76931152e121614e25c138b51W3ie","","","");
+
+insert into seo(id,title,keyword,description) values("6a1484a20038f1218011aa5ef6e78a1fgfTR","","","");
 
 insert into seo(id,title,keyword,description) values("6afd42680fc068c9499b1607601eeba9abzl","","","");
 
 insert into seo(id,title,keyword,description) values("6c1b3bf0ed8d086c2ed8e9deb6f20475dsFl","3333","3333","12343");
+
+insert into seo(id,title,keyword,description) values("9748d4dd8f42a8b89f517803daa9f1fcJUGD","","","");
 
 insert into seo(id,title,keyword,description) values("97c3c8ab1b5d41bb6d5dcfa98a858618d803","","","");
 
