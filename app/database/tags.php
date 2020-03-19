@@ -1,6 +1,6 @@
 <?php
 $tables = array(
-    'post' => array(
+    'tags' => array(
         'id' => array(
             'dbType' => 'varchar(36) primary key',
             'label' => ''

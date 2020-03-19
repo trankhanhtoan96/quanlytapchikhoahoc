@@ -50,5 +50,9 @@ $langs = [
     'LBL_EDIT'=>'Sửa',
     'LBL_LIST'=>'Danh sách',
     'LBL_MODIFIED_AT'=>'Sửa lúc',
-    'LBL_DELETE'=>'Xoá'
+    'LBL_DELETE'=>'Xoá',
+    'LBL_SHORT_DESCRIPTION'=>'Mô tả ngắn',
+    'LBL_PUBLISH_AT'=>'Xuất bản lúc',
+    'LBL_VIEWS_COUNT'=>'Lượt xem',
+    'LBL_CREATE_POST'=>'Bài viết mới',
 ];

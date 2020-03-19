@@ -1,0 +1,144 @@
+{% extends "app/base.twig" %}
+{% block content %}
+    <div class="content-header">
+        <div class="container-fluid">
+            <div class="row mb-2">
+                <div class="col-sm-12 text-center">
+                    <h1 class="m-0 text-dark">{{ lang('LBL_CREATE_POST') }}</h1>
+                </div>
+            </div>
+        </div>
+    </div>
+    <section class="content">
+        <div class="container-fluid">
+            <form class="form-horizontal" method="post" action="{{ base_url }}/admin/post/create">
+                <div class="card card-info">
+                    <div class="card-header">
+                        <h3 class="card-title">{{ lang('LBL_GENERAL_INFO') }}</h3>
+                    </div>
+                    <div class="card-body">
+                        <div class="row">
+                            <div class="col-sm-6">
+                                <div class="form-group row">
+                                    <label class="col-sm-4 col-form-label text-sm-left text-md-right">{{ lang(db_def.post.title.label) }} (*)</label>
+                                    <div class="col-sm-8">
+                                        {{ form_field("text","title","required")|raw }}
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-sm-6">
+                                <div class="form-group row">
+                                    <label class="col-sm-4 col-form-label text-sm-left text-md-right">{{ lang(db_def.post.slug.label) }}</label>
+                                    <div class="col-sm-8">
+                                        {{ form_field("text","slug")|raw }}
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-sm-6">
+                                <div class="form-group row">
+                                    <label class="col-sm-4 col-form-label text-sm-left text-md-right">{{ lang(db_def.post.for_lang.label) }}</label>
+                                    <div class="col-sm-8">
+                                        {{ form_field("multienum","for_lang","",config.languages,cur_lang)|raw }}
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-sm-6">
+                                <div class="form-group row">
+                                    <label class="col-sm-4 col-form-label text-sm-left text-md-right">{{ lang('LBL_CATEGORY') }}</label>
+                                    <div class="col-sm-8">
+                                        {{ form_field("multienum","category_id","",category.options)|raw }}
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-sm-6">
+                                <div class="form-group row">
+                                    <label class="col-sm-4 col-form-label text-sm-left text-md-right">{{ lang(db_def.post.status.label) }}</label>
+                                    <div class="col-sm-8">
+                                        {{ form_field("enum","status","",lang.app[db_def.post.status.options])|raw }}
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-sm-6">
+                                <div class="form-group row">
+                                    <label class="col-sm-4 col-form-label text-sm-left text-md-right">{{ lang(db_def.post.publish_at.label) }}</label>
+                                    <div class="col-sm-8">
+                                        {{ form_field("datetime","publish_at")|raw }}
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-sm-12">
+                                <div class="form-group row">
+                                    <label class="col-sm-2 col-form-label text-sm-left text-md-right">{{ lang(db_def.post.short_description.label) }}</label>
+                                    <div class="col-sm-10">
+                                        {{ form_field("textarea","short_description")|raw }}
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-sm-12">
+                                <div class="form-group row">
+                                    <label class="col-sm-2 col-form-label text-sm-left text-md-right">{{ lang(db_def.post.description.label) }}</label>
+                                    <div class="col-sm-10">
+                                        {{ form_field('editor','description')|raw }}
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="card card-info">
+                    <div class="card-header">
+                        <h3 class="card-title">{{ lang('LBL_SEO') }}</h3>
+                    </div>
+                    <div class="card-body">
+                        <div class="row">
+                            <div class="col-sm-6">
+                                <div class="form-group row">
+                                    <label class="col-sm-4 col-form-label text-sm-left text-md-right">{{ lang(db_def.seo.title.label) }}</label>
+                                    <div class="col-sm-8">
+                                        {{ form_field("text","seo_title")|raw }}
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-sm-6">
+                                <div class="form-group row">
+                                    <label class="col-sm-4 col-form-label text-sm-left text-md-right">{{ lang(db_def.seo.description.label) }}</label>
+                                    <div class="col-sm-8">
+                                        {{ form_field("textarea","seo_description")|raw }}
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-sm-6">
+                                <div class="form-group row">
+                                    <label class="col-sm-4 col-form-label text-sm-left text-md-right">{{ lang(db_def.seo.keyword.label) }}</label>
+                                    <div class="col-sm-8">
+                                        {{ form_field("textarea","seo_keyword")|raw }}
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="card">
+                    <div class="card-body buton-action-record">
+                        <div class="row">
+                            <div class="col-sm-12 text-center">
+                                <button type="submit" class="btn btn-info">{{ lang('SAVE') }}</button>
+                                <a href="{{ base_url }}/admin/post" class="btn btn-outline-danger">{{ lang('LBL_CANCEL') }}</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </section>
+{% endblock %}

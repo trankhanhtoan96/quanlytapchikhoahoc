@@ -35,4 +35,30 @@ $(function () {
             }
         });
     });
+    $('.datetimepicker').CalendarPopup({
+        locale: cur_lang,
+        dayOfWeekStart:1,
+        format:'DD/MM/YYYY HH:mm',
+        wrapSourceInput:false,
+        mousewheel:false,
+        allowNotFillTime:false,
+        validateOnBlur:false
+    });
+    $('.datepicker').CalendarPopup({
+        locale: cur_lang,
+        dayOfWeekStart:1,
+        format:'DD/MM/YYYY',
+        wrapSourceInput:false,
+        mousewheel:false,
+        validateOnBlur:false,
+        timepicker:false
+    });
+    $('.timepicker').CalendarPopup({
+        locale: cur_lang,
+        format:'HH:mm',
+        wrapSourceInput:false,
+        mousewheel:false,
+        validateOnBlur:false,
+        datepicker:false
+    });
 });

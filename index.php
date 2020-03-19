@@ -118,6 +118,30 @@ $app->add(function (ServerRequestInterface $rq, ResponseInterface $rs, $n) use (
             case "text":
                 $html = "<input type='text' class='form-control' value='{$val}' name='{$name}' {$required}/>";
                 break;
+            case "datetime":
+                $html = '<div class="input-group">
+                                <input type="text" class="form-control datetimepicker" value="' . $val . '" name="' . $name . '" ' . $required . '/>
+                                <div class="input-group-append">
+                                  <span class="input-group-text"><i class="far fa-calendar"></i></span>
+                                </div>
+                              </div>';
+                break;
+            case "date":
+                $html = '<div class="input-group">
+                                <input type="text" class="form-control datepicker" value="' . $val . '" name="' . $name . '" ' . $required . '/>
+                                <div class="input-group-append">
+                                  <span class="input-group-text"><i class="far fa-calendar"></i></span>
+                                </div>
+                              </div>';
+                break;
+            case "time":
+                $html = '<div class="input-group">
+                                <input type="text" class="form-control timepicker" value="' . $val . '" name="' . $name . '" ' . $required . '/>
+                                <div class="input-group-append">
+                                  <span class="input-group-text"><i class="far fa-calendar"></i></span>
+                                </div>
+                              </div>';
+                break;
             case "editor":
                 $html = "<textarea class='ckeditor' name='{$name}' {$required}>{$val}</textarea>";
                 break;
@@ -129,7 +153,7 @@ $app->add(function (ServerRequestInterface $rq, ResponseInterface $rs, $n) use (
                 if ($addNullOption) $html .= "<option value=''>#</option>";
                 if (is_array($listOption)) {
                     foreach ($listOption as $k => $v) {
-                        if(is_array($val)) $html .= "<option value='{$k}' " . (in_array($k,$val) ? 'selected' : '') . ">$v</option>";
+                        if (is_array($val)) $html .= "<option value='{$k}' " . (in_array($k, $val) ? 'selected' : '') . ">$v</option>";
                         else $html .= "<option value='{$k}' " . ($k == $val ? 'selected' : '') . ">$v</option>";
                     }
                 }
