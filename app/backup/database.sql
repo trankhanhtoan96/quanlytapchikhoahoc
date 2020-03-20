@@ -20,21 +20,23 @@ insert into category(id,name,slug,status,description,parent_id,for_lang,create_a
 
 insert into category(id,name,slug,status,description,parent_id,for_lang,create_at,modified_at) values("499f646e7c10fb5f814e587bd5db2663yXOV","danh muc bia viet 2","","active","","9748d4dd8f42a8b89f517803daa9f1fclbEi","a:1:{i:0;s:2:"vi";}","2020-03-19 00:26:16","");
 
-insert into category(id,name,slug,status,description,parent_id,for_lang,create_at,modified_at) values("4d650ea76931152e121614e25c138b51mQGD","qqq","","active","","","s:2:"vi";","","");
-
 insert into category(id,name,slug,status,description,parent_id,for_lang,create_at,modified_at) values("6a1484a20038f1218011aa5ef6e78a1fWd89","pouipiou","","active","","97c3c8ab1b5d41bb6d5dcfa98a8586186BzT","a:1:{i:0;s:2:"vi";}","2020-03-19 10:50:10","");
+
+insert into category(id,name,slug,status,description,parent_id,for_lang,create_at,modified_at) values("80c8bac08c03a7f0cd30d6104f900ba3NN7W","1234","456","inactive","<p>adsfsdfqqqqqqqq</p>
+
+<p><img alt="" class="img-fluid" src="http://localhost/tkt/tkframework/upload/images/1.png" style="width:775px" /></p>
+","9748d4dd8f42a8b89f517803daa9f1fclbEi","a:1:{i:0;s:2:"en";}","2020-03-19 18:54:39","");
 
 insert into category(id,name,slug,status,description,parent_id,for_lang,create_at,modified_at) values("9748d4dd8f42a8b89f517803daa9f1fclbEi","danh muc bai viet 1","","active","","f78a6b2eb722f18e9336bf9946c6f613p3U5","a:1:{i:0;s:2:"vi";}","","");
 
 insert into category(id,name,slug,status,description,parent_id,for_lang,create_at,modified_at) values("97c3c8ab1b5d41bb6d5dcfa98a8586186BzT","1","","active","","","a:1:{i:0;s:2:"vi";}","","");
 
-insert into category(id,name,slug,status,description,parent_id,for_lang,create_at,modified_at) values("c82ebce6e84ce251a4a77c5b7927c2be5VAO","qq111","","active","","","s:2:"en";","","");
-
 insert into category(id,name,slug,status,description,parent_id,for_lang,create_at,modified_at) values("cb6c7c432943f36f58adf63bcf3c2fe4cX4U","2","","active","","","a:2:{i:0;s:2:"vi";i:1;s:2:"en";}","","");
 
-insert into category(id,name,slug,status,description,parent_id,for_lang,create_at,modified_at) values("ed6e49e4caa89b3fadaf4d8ece95e6faNhHY","qqq","","active","","","s:2:"vi";","","");
+insert into category(id,name,slug,status,description,parent_id,for_lang,create_at,modified_at) values("f19afa1ad030069fd96da24c5bece517euQC","1234","456","inactive","<p>adsfsdf</p>
 
-insert into category(id,name,slug,status,description,parent_id,for_lang,create_at,modified_at) values("f78a6b2eb722f18e9336bf9946c6f613p3U5","aaa","","active","","","N;","","");
+<p><img alt="" class="img-fluid" src="http://localhost/tkt/tkframework/upload/images/1.png" style="width:775px" /></p>
+","9748d4dd8f42a8b89f517803daa9f1fclbEi","a:2:{i:0;s:2:"vi";i:1;s:2:"en";}","2020-03-19 18:54:22","");
 
 
 CREATE TABLE `category_seo` (
@@ -54,27 +56,23 @@ insert into category_seo(id,category_id,seo_id) values("3b40d5434fccbd8d1783004b
 
 insert into category_seo(id,category_id,seo_id) values("499f646e7c10fb5f814e587bd5db2663J6pi","499f646e7c10fb5f814e587bd5db2663yXOV","499f646e7c10fb5f814e587bd5db2663adBK");
 
-insert into category_seo(id,category_id,seo_id) values("4d650ea76931152e121614e25c138b51Qsgx","4d650ea76931152e121614e25c138b51mQGD","4d650ea76931152e121614e25c138b51W3ie");
-
 insert into category_seo(id,category_id,seo_id) values("6a1484a20038f1218011aa5ef6e78a1f8K2o","6a1484a20038f1218011aa5ef6e78a1fWd89","6a1484a20038f1218011aa5ef6e78a1fgfTR");
 
 insert into category_seo(id,category_id,seo_id) values("6afd42680fc068c9499b1607601eeba9EhIk","6afd42680fc068c9499b1607601eeba9qqPz","6afd42680fc068c9499b1607601eeba9abzl");
 
 insert into category_seo(id,category_id,seo_id) values("6c1b3bf0ed8d086c2ed8e9deb6f20475vhTJ","6c1b3bf0ed8d086c2ed8e9deb6f20475Dlmu","6c1b3bf0ed8d086c2ed8e9deb6f20475dsFl");
 
+insert into category_seo(id,category_id,seo_id) values("80c8bac08c03a7f0cd30d6104f900ba3uTZ3","80c8bac08c03a7f0cd30d6104f900ba3NN7W","80c8bac08c03a7f0cd30d6104f900ba3AthT");
+
 insert into category_seo(id,category_id,seo_id) values("9748d4dd8f42a8b89f517803daa9f1fcrbM9","9748d4dd8f42a8b89f517803daa9f1fclbEi","9748d4dd8f42a8b89f517803daa9f1fcJUGD");
 
 insert into category_seo(id,category_id,seo_id) values("97c3c8ab1b5d41bb6d5dcfa98a858618Fn9W","97c3c8ab1b5d41bb6d5dcfa98a8586186BzT","97c3c8ab1b5d41bb6d5dcfa98a858618d803");
 
-insert into category_seo(id,category_id,seo_id) values("c82ebce6e84ce251a4a77c5b7927c2behobx","c82ebce6e84ce251a4a77c5b7927c2be5VAO","c82ebce6e84ce251a4a77c5b7927c2beaMH3");
-
 insert into category_seo(id,category_id,seo_id) values("cb6c7c432943f36f58adf63bcf3c2fe4H7j0","cb6c7c432943f36f58adf63bcf3c2fe4cX4U","cb6c7c432943f36f58adf63bcf3c2fe40maZ");
 
-insert into category_seo(id,category_id,seo_id) values("ed6e49e4caa89b3fadaf4d8ece95e6faI3mI","ed6e49e4caa89b3fadaf4d8ece95e6faNhHY","ed6e49e4caa89b3fadaf4d8ece95e6faIvGc");
+insert into category_seo(id,category_id,seo_id) values("f19afa1ad030069fd96da24c5bece5173VdW","f19afa1ad030069fd96da24c5bece517euQC","f19afa1ad030069fd96da24c5bece517JxHQ");
 
 insert into category_seo(id,category_id,seo_id) values("f3299ba987af38c2ecc0b72b0a0596c4WKSI","f3299ba987af38c2ecc0b72b0a0596c4t5WM","f3299ba987af38c2ecc0b72b0a0596c4o1HM");
-
-insert into category_seo(id,category_id,seo_id) values("f78a6b2eb722f18e9336bf9946c6f613M56G","f78a6b2eb722f18e9336bf9946c6f613p3U5","f78a6b2eb722f18e9336bf9946c6f613Qugq");
 
 insert into category_seo(id,category_id,seo_id) values("f9f59e9807d5ab2c493bb5a55a8f7826Zhiq","f9f59e9807d5ab2c493bb5a55a8f7826J0Cp","f9f59e9807d5ab2c493bb5a55a8f78265rOy");
 
@@ -92,7 +90,7 @@ CREATE TABLE `post` (
   `views_count` int(11) DEFAULT NULL,
   `created_by` varchar(36) DEFAULT NULL,
   `modified_by` varchar(36) DEFAULT NULL,
-  `name` varchar(255) DEFAULT NULL,
+  `for_lang` varchar(255) DEFAULT NULL,
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
@@ -101,6 +99,16 @@ CREATE TABLE `post_category` (
   `id` varchar(36) NOT NULL,
   `category_id` varchar(36) DEFAULT NULL,
   `post_id` varchar(36) DEFAULT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+insert into post_category(id,category_id,post_id) values("855212f9568595726d6bbf0c5038efd84S5a","9748d4dd8f42a8b89f517803daa9f1fclbEi","855212f9568595726d6bbf0c5038efd8BNw3");
+
+
+CREATE TABLE `post_seo` (
+  `id` varchar(36) NOT NULL,
+  `post_id` varchar(36) DEFAULT NULL,
+  `seo_id` varchar(36) DEFAULT NULL,
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
@@ -131,27 +139,25 @@ insert into seo(id,title,keyword,description) values("3b40d5434fccbd8d1783004bc2
 
 insert into seo(id,title,keyword,description) values("499f646e7c10fb5f814e587bd5db2663adBK","","","");
 
-insert into seo(id,title,keyword,description) values("4d650ea76931152e121614e25c138b51W3ie","","","");
-
 insert into seo(id,title,keyword,description) values("6a1484a20038f1218011aa5ef6e78a1fgfTR","","","");
 
 insert into seo(id,title,keyword,description) values("6afd42680fc068c9499b1607601eeba9abzl","","","");
 
 insert into seo(id,title,keyword,description) values("6c1b3bf0ed8d086c2ed8e9deb6f20475dsFl","3333","3333","12343");
 
+insert into seo(id,title,keyword,description) values("80c8bac08c03a7f0cd30d6104f900ba3AthT","qq","eeee","www1");
+
+insert into seo(id,title,keyword,description) values("855212f9568595726d6bbf0c5038efd8Vlqu","1","3","2");
+
 insert into seo(id,title,keyword,description) values("9748d4dd8f42a8b89f517803daa9f1fcJUGD","","","");
 
 insert into seo(id,title,keyword,description) values("97c3c8ab1b5d41bb6d5dcfa98a858618d803","","","");
 
-insert into seo(id,title,keyword,description) values("c82ebce6e84ce251a4a77c5b7927c2beaMH3","","","");
-
 insert into seo(id,title,keyword,description) values("cb6c7c432943f36f58adf63bcf3c2fe40maZ","","","");
 
-insert into seo(id,title,keyword,description) values("ed6e49e4caa89b3fadaf4d8ece95e6faIvGc","","","");
+insert into seo(id,title,keyword,description) values("f19afa1ad030069fd96da24c5bece517JxHQ","qq","eeee","www");
 
 insert into seo(id,title,keyword,description) values("f3299ba987af38c2ecc0b72b0a0596c4o1HM","r","r","r");
-
-insert into seo(id,title,keyword,description) values("f78a6b2eb722f18e9336bf9946c6f613Qugq","","","");
 
 insert into seo(id,title,keyword,description) values("f9f59e9807d5ab2c493bb5a55a8f78265rOy","","","");
 
@@ -173,6 +179,13 @@ CREATE TABLE `settings` (
 insert into settings(favicon,logo,mailer_host,mailer_user,mailer_pass,mailer_port,mailer_secure,mailer_replyto,mailer_from,mailer_fromname,mailer_replytoname) values("7bede8a590ce8a28.jpg","734f8503dd4a3328.png","12q1","2dd@gm.com","","","","6aea@gm.vm","3aa@gm.cmwwww","43e","7");
 
 
+CREATE TABLE `tags` (
+  `id` varchar(36) NOT NULL,
+  `name` varchar(255) DEFAULT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+
 CREATE TABLE `users` (
   `id` varchar(36) NOT NULL,
   `name` varchar(255) DEFAULT NULL,
@@ -182,6 +195,6 @@ CREATE TABLE `users` (
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
-insert into users(id,name,username,password,last_login) values("1","Admin","admin","$2y$10$1CC2/qD9sP2Pbuf9YZ5Wsu0WPoBqEJAcRSCqpN5j03bmui.ovtWvG","2020-03-18 16:02:59");
+insert into users(id,name,username,password,last_login) values("1","Admin","admin","$2y$10$1CC2/qD9sP2Pbuf9YZ5Wsu0WPoBqEJAcRSCqpN5j03bmui.ovtWvG","2020-03-19 22:21:19");
 
 

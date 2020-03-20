@@ -18,19 +18,22 @@ $app->get('/admin/post/create', function (SR $rq, RS $rs, array $ag) {
     foreach ($ag['category']['options'] as $k => $v) $ag['category']['options'][$k] = $v['name'];
     return $this->view->render($rs, 'app/post/create.twig', $ag);
 });
+
 $app->post('/admin/post/create', function (SR $rq, RS $rs, array $ag) {
     $id = createID();
     $data = array(
         'id' => $id,
-        'name' => $rq->getParam('name'),
+        'title' => $rq->getParam('title'),
         'slug' => $rq->getParam('slug'),
         'status' => $rq->getParam('status'),
+        'short_description' => $rq->getParam('short_description'),
         'description' => $rq->getParam('description'),
-        'parent_id' => $rq->getParam('parent_id'),
+        'views_count' => 0,
         'for_lang' => serialize($rq->getParam('for_lang')),
-        'create_at' => date("Y-m-d H:i:s")
+        'created_at' => date("Y-m-d H:i:s"),
+        'modified_at' => date("Y-m-d H:i:s")
     );
-    insertDB($this->db, 'category', $data);
+    insertDB($this->db, 'post', $data);
 
     $idSEO = createID();
     $data = array(
@@ -43,13 +46,23 @@ $app->post('/admin/post/create', function (SR $rq, RS $rs, array $ag) {
 
     $data = array(
         'id' => createID(),
-        'category_id' => $id,
+        'post_id' => $id,
         'seo_id' => $idSEO
     );
-    insertDB($this->db, 'category_seo', $data);
+    insertDB($this->db, 'post_seo', $data);
 
-    return $rs->withRedirect($GLOBALS['config']['base_url'] . '/admin/category/detail/' . $id);
+    foreach ($rq->getParam('category_id') as $c) {
+        $data = array(
+            'id' => createID(),
+            'post_id' => $id,
+            'category_id' => $c
+        );
+        insertDB($this->db, 'post_category', $data);
+    }
+
+    return $rs->withRedirect($GLOBALS['config']['base_url'] . '/admin/post/detail/' . $id);
 });
+
 $app->get('/admin/post/detail/{id}', function (SR $rq, RS $rs, array $ag) {
     if (empty($ag['id'])) return $rs->withRedirect($GLOBALS['config']['base_url'] . '/admin/category');
     $ag['record'] = getDBRecord($this->db, "select * from category where id='{$ag['id']}'");
@@ -99,9 +112,9 @@ $app->post('/admin/post/edit', function (SR $rq, RS $rs, array $ag) {
     return $rs->withRedirect($GLOBALS['config']['base_url'] . '/admin/category/detail/' . $rq->getParam('id'));
 });
 $app->get('/admin/post/delete/{id}', function (SR $rq, RS $rs, array $ag) {
-    $category_seo=getDBRecord($this->db,"select * from category_seo where category_id='{$ag['id']}'");
-    deleteDB($this->db,'category',$category_seo['category_id']);
-    deleteDB($this->db,'seo',$category_seo['seo_id']);
-    deleteDB($this->db,'category_seo',$category_seo['id']);
+    $category_seo = getDBRecord($this->db, "select * from category_seo where category_id='{$ag['id']}'");
+    deleteDB($this->db, 'category', $category_seo['category_id']);
+    deleteDB($this->db, 'seo', $category_seo['seo_id']);
+    deleteDB($this->db, 'category_seo', $category_seo['id']);
     return $rs->withRedirect($GLOBALS['config']['base_url'] . '/admin/category');
 });
