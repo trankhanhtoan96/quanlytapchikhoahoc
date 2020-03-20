@@ -128,9 +128,12 @@ $app->post('/admin/post/edit', function (SR $rq, RS $rs, array $ag) {
 });
 
 $app->get('/admin/post/delete/{id}', function (SR $rq, RS $rs, array $ag) {
-    $category_seo = getDBRecord($this->db, "select * from category_seo where category_id='{$ag['id']}'");
-    deleteDB($this->db, 'category', $category_seo['category_id']);
-    deleteDB($this->db, 'seo', $category_seo['seo_id']);
-    deleteDB($this->db, 'category_seo', $category_seo['id']);
-    return $rs->withRedirect($GLOBALS['config']['base_url'] . '/admin/category');
+    $post_seo = getDBRecord($this->db, "select * from post_seo where post_id='{$ag['id']}'");
+    deleteDB($this->db, 'post', $post_seo['post_id']);
+    deleteDB($this->db, 'seo', $post_seo['seo_id']);
+    deleteDB($this->db, 'post_seo', $post_seo['id']);
+
+    $this->db->query("delete from post_category where post_id='" . $rq->getParam('id') . "'");
+
+    return $rs->withRedirect($GLOBALS['config']['base_url'] . '/admin/post');
 });
