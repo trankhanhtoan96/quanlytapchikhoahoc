@@ -6,37 +6,37 @@ CREATE TABLE `category` (
   `description` text,
   `parent_id` varchar(36) DEFAULT NULL,
   `for_lang` varchar(255) DEFAULT NULL,
-  `create_at` datetime DEFAULT NULL,
   `modified_at` datetime DEFAULT NULL,
+  `created_at` datetime DEFAULT NULL,
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
-insert into category(id,name,slug,status,description,parent_id,for_lang,create_at,modified_at) values("22d7b35e45e4392eb14545a5067caedemcsh","1zzz","","active","","","a:1:{i:0;s:2:"vi";}","","");
+insert into category(id,name,slug,status,description,parent_id,for_lang,modified_at,created_at) values("22d7b35e45e4392eb14545a5067caedemcsh","1zzz","","active","","","a:1:{i:0;s:2:"vi";}","","");
 
-insert into category(id,name,slug,status,description,parent_id,for_lang,create_at,modified_at) values("2ba6a3d3901ad16d843bba3cf7671af6pRWM","123","456","inactive","<p>adsfsdf</p>
+insert into category(id,name,slug,status,description,parent_id,for_lang,modified_at,created_at) values("2ba6a3d3901ad16d843bba3cf7671af6pRWM","123","456","inactive","<p>adsfsdf</p>
 
 <p><img alt="" src="http://localhost/tkt/tkframework/upload/images/1.png" style="height:974px; width:775px" /></p>
-","9748d4dd8f42a8b89f517803daa9f1fclbEi","a:2:{i:0;s:2:"vi";i:1;s:2:"en";}","2020-03-19 10:56:56","");
+","9748d4dd8f42a8b89f517803daa9f1fclbEi","a:2:{i:0;s:2:"vi";i:1;s:2:"en";}","","");
 
-insert into category(id,name,slug,status,description,parent_id,for_lang,create_at,modified_at) values("499f646e7c10fb5f814e587bd5db2663yXOV","danh muc bia viet 2","","active","","9748d4dd8f42a8b89f517803daa9f1fclbEi","a:1:{i:0;s:2:"vi";}","2020-03-19 00:26:16","");
+insert into category(id,name,slug,status,description,parent_id,for_lang,modified_at,created_at) values("499f646e7c10fb5f814e587bd5db2663yXOV","danh muc bia viet 2","","active","","9748d4dd8f42a8b89f517803daa9f1fclbEi","a:1:{i:0;s:2:"vi";}","","");
 
-insert into category(id,name,slug,status,description,parent_id,for_lang,create_at,modified_at) values("6a1484a20038f1218011aa5ef6e78a1fWd89","pouipiou","","active","","97c3c8ab1b5d41bb6d5dcfa98a8586186BzT","a:1:{i:0;s:2:"vi";}","2020-03-19 10:50:10","");
+insert into category(id,name,slug,status,description,parent_id,for_lang,modified_at,created_at) values("6a1484a20038f1218011aa5ef6e78a1fWd89","pouipiou","","active","","97c3c8ab1b5d41bb6d5dcfa98a8586186BzT","a:1:{i:0;s:2:"vi";}","","");
 
-insert into category(id,name,slug,status,description,parent_id,for_lang,create_at,modified_at) values("80c8bac08c03a7f0cd30d6104f900ba3NN7W","1234","456","inactive","<p>adsfsdfqqqqqqqq</p>
-
-<p><img alt="" class="img-fluid" src="http://localhost/tkt/tkframework/upload/images/1.png" style="width:775px" /></p>
-","9748d4dd8f42a8b89f517803daa9f1fclbEi","a:1:{i:0;s:2:"en";}","2020-03-19 18:54:39","");
-
-insert into category(id,name,slug,status,description,parent_id,for_lang,create_at,modified_at) values("9748d4dd8f42a8b89f517803daa9f1fclbEi","danh muc bai viet 1","","active","","f78a6b2eb722f18e9336bf9946c6f613p3U5","a:1:{i:0;s:2:"vi";}","","");
-
-insert into category(id,name,slug,status,description,parent_id,for_lang,create_at,modified_at) values("97c3c8ab1b5d41bb6d5dcfa98a8586186BzT","1","","active","","","a:1:{i:0;s:2:"vi";}","","");
-
-insert into category(id,name,slug,status,description,parent_id,for_lang,create_at,modified_at) values("cb6c7c432943f36f58adf63bcf3c2fe4cX4U","2","","active","","","a:2:{i:0;s:2:"vi";i:1;s:2:"en";}","","");
-
-insert into category(id,name,slug,status,description,parent_id,for_lang,create_at,modified_at) values("f19afa1ad030069fd96da24c5bece517euQC","1234","456","inactive","<p>adsfsdf</p>
+insert into category(id,name,slug,status,description,parent_id,for_lang,modified_at,created_at) values("80c8bac08c03a7f0cd30d6104f900ba3NN7W","1234","456","inactive","<p>adsfsdfqqqqqqqq</p>
 
 <p><img alt="" class="img-fluid" src="http://localhost/tkt/tkframework/upload/images/1.png" style="width:775px" /></p>
-","9748d4dd8f42a8b89f517803daa9f1fclbEi","a:2:{i:0;s:2:"vi";i:1;s:2:"en";}","2020-03-19 18:54:22","");
+","9748d4dd8f42a8b89f517803daa9f1fclbEi","a:1:{i:0;s:2:"en";}","","");
+
+insert into category(id,name,slug,status,description,parent_id,for_lang,modified_at,created_at) values("9748d4dd8f42a8b89f517803daa9f1fclbEi","danh muc bai viet 1","","active","","f78a6b2eb722f18e9336bf9946c6f613p3U5","a:1:{i:0;s:2:"vi";}","","");
+
+insert into category(id,name,slug,status,description,parent_id,for_lang,modified_at,created_at) values("97c3c8ab1b5d41bb6d5dcfa98a8586186BzT","1","","active","","","a:1:{i:0;s:2:"vi";}","","");
+
+insert into category(id,name,slug,status,description,parent_id,for_lang,modified_at,created_at) values("cb6c7c432943f36f58adf63bcf3c2fe4cX4U","2","","active","","","a:2:{i:0;s:2:"vi";i:1;s:2:"en";}","","");
+
+insert into category(id,name,slug,status,description,parent_id,for_lang,modified_at,created_at) values("f19afa1ad030069fd96da24c5bece517euQC","1234","456","inactive","<p>adsfsdf</p>
+
+<p><img alt="" class="img-fluid" src="http://localhost/tkt/tkframework/upload/images/1.png" style="width:775px" /></p>
+","9748d4dd8f42a8b89f517803daa9f1fclbEi","a:2:{i:0;s:2:"vi";i:1;s:2:"en";}","","");
 
 
 CREATE TABLE `category_seo` (
@@ -94,6 +94,9 @@ CREATE TABLE `post` (
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
+insert into post(id,title,slug,status,short_description,description,created_at,modified_at,publish_at,views_count,created_by,modified_by,for_lang) values("45cf8ecfb58ebad8fc64b2049dd1e81dDzNP","123123","asasasas-xc-c-c","draft","sss","<p>dddd</p>
+","2020-03-20 13:11:10","2020-03-20 13:11:10","","0","","","a:2:{i:0;s:2:"vi";i:1;s:2:"en";}");
+
 
 CREATE TABLE `post_category` (
   `id` varchar(36) NOT NULL,
@@ -101,6 +104,12 @@ CREATE TABLE `post_category` (
   `post_id` varchar(36) DEFAULT NULL,
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+insert into post_category(id,category_id,post_id) values("45cf8ecfb58ebad8fc64b2049dd1e81dGIkU","9748d4dd8f42a8b89f517803daa9f1fclbEi","45cf8ecfb58ebad8fc64b2049dd1e81dDzNP");
+
+insert into post_category(id,category_id,post_id) values("45cf8ecfb58ebad8fc64b2049dd1e81di3EG","499f646e7c10fb5f814e587bd5db2663yXOV","45cf8ecfb58ebad8fc64b2049dd1e81dDzNP");
+
+insert into post_category(id,category_id,post_id) values("550f87f98bcd97f489e2594e4ce15f3dIPdS","9748d4dd8f42a8b89f517803daa9f1fclbEi","550f87f98bcd97f489e2594e4ce15f3dOHzj");
 
 insert into post_category(id,category_id,post_id) values("855212f9568595726d6bbf0c5038efd84S5a","9748d4dd8f42a8b89f517803daa9f1fclbEi","855212f9568595726d6bbf0c5038efd8BNw3");
 
@@ -111,6 +120,10 @@ CREATE TABLE `post_seo` (
   `seo_id` varchar(36) DEFAULT NULL,
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+insert into post_seo(id,post_id,seo_id) values("45cf8ecfb58ebad8fc64b2049dd1e81dbnek","45cf8ecfb58ebad8fc64b2049dd1e81dDzNP","45cf8ecfb58ebad8fc64b2049dd1e81dolP0");
+
+insert into post_seo(id,post_id,seo_id) values("550f87f98bcd97f489e2594e4ce15f3dgrH1","550f87f98bcd97f489e2594e4ce15f3dOHzj","550f87f98bcd97f489e2594e4ce15f3dOf0n");
 
 
 CREATE TABLE `post_tags` (
@@ -137,7 +150,11 @@ insert into seo(id,title,keyword,description) values("3886a32fe5862a8013f73c8142
 
 insert into seo(id,title,keyword,description) values("3b40d5434fccbd8d1783004bc29dce8aPV3s","tieu de","tu khoa","mo ta");
 
+insert into seo(id,title,keyword,description) values("45cf8ecfb58ebad8fc64b2049dd1e81dolP0","123","44","54");
+
 insert into seo(id,title,keyword,description) values("499f646e7c10fb5f814e587bd5db2663adBK","","","");
+
+insert into seo(id,title,keyword,description) values("550f87f98bcd97f489e2594e4ce15f3dOf0n","1","3","2");
 
 insert into seo(id,title,keyword,description) values("6a1484a20038f1218011aa5ef6e78a1fgfTR","","","");
 

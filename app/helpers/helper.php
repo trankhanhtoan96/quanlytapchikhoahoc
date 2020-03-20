@@ -164,10 +164,10 @@ function updateDB($conn, $table, $data, $id)
 {
     $sql = "update {$table} set ";
     foreach ($data as $k => $v) {
-        $sql .= $k . '="' . $v . '",';
+        $sql .= "{$k}='{$v}',";
     }
     $sql = rtrim($sql, ',');
-    $sql .= ' where id="' . $id . '"';
+    $sql .= " where id='{$id}'";
     return $conn->query($sql);
 }
 

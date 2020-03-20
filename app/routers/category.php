@@ -4,7 +4,7 @@ use Psr\Http\Message\ResponseInterface as RS;
 use Psr\Http\Message\ServerRequestInterface as SR;
 
 $app->get('/admin/category', function (SR $rq, RS $rs, array $ag) {
-    $sql = "select * from category order by create_at DESC";
+    $sql = "select * from category order by created_at DESC";
     $ag['records'] = getDBRecords($this->db, $sql);
     foreach ($ag['records'] as $k => $v) {
         $ag['records'][$k]['for_lang'] = unserialize($v['for_lang']);
@@ -28,7 +28,7 @@ $app->post('/admin/category/create', function (SR $rq, RS $rs, array $ag) {
         'description' => $rq->getParam('description'),
         'parent_id' => $rq->getParam('parent_id'),
         'for_lang' => serialize($rq->getParam('for_lang')),
-        'create_at' => date("Y-m-d H:i:s")
+        'created_at' => date("Y-m-d H:i:s")
     );
     insertDB($this->db, 'category', $data);
 

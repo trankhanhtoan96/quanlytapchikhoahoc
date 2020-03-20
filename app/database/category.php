@@ -30,7 +30,7 @@ $tables = array(
             'dbType' => 'varchar(255)',
             'label' => 'LBL_LANGUAGE'
         ),
-        'create_at'=>array(
+        'created_at'=>array(
             'dbType'=>'datetime',
             'label'=>'LBL_CREATE_AT'
         ),

@@ -55,4 +55,6 @@ $langs = [
     'LBL_PUBLISH_AT'=>'Xuất bản lúc',
     'LBL_VIEWS_COUNT'=>'Lượt xem',
     'LBL_CREATE_POST'=>'Bài viết mới',
+    'LBL_POST'=>'Bài viết',
+    'LBL_EDIT_POST'=>'Sửa bài viết'
 ];

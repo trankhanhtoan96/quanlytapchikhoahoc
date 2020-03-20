@@ -127,22 +127,30 @@ $app->add(function (ServerRequestInterface $rq, ResponseInterface $rs, $n) use (
                 break;
             case "datetime":
                 if ($val == 'now') $val = date($GLOBALS['config']['date_format'] . ' H:i');
+                else{
+                    $d=date($GLOBALS['config']['date_format'] . ' H:i', strtotime($val));
+                }
                 $html = '<div class="input-group">
-                                <input type="text" class="form-control datetimepicker" value="' . $val . '" name="' . $name . '" ' . $required . '/>
+                                <input type="text" class="form-control datetimepicker" value="' . $d . '" name="' . $name . '" ' . $required . '/>
                                 <div class="input-group-append">
                                   <span class="input-group-text"><i class="far fa-calendar"></i></span>
                                 </div>
                               </div>';
                 break;
             case "date":
+                if ($val== 'now') $d = date($GLOBALS['config']['date_format']);
+                else {
+                    $d=date($GLOBALS['config']['date_format'], strtotime($val));
+                }
                 $html = '<div class="input-group">
-                                <input type="text" class="form-control datepicker" value="' . $val . '" name="' . $name . '" ' . $required . '/>
+                                <input type="text" class="form-control datepicker" value="' . $d . '" name="' . $name . '" ' . $required . '/>
                                 <div class="input-group-append">
                                   <span class="input-group-text"><i class="far fa-calendar"></i></span>
                                 </div>
                               </div>';
                 break;
             case "time":
+                if ($val == 'now') $val = date('H:i');
                 $html = '<div class="input-group">
                                 <input type="text" class="form-control timepicker" value="' . $val . '" name="' . $name . '" ' . $required . '/>
                                 <div class="input-group-append">
@@ -186,7 +194,8 @@ $app->add(function (ServerRequestInterface $rq, ResponseInterface $rs, $n) use (
         $html = "";
         switch ($type) {
             case "text":
-                $html = "<div data-field-name='{$name}'>{$val}</div>";
+            case "time":
+                $html = "<div data-field-name='{$name}' data-field-value='{$val}'>{$val}</div>";
                 break;
             case "enum":
                 $html = "<div data-field-name='{$name}' data-field-value='{$val}'>{$listOption[$val]}</div>";
@@ -197,6 +206,14 @@ $app->add(function (ServerRequestInterface $rq, ResponseInterface $rs, $n) use (
                     $html .= "<li data-field-value='{$k}'>{$listOption[$k]}</li>";
                 }
                 $html .= "</ul></div>";
+                break;
+            case "datetime":
+                $d = date($GLOBALS['config']['date_format'] . ' H:i', strtotime($val));
+                $html = "<div data-field-name='{$name}' data-field-value='{$val}'>{$d}</div>";
+                break;
+            case "date":
+                $d = date($GLOBALS['config']['date_format'], strtotime($val));
+                $html = "<div data-field-name='{$name}' data-field-value='{$val}'>{$d}</div>";
                 break;
         }
         return $html;
