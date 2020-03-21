@@ -4,7 +4,7 @@ use Psr\Http\Message\ResponseInterface as RS;
 use Psr\Http\Message\ServerRequestInterface as SR;
 
 $app->get('/admin/category', function (SR $rq, RS $rs, array $ag) {
-    $sql = "select * from category order by created_at DESC";
+    $sql = "select * from category where status='active' order by created_at DESC";
     $ag['records'] = getDBRecords($this->db, $sql);
     foreach ($ag['records'] as $k => $v) {
         $ag['records'][$k]['for_lang'] = unserialize($v['for_lang']);
@@ -13,7 +13,7 @@ $app->get('/admin/category', function (SR $rq, RS $rs, array $ag) {
     return $this->view->render($rs, 'app/category/list.twig', $ag);
 });
 $app->get('/admin/category/create', function (SR $rq, RS $rs, array $ag) {
-    $sql = "select id,name from category order by name";
+    $sql = "select id,name from category where status='active' order by name";
     $ag['parent_id']['options'] = getDBRecords($this->db, $sql);
     foreach ($ag['parent_id']['options'] as $k => $v) $ag['parent_id']['options'][$k] = $v['name'];
     return $this->view->render($rs, 'app/category/create.twig', $ag);
@@ -67,7 +67,7 @@ $app->get('/admin/category/edit/{id}', function (SR $rq, RS $rs, array $ag) {
 
     $ag['record'] = getDBRecord($this->db, "select * from category where id='{$ag['id']}'");
 
-    $sql = "select id,name from category order by name";
+    $sql = "select id,name from category where status='active' order by name";
     $ag['parent_id']['options'] = getDBRecords($this->db, $sql);
     foreach ($ag['parent_id']['options'] as $k => $v) $ag['parent_id']['options'][$k] = $v['name'];
 

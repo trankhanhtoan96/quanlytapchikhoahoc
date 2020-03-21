@@ -13,7 +13,7 @@ $app->get('/admin/post', function (SR $rq, RS $rs, array $ag) {
     return $this->view->render($rs, 'app/post/list.twig', $ag);
 });
 $app->get('/admin/post/create', function (SR $rq, RS $rs, array $ag) {
-    $sql = "select id,name from category order by name";
+    $sql = "select id,name from category where status='active' order by name";
     $ag['category']['options'] = getDBRecords($this->db, $sql);
     foreach ($ag['category']['options'] as $k => $v) $ag['category']['options'][$k] = $v['name'];
     return $this->view->render($rs, 'app/post/create.twig', $ag);
@@ -82,7 +82,7 @@ $app->get('/admin/post/edit/{id}', function (SR $rq, RS $rs, array $ag) {
 
     $ag['record']['for_lang'] = unserialize($ag['record']['for_lang']);
 
-    $sql = "select id,name from category order by name";
+    $sql = "select id,name from category where status='active' order by name";
     $ag['category']['options'] = getDBRecords($this->db, $sql);
     foreach ($ag['category']['options'] as $k => $v) $ag['category']['options'][$k] = $v['name'];
 
