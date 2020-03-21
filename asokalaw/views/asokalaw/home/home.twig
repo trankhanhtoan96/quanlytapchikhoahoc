@@ -1,4 +1,4 @@
-{%  extends "asokalaw/base.twig" %}
+{% extends "asokalaw/base.twig" %}
 {% block content %}
     <section id="service" class="sub">
         <div class="container">
@@ -162,9 +162,9 @@
                         </div>
                         <p class="sub-title">Dịch vụ phổ biến</p>
                         <div class="list-rule">
-                            <p><i class="fa fa-caret-right"></i>  Đăng kí kinh doanh</p>
-                            <p><i class="fa fa-caret-right"></i>  Đăng kí đầu tư</p>
-                            <p><i class="fa fa-caret-right"></i>  Tư vấn trực tuyến</p>
+                            <p><i class="fa fa-caret-right"></i> Đăng kí kinh doanh</p>
+                            <p><i class="fa fa-caret-right"></i> Đăng kí đầu tư</p>
+                            <p><i class="fa fa-caret-right"></i> Tư vấn trực tuyến</p>
                         </div>
                         <div class="center">
                             <button type="button" class="btn btn-custom">Đăng kí ngay</button>
@@ -198,9 +198,9 @@
                         </div>
                         <p class="sub-title">Dịch vụ phổ biến</p>
                         <div class="list-rule">
-                            <p><i class="fa fa-caret-right"></i>  Pháp lý thường xuyên</p>
-                            <p><i class="fa fa-caret-right"></i>  Tư vấn chuyên sâu</p>
-                            <p><i class="fa fa-caret-right"></i>  Mở rộng kinh doanh</p>
+                            <p><i class="fa fa-caret-right"></i> Pháp lý thường xuyên</p>
+                            <p><i class="fa fa-caret-right"></i> Tư vấn chuyên sâu</p>
+                            <p><i class="fa fa-caret-right"></i> Mở rộng kinh doanh</p>
                         </div>
                         <div class="center">
                             <button type="button" class="btn btn-custom">Đăng kí ngay</button>
@@ -216,9 +216,9 @@
                         </div>
                         <p class="sub-title">Dịch vụ phổ biến</p>
                         <div class="list-rule">
-                            <p><i class="fa fa-caret-right"></i>  Nhượng quyền thương mại</p>
-                            <p><i class="fa fa-caret-right"></i>  Tư vấn chuyên sâu</p>
-                            <p><i class="fa fa-caret-right"></i>  Xử lý tranh chấp</p>
+                            <p><i class="fa fa-caret-right"></i> Nhượng quyền thương mại</p>
+                            <p><i class="fa fa-caret-right"></i> Tư vấn chuyên sâu</p>
+                            <p><i class="fa fa-caret-right"></i> Xử lý tranh chấp</p>
                         </div>
                         <div class="center">
                             <button type="button" class="btn btn-custom">Đăng kí ngay</button>
@@ -308,7 +308,7 @@
         </div>
         <div class="container center">
             <div class="row title">
-                <h1 >Hiệu quả sử dụng dịch vụ pháp lý của Asoka Law</h1>
+                <h1>Hiệu quả sử dụng dịch vụ pháp lý của Asoka Law</h1>
             </div>
             <div class="effective-content">
                 <div class="row">
@@ -355,48 +355,7 @@
             </div>
         </div>
     </section>
-    <section id="slide-partner" class="sub">
-        <div class="container center">
-            <div class="list-slide-partner">
-                <div class="slide-item">
-                    <img class="img-partner" src="{{ base_url }}/asokalaw/assets/media/partner/1.jpg">
-                </div>
-                <div class="slide-item">
-                    <img class="img-partner" src="{{ base_url }}/asokalaw/assets/media/partner/1.jpg">
-                </div>
-                <div class="slide-item">
-                    <img class="img-partner" src="{{ base_url }}/asokalaw/assets/media/partner/2.jpg">
-                </div>
-                <div class="slide-item">
-                    <img class="img-partner" src="{{ base_url }}/asokalaw/assets/media/partner/3.jpg">
-                </div>
-                <div class="slide-item">
-                    <img class="img-partner" src="{{ base_url }}/asokalaw/assets/media/partner/4.jpg">
-                </div>
-                <div class="slide-item">
-                    <img class="img-partner" src="{{ base_url }}/asokalaw/assets/media/partner/5.jpg">
-                </div>
-                <div class="slide-item">
-                    <img class="img-partner" src="{{ base_url }}/asokalaw/assets/media/partner/6.jpg">
-                </div>
-                <div class="slide-item">
-                    <img class="img-partner" src="{{ base_url }}/asokalaw/assets/media/partner/7.jpg">
-                </div>
-                <div class="slide-item">
-                    <img class="img-partner" src="{{ base_url }}/asokalaw/assets/media/partner/8.jpg">
-                </div>
-                <div class="slide-item">
-                    <img class="img-partner" src="{{ base_url }}/asokalaw/assets/media/partner/9.jpg">
-                </div>
-                <div class="slide-item">
-                    <img class="img-partner" src="{{ base_url }}/asokalaw/assets/media/partner/10.jpg">
-                </div>
-                <div class="slide-item">
-                    <img class="img-partner" src="{{ base_url }}/asokalaw/assets/media/partner/12.jpg">
-                </div>
-            </div>
-        </div>
-    </section>
+    {% include 'asokalaw/home/partner.twig' %}
     <section id="slide-info" class="sub">
         <div class="container center">
             <div class="row title">
@@ -494,28 +453,32 @@
                     <video height="100%" width="100%" poster="{{ base_url }}/asokalaw/assets/media/video/vid3.svg" controls>
                         <source src="https://www.youtube.com/embed/bb42zrvKOWQ" type="video/mp4">
                     </video>
-                    <div><img class="icon float-left" src="{{ base_url }}/asokalaw/assets/media/video/viewicon.svg"> <p> 2k3 lượt xem</p></div>
+                    <div><img class="icon float-left" src="{{ base_url }}/asokalaw/assets/media/video/viewicon.svg">
+                        <p> 2k3 lượt xem</p></div>
                 </div>
                 <div class="slide-item">
                     <img src="{{ base_url }}/asokalaw/assets/media/video/play.svg" class="btn-play">
                     <video height="100%" width="100%" poster="{{ base_url }}/asokalaw/assets/media/video/vid3.svg" controls>
                         <source src="https://www.youtube.com/embed/bb42zrvKOWQ" type="video/mp4">
                     </video>
-                    <div><img class="icon float-left" src="{{ base_url }}/asokalaw/assets/media/video/viewicon.svg"> <p> 2k3 lượt xem</p></div>
+                    <div><img class="icon float-left" src="{{ base_url }}/asokalaw/assets/media/video/viewicon.svg">
+                        <p> 2k3 lượt xem</p></div>
                 </div>
                 <div class="slide-item">
                     <img src="{{ base_url }}/asokalaw/assets/media/video/play.svg" class="btn-play">
                     <video height="100%" width="100%" poster="{{ base_url }}/asokalaw/assets/media/video/vid3.svg" controls>
                         <source src="https://www.youtube.com/embed/bb42zrvKOWQ" type="video/mp4">
                     </video>
-                    <div><img class="icon float-left" src="{{ base_url }}/asokalaw/assets/media/video/viewicon.svg"> <p> 2k3 lượt xem</p></div>
+                    <div><img class="icon float-left" src="{{ base_url }}/asokalaw/assets/media/video/viewicon.svg">
+                        <p> 2k3 lượt xem</p></div>
                 </div>
                 <div class="slide-item">
                     <img src="{{ base_url }}/asokalaw/assets/media/video/play.svg" class="btn-play">
                     <video height="100%" width="100%" poster="{{ base_url }}/asokalaw/assets/media/video/vid3.svg" controls>
                         <source src="https://www.youtube.com/embed/bb42zrvKOWQ" type="video/mp4">
                     </video>
-                    <div><img class="icon float-left" src="{{ base_url }}/asokalaw/assets/media/video/viewicon.svg"> <p> 2k3 lượt xem</p></div>
+                    <div><img class="icon float-left" src="{{ base_url }}/asokalaw/assets/media/video/viewicon.svg">
+                        <p> 2k3 lượt xem</p></div>
                 </div>
             </div>
         </div>
