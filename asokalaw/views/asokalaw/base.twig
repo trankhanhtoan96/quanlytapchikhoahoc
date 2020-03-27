@@ -2,211 +2,30 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>Home</title>
-    <link rel="stylesheet" type="text/css" href="{{ base_url }}/asokalaw/assets/slick/slick.min.css"/>
+    <link rel="icon" href="{{ base_url }}/upload/{{ settings.favicon }}" type="image/*">
     <link rel="stylesheet" href="{{ base_url }}/asokalaw/assets/css/bootstrap.min.css">
     <link rel="stylesheet" href="{{ base_url }}/asokalaw/assets/font-awesome/css/all.min.css">
-    <link rel="stylesheet" href="{{ base_url }}/asokalaw/assets/css/main.css">
+    <link rel="stylesheet" href="{{ base_url }}/asokalaw/assets/css/slick.css">
     <link rel="stylesheet" href="{{ base_url }}/asokalaw/assets/css/app.css">
-
     <script>
         var lang = {{ lang_js|raw }};
+        var config = {{ config_js|raw }};
         var cur_lang = "{{ cur_lang }}";
         var base_url = "{{ base_url }}";
         var cur_uri = "{{ cur_uri }}";
     </script>
     {% block extra_header %}{% endblock %}
-
 </head>
 <body>
-<header>
-    <section class=" bg-blue">
-        <div class="container">
-            <div class="row center">
-                <div class="col-md-3 padding">
-                    <i class="fa fa-envelope-o"></i> consult@asokalaw.vn
-                </div>
-
-                <div class="col-md-9 center">
-                    <div class="float-right padding">
-                        <a href="/dang-ky-nhan-hieu">VN</a>
-                        <span>|</span>
-                        <a href="/trademark-registration">EN</a>
-                    </div>
-
-                    <button class="float-right btn btn-outline-warning padding" type="button">Nhận tư vấn miễn phí
-                    </button>
-
-                    <div class="h-phone padding"><i class="fa fa-phone primary"></i> 028 62 789 228</div>
-                </div>
-
-            </div>
-        </div>
-
-    </section>
-
-    <section class="header">
-        <nav class=" container navbar navbar-expand-sm  navbar-transparent">
-            <!-- Brand -->
-            <a class="navbar-brand" href="#">
-                <img class="img-responsive center-block" alt="Công ty Luật TNHH Asoka"
-                     src="http://www.asokalaw.vn/assets/images/dang-ky-nhan-hieu/logo.png">
-            </a>
-
-            <!-- Toggler/collapsibe Button -->
-            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#collapsibleNavbar">
-                <span class="navbar-toggler-icon"></span>
-            </button>
-
-            <!-- Navbar links -->
-            <div class="collapse navbar-collapse" id="collapsibleNavbar">
-                <ul class="navbar-nav ml-auto">
-                    <li class="nav-item ">
-                        <a class="nav-link" href="#">VỀ ASOKA</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="#">PHÁP LÝ DOANH NGHIỆP</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="#">DỊCH VỤ PHÁP LÝ</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="#">TIN TỨC</a>
-                    </li>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="#">KHÁCH HÀNG</a>
-                    </li>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="#">LIÊN HỆ</a>
-                    </li>
-                </ul>
-            </div>
-        </nav>
-        <div class="container">
-            <div class="row banner">
-                <div class="col-lg-6 title-banner">
-                    <h1>Lorem Isum Dolor Sit Amet
-                        Consectetuer Adipirt</h1>
-                    <div class=" row search">
-                        <div class="container-search flex-center-vertically">
-                            <div class="row row-search" >
-                                <i class="fa fa-search"></i>
-                                <input type="text" class="input-search" placeholder="Chọn lĩnh vực bạ quan tâm">
-                                <i class="fa fa-caret-down"></i>
-                            </div>
-                        </div>
-                        <button class="btn btn-warning text-color-search">Tìm kiếm</button>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-</header>
-
+{% include 'asokalaw/header.twig' %}
 {% block content %}{% endblock %}
-
-<section class="sub bg-image center">
-    <div class="container">
-
-        <h5>Gọi ngay cho chúng tôi để được tư vấn pháp lý</h5>
-        <h3><i class="fa fa-phone"></i> 096 191 4328</h3>
-    </div>
-
-
-</section>
-<section class="footer bg-blue">
-    <div class="container">
-        <div class="row">
-            <div class="col-sm-3">
-                <img class="img-responsive center-block" alt="Công ty Luật TNHH Asoka"
-                     src="http://www.asokalaw.vn/assets/images/dang-ky-nhan-hieu/logo.png">
-                <div class="space"></div>
-                <div>Asoka Law là một hãng luật chính danh, chuyên tư vấn và đại diện pháp lý cho<br>doanh
-                    nghiệp/cá nhân tại Việt Nam.
-                </div>
-
-                <div class="space"></div>
-                <p><i class="fa fa-phone"></i> 028 62 789 228</p>
-                <p><i class="fa fa-envelope-o"></i> consult@asokalaw.vn</p>
-                <h4>Hồ sơ năng lực Asoka Law</h4>
-                <a href="/">(Xem chi tiết tại đây)</a>
-            </div>
-            <div class="col-sm-3">
-                <h4>Pháp lý doanh nghiệp</h4>
-                <ul>
-                    <li><a href="/">Khởi tạo doanh nghiệp</a></li>
-                    <li><a href="/">Doanh nghiệp dưới 1 năm</a></li>
-                    <li><a href="/">Doanh nghiệp dưới 3 năm</a></li>
-                    <li><a href="/">Doanh nghiệp trên 3 năm</a></li>
-                </ul>
-
-                <div class="space"></div>
-                <h4>Khách hàng</h4>
-                <ul>
-                    <li><a href="/">Câu hỏi thường gặp</a></li>
-                    <li><a href="/">Chính sách khách hàng</a></li>
-                    <li><a href="/">Quy trình làm việc</a></li>
-                    <li><a href="/">Hướng dẫn thanh toán</a></li>
-                </ul>
-            </div>
-            <div class="col-sm-3">
-                <h4>Dịch vụ pháp lý</h4>
-                <ul>
-                    <li><a href="/">Tư vấn trực tiếp</a></li>
-                    <li><a href="/">Đăng ký kinh doanh</a></li>
-                    <li><a href="/">Đăng ký đầu tư</a></li>
-                    <li><a href="/">Đăng ký nhãn hiệu</a></li>
-                    <li><a href="/">Pháp lý thường xuyên</a></li>
-                    <li><a href="/">Pháp lý sự kiện</a></li>
-                    <li><a href="/">Xử lý tranh chấp</a></li>
-                </ul>
-            </div>
-            <div class="col-sm-3">
-                <h4>Đăng ký tư vấn</h4>
-                <p>Hãy để lại email để được tư vấn miễn phí</p>
-                <div class="input-group mb-3">
-                    <input type="text" class="form-control" placeholder="Vui lòng nhập email của bạn"/>
-                    <div class="input-group-append">
-                        <button class="btn btn-warning" type="button">Gửi</button>
-                    </div>
-                </div>
-
-
-                <div class="social">
-                    <p>KẾT NỐI VỚI CHÚNG TÔI:</p>
-                    <a href="https://www.facebook.com/asokalaw/" target="_blank" class="facebook">
-                        <i class="fab fa-facebook-f" aria-hidden="true"></i></a>
-                    <a href="https://www.linkedin.com/company/asoka-law/" target="_blank" class="linkedin">
-                        <i class="fab fa-linkedin   "></i></a>
-                    <a href="#" target="_blank" class="instagram"><i class="fab fa-instagram"></i></a>
-                </div>
-                <div class="space"></div>
-                <div class="space"></div>
-                <div class="space"></div>
-                <a href="http://online.gov.vn/Home/WebDetails/62754" target="_blank">
-                    <img class="img-responsive"
-                         src="http://online.gov.vn/Content/EndUser/LogoCCDVSaleNoti/logoSaleNoti.png"/></a>
-            </div>
-        </div>
-
-
-    </div>
-</section>
-<section class="sub bg-grey center">
-    <div class="container">
-        © 2019 asokalaw.vn<br>
-        Trụ sở chính: 228 Nguyễn Hoàng, Phường An Phú, Quận 2, Tp. Hồ Chí Minh<br>
-        Chi nhánh: 23.OT09, Landmark 81, 208 Nguyễn Hữu Cảnh, Quận Bình Thạnh, Tp. Hồ Chí Minh<br>
-        Giấy ĐKHĐ số: 41.02.2946/TP/ĐKHĐ do Sở Tư pháp TP. Hồ Chí Minh cấp
-    </div>
-
-</section>
+{% include 'asokalaw/footer.twig' %}
 <script src="{{ base_url }}/asokalaw/assets/js/jquery.min.js"></script>
-<script type="text/javascript" src="{{ base_url }}/asokalaw/assets/js/main.js"></script>
-<script type="text/javascript" src="{{ base_url }}/asokalaw/assets/slick/slick.min.js"></script>
+<script type="text/javascript" src="{{ base_url }}/asokalaw/assets/js/slick.min.js"></script>
+<script type="text/javascript" src="{{ base_url }}/asokalaw/assets/js/app.js"></script>
 {% block extra_footer %}{% endblock %}
 </body>
 </html>
