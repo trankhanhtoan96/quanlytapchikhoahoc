@@ -185,6 +185,14 @@ $app->add(function (ServerRequestInterface $rq, ResponseInterface $rs, $n) use (
                 }
                 $html .= "</select>";
                 break;
+            case "image":
+                $html = '<div class="input-group">
+                                <input readonly type="text" class="form-control file-image" value="' . $val . '" name="' . $name . '" ' . $required . '/>
+                                <div class="input-group-append">
+                                  <span class="input-group-text"><i class="far fa-calendar"></i></span>
+                                </div>
+                              </div>';
+                break;
         }
         return $html;
     });

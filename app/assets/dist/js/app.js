@@ -151,3 +151,23 @@ $(function () {
         datepicker: false
     });
 });
+
+function buttonChooseFieldUpload(fieldName, type) {
+    CKFinder.popup({
+        resourceType: type,
+        language: cur_lang,
+        selectActionFunction: function (fileUrl, data, allFiles) {
+            if (type == 'Images') {
+                $('#img_' + fieldName).attr('src', fileUrl);
+            } else {
+                $('#file_' + fieldName).attr('href', fileUrl).show();
+                var temp = fileUrl.split('/');
+                if (temp.length > 0) {
+                    $('#file_' + fieldName).html(decodeURI(temp[temp.length - 1].substr(0, 30)) + '...');
+                }
+            }
+            $('#' + fieldName).val(fileUrl);
+        }
+    });
+}
+
