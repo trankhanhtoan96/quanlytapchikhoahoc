@@ -21,6 +21,13 @@
 </head>
 <body>
 {% include 'asokalaw/header.twig' %}
+<header>
+    {% include 'asokalaw/top-header.twig' %}
+    <section class="header">
+        {% include 'asokalaw/main-menu.twig' %}
+        {% block slide_header %}{% endblock %}
+    </section>
+</header>
 {% block content %}{% endblock %}
 {% include 'asokalaw/footer.twig' %}
 <script src="{{ base_url }}/asokalaw/assets/js/jquery.min.js"></script>
