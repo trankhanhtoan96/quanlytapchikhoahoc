@@ -6,7 +6,7 @@
     <title>Admin</title>
     <!-- Tell the browser to be responsive to screen width -->
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link rel="icon" href="{{ base_url }}/upload/{{ settings.favicon }}" type="image/png">
+    <link rel="icon" href="{{ settings.favicon }}" type="image/png">
     <!-- Font Awesome -->
     <link rel="stylesheet" href="{{ base_url }}/app/assets/font-awesome/css/all.min.css">
     <!-- Tempusdominus Bbootstrap 4 -->
@@ -84,7 +84,10 @@
 <script src="{{ base_url }}/app/assets/plugins/overlayScrollbars/js/jquery.overlayScrollbars.min.js"></script>
 <!-- AdminLTE App -->
 <script src="{{ base_url }}/app/assets/dist/js/adminlte.min.js"></script>
+{#ckeditor#}
 <script src="{{ base_url }}/app/assets/ckeditor/ckeditor.js"></script>
+{#ckfinder#}
+<script src="{{ base_url }}/app/assets/ckfinder/ckfinder.js"></script>
 <!-- DataTables -->
 <script src="{{ base_url }}/app/assets/plugins/datatables/jquery.dataTables.js"></script>
 <script src="{{ base_url }}/app/assets/plugins/datatables-bs4/js/dataTables.bootstrap4.js"></script>
@@ -94,9 +97,6 @@
 <script src="{{ base_url }}/app/assets/plugins/toastr/toastr.min.js"></script>
 {#datetimepicker#}
 <script src="{{ base_url }}/app/assets/plugins/datetimepicker/calendar.full.min.js"></script>
-
-{#ckfinder#}
-<script src="{{ base_url }}/app/assets/ckfinder/ckfinder.js"></script>
 
 <script src="{{ base_url }}/app/assets/dist/js/JSSpinner.js"></script>
 <script src="{{ base_url }}/app/assets/dist/js/app.js"></script>

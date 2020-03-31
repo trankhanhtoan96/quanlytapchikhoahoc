@@ -56,5 +56,14 @@ $langs = [
     'LBL_VIEWS_COUNT'=>'Lượt xem',
     'LBL_CREATE_POST'=>'Bài viết mới',
     'LBL_POST'=>'Bài viết',
-    'LBL_EDIT_POST'=>'Sửa bài viết'
+    'LBL_EDIT_POST'=>'Sửa bài viết',
+    'LBL_USER_COMMENT'=>'Người nhận xét',
+    'LBL_USER_TITLE'=>'Chức vụ',
+    'LBL_FEEDBACK'=>'Feedback',
+    'LBL_AVATAR'=>'Ảnh đại diện',
+    'LBL_W_NAME'=>'Tên website',
+    'LBL_EMAIL'=>'Thư điện tử',
+    'LBL_PHONE'=>'Số điện thoại',
+    'LBL_HEAD_OFFICE'=>'Trụ sở',
+    'LBL_BRANCH_OFFICE'=>'Chi nhánh',
 ];

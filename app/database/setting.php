@@ -18,7 +18,7 @@ $tables = array(
             'label' => 'LBL_MAILER_USER'
         ),
         'mailer_pass' => array(
-            'dbType' => 'varchar(60)',
+            'dbType' => 'varchar(255)',
             'label' => 'LBL_MAILER_PASS'
         ),
         'mailer_port' => array(
@@ -44,6 +44,26 @@ $tables = array(
         'mailer_replytoname' => array(
             'dbType' => 'varchar(255)',
             'label' => 'LBL_MAILER_REPLYTONAME'
+        ),
+        'name' => array(
+            'dbType' => 'varchar(255)',
+            'label' => 'LBL_W_NAME'
+        ),
+        'email' => array(
+            'dbType' => 'varchar(255)',
+            'label' => 'LBL_EMAIL'
+        ),
+        'phone' => array(
+            'dbType' => 'varchar(30)',
+            'label' => 'LBL_PHONE'
+        ),
+        'head_office' => array(
+            'dbType' => 'varchar(255)',
+            'label' => 'LBL_HEAD_OFFICE'
+        ),
+        'branch_office' => array(
+            'dbType' => 'varchar(255)',
+            'label' => 'LBL_BRANCH_OFFICE'
         ),
     )
 );

@@ -150,23 +150,19 @@ $(function () {
         validateOnBlur: false,
         datepicker: false
     });
+    $('[data-toggle="tooltip"]').tooltip();
 });
 
-function buttonChooseFieldUpload(fieldName, type) {
+function buttonChooseFieldUpload(fieldName, type = '') {
     CKFinder.popup({
         resourceType: type,
         language: cur_lang,
         selectActionFunction: function (fileUrl, data, allFiles) {
+            $('input[name="' + fieldName + '"]').val(fileUrl);
             if (type == 'Images') {
-                $('#img_' + fieldName).attr('src', fileUrl);
-            } else {
-                $('#file_' + fieldName).attr('href', fileUrl).show();
-                var temp = fileUrl.split('/');
-                if (temp.length > 0) {
-                    $('#file_' + fieldName).html(decodeURI(temp[temp.length - 1].substr(0, 30)) + '...');
-                }
+                var html = '<img class="img-responsive img-thumbnail" src="' + fileUrl + '" style="height: 150px;width: auto"/>';
+                $('.file-preview-' + fieldName).html(html);
             }
-            $('#' + fieldName).val(fileUrl);
         }
     });
 }

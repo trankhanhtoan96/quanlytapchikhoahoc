@@ -51,7 +51,7 @@ $app->get('/admin/repair', function (SR $rq, RS $rs, array $ag) {
                                     $sql2 = 'values(';
                                     foreach ($data as $col => $val) {
                                         $sql .= $col . ',';
-                                        $sql2 .= '"' . $val . '",';
+                                        $sql2 .= "'" . $val . "',";
                                     }
                                     $sql = rtrim($sql, ',') . ') ' . rtrim($sql2, ',') . ')';
                                     $this->db->query($sql);
@@ -83,7 +83,7 @@ $app->get('/admin/repair', function (SR $rq, RS $rs, array $ag) {
             $tmp2 = "values(";
             foreach ($row as $key => $val) {
                 $tmp1 .= $key . ',';
-                $tmp2 .= '"' . $val . '",';
+                $tmp2 .= "'" . $val . "',";
             }
             $tmp1 = rtrim($tmp1, ',') . ')';
             $tmp2 = rtrim($tmp2, ',') . ');';
@@ -103,4 +103,8 @@ $app->get('/admin/repair', function (SR $rq, RS $rs, array $ag) {
 $app->post('/setLang', function (SR $rq, RS $rs, array $ag) {
     $_SESSION['lang'] = $rq->getParam('lang');
     return $rs->withJson(array('success' => 1));
+});
+$app->get('/setLang/{lang}', function (SR $rq, RS $rs, array $ag) {
+    $_SESSION['lang'] = $ag['lang'];
+    return $rs->withRedirect($rq->getParam('redirect_to'));
 });

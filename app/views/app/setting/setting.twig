@@ -14,7 +14,7 @@
             <form class="form-horizontal" enctype="multipart/form-data" method="post" action="{{ base_url }}/admin/setting">
                 <div class="card card-info">
                     <div class="card-header">
-                        <h3 class="card-title">{{ lang('LBL_GENERAL_SETTINGS') }}</h3>
+                        <h3 class="card-title">{{ lang('LBL_GENERAL_INFO') }}</h3>
                     </div>
                     <div class="card-body">
                         <div class="row">
@@ -22,8 +22,7 @@
                                 <div class="form-group row">
                                     <label class="col-sm-4 col-form-label text-sm-left text-md-right">{{ lang(db_def.settings.favicon.label) }}</label>
                                     <div class="col-sm-8">
-                                        <input type="file" class="form-control" name="favicon"/>
-                                        <img style="width: 64px" src="{{ base_url }}/upload/{{ settings.favicon }}"/>
+                                        {{ form_field("image","favicon",'','',settings.favicon)|raw }}
                                     </div>
                                 </div>
                             </div>
@@ -31,8 +30,56 @@
                                 <div class="form-group row">
                                     <label class="col-sm-4 col-form-label text-sm-left text-md-right">{{ lang(db_def.settings.logo.label) }}</label>
                                     <div class="col-sm-8">
-                                        <input type="file" class="form-control" name="logo"/>
-                                        <img style="width: 64px" src="{{ base_url }}/upload/{{ settings.logo }}"/>
+                                        {{ form_field("image","logo",'','',settings.logo)|raw }}
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-sm-6">
+                                <div class="form-group row">
+                                    <label class="col-sm-4 col-form-label text-sm-left text-md-right">{{ lang(db_def.settings.name.label) }}</label>
+                                    <div class="col-sm-8">
+                                        {{ form_field("text","name",'','',settings.name)|raw }}
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-sm-6">
+                                <div class="form-group row">
+                                    <label class="col-sm-4 col-form-label text-sm-left text-md-right">{{ lang(db_def.settings.email.label) }}</label>
+                                    <div class="col-sm-8">
+                                        {{ form_field("text","email",'','',settings.email)|raw }}
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-sm-6">
+                                <div class="form-group row">
+                                    <label class="col-sm-4 col-form-label text-sm-left text-md-right">{{ lang(db_def.settings.phone.label) }}</label>
+                                    <div class="col-sm-8">
+                                        {{ form_field("text","phone",'','',settings.phone)|raw }}
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-sm-6">
+
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-sm-6">
+                                <div class="form-group row">
+                                    <label class="col-sm-4 col-form-label text-sm-left text-md-right">{{ lang(db_def.settings.head_office.label) }}</label>
+                                    <div class="col-sm-8">
+                                        {{ form_field("textarea","head_office",'','',settings.head_office)|raw }}
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-sm-6">
+                                <div class="form-group row">
+                                    <label class="col-sm-4 col-form-label text-sm-left text-md-right">{{ lang(db_def.settings.branch_office.label) }}</label>
+                                    <div class="col-sm-8">
+                                        {{ form_field("textarea","branch_office",'','',settings.branch_office)|raw }}
                                     </div>
                                 </div>
                             </div>

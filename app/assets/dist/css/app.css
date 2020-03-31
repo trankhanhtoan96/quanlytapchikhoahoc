@@ -22,6 +22,13 @@
 
 @font-face {
     font-family: 'SFUIText';
+    src: url('../../font/SFUIText/SFUIText-Light.ttf');
+    font-weight: 400;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'SFUIText';
     src: url('../../font/SFUIText/SFUIText-Regular.ttf');
     font-weight: normal;
     font-style: normal;
@@ -29,42 +36,42 @@
 
 @font-face {
     font-family: 'SFUIText';
-    src: url('../../font/SFUIText/SFUIText-SemiBold.ttf');
+    src: url('../../font/SFUIText/SFUIText-Medium.ttf');
     font-weight: bold;
     font-style: normal;
 }
 
 @font-face {
     font-family: 'SFUIText';
-    src: url('../../font/SFUIText/SFUIText-SemiBold.ttf');
+    src: url('../../font/SFUIText/SFUIText-Medium.ttf');
     font-weight: 500;
     font-style: normal;
 }
 
 @font-face {
     font-family: 'SFUIText';
-    src: url('../../font/SFUIText/SFUIText-SemiBold.ttf');
+    src: url('../../font/SFUIText/SFUIText-Medium.ttf');
     font-weight: 600;
     font-style: normal;
 }
 
 @font-face {
     font-family: 'SFUIText';
-    src: url('../../font/SFUIText/SFUIText-Bold.ttf');
+    src: url('../../font/SFUIText/SFUIText-Medium.ttf');
     font-weight: 700;
     font-style: normal;
 }
 
 @font-face {
     font-family: 'SFUIText';
-    src: url('../../font/SFUIText/SFUIText-Bold.ttf');
+    src: url('../../font/SFUIText/SFUIText-Medium.ttf');
     font-weight: 800;
     font-style: normal;
 }
 
 @font-face {
     font-family: 'SFUIText';
-    src: url('../../font/SFUIText/SFUIText-Bold.ttf');
+    src: url('../../font/SFUIText/SFUIText-Medium.ttf');
     font-weight: 900;
     font-style: normal;
 }
@@ -93,6 +100,13 @@
 
 @font-face {
     font-family: 'SFUIText';
+    src: url('../../font/SFUIText/SFUIText-LightItalic.ttf');
+    font-weight: 400;
+    font-style: italic;
+}
+
+@font-face {
+    font-family: 'SFUIText';
     src: url('../../font/SFUIText/SFUIText-RegularItalic.ttf');
     font-weight: normal;
     font-style: italic;
@@ -100,52 +114,49 @@
 
 @font-face {
     font-family: 'SFUIText';
-    src: url('../../font/SFUIText/SFUIText-SemiboldItalic.ttf');
+    src: url('../../font/SFUIText/SFUIText-MediumItalic.ttf');
     font-weight: bold;
     font-style: italic;
 }
 
 @font-face {
     font-family: 'SFUIText';
-    src: url('../../font/SFUIText/SFUIText-SemiboldItalic.ttf');
+    src: url('../../font/SFUIText/SFUIText-MediumItalic.ttf');
     font-weight: 500;
     font-style: italic;
 }
 
 @font-face {
     font-family: 'SFUIText';
-    src: url('../../font/SFUIText/SFUIText-SemiboldItalic.ttf');
+    src: url('../../font/SFUIText/SFUIText-MediumItalic.ttf');
     font-weight: 600;
     font-style: italic;
 }
 
 @font-face {
     font-family: 'SFUIText';
-    src: url('../../font/SFUIText/SFUIText-boldItalic.ttf');
+    src: url('../../font/SFUIText/SFUIText-MediumItalic.ttf');
     font-weight: 700;
     font-style: italic;
 }
 
 @font-face {
     font-family: 'SFUIText';
-    src: url('../../font/SFUIText/SFUIText-boldItalic.ttf');
+    src: url('../../font/SFUIText/SFUIText-MediumItalic.ttf');
     font-weight: 800;
     font-style: italic;
 }
 
 @font-face {
     font-family: 'SFUIText';
-    src: url('../../font/SFUIText/SFUIText-boldItalic.ttf');
+    src: url('../../font/SFUIText/SFUIText-MediumItalic.ttf');
     font-weight: 900;
     font-style: italic;
 }
 
 * {
     font-family: SFUIText, sans-serif;
-}
-
-html, body {
-    font-size: 14px;
+    font-size:14px
 }
 
 [class*=sidebar-dark-] .nav-treeview > .nav-item > .nav-link.active {
@@ -163,6 +174,7 @@ html, body {
 
 .table td, .table th {
     padding: .5rem;
+    vertical-align: middle;
 }
 
 .col-form-value {

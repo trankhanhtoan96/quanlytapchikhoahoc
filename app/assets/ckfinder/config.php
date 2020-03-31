@@ -271,7 +271,7 @@ $config['CheckSizeAfterScaling'] = true;
 For security, HTML is allowed in the first Kb of data for files having the
 following extensions only.
 */
-$config['HtmlExtensions'] = array('html', 'htm', 'xml', 'js');
+$config['HtmlExtensions'] = array('html', 'htm', 'xml', 'js','svg');
 
 /*
 Folders to not display in CKFinder, no matter their location.

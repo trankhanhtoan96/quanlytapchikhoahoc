@@ -14,7 +14,7 @@
             <form class="form-horizontal" method="post" action="{{ base_url }}/admin/setting/email">
                 <div class="card card-info">
                     <div class="card-header">
-                        <h3 class="card-title">{{ lang('LBL_SETTING_EMAIL') }}</h3>
+                        <h3 class="card-title">{{ lang('LBL_GENERAL_INFO') }}</h3>
                     </div>
                     <div class="card-body">
                         <div class="row">
@@ -22,7 +22,7 @@
                                 <div class="form-group row">
                                     <label class="col-sm-4 col-form-label text-sm-left text-md-right">{{ lang(db_def.settings.mailer_host.label) }}</label>
                                     <div class="col-sm-8">
-                                        <input type="text" class="form-control" name="mailer_host" value="{{ settings.mailer_host }}"/>
+                                        {{ form_field("text","mailer_host",'','',settings.mailer_host)|raw }}
                                     </div>
                                 </div>
                             </div>
@@ -33,7 +33,7 @@
                                 <div class="form-group row">
                                     <label class="col-sm-4 col-form-label text-sm-left text-md-right">{{ lang(db_def.settings.mailer_user.label) }}</label>
                                     <div class="col-sm-8">
-                                        <input type="email" class="form-control" name="mailer_user" value="{{ settings.mailer_user }}"/>
+                                        {{ form_field("text","mailer_user",'','',settings.mailer_user)|raw }}
                                     </div>
                                 </div>
                             </div>
@@ -41,7 +41,7 @@
                                 <div class="form-group row">
                                     <label class="col-sm-4 col-form-label text-sm-left text-md-right">{{ lang(db_def.settings.mailer_pass.label) }}</label>
                                     <div class="col-sm-8">
-                                        <input type="password" class="form-control" name="mailer_pass" value="{{ settings.mailer_pass }}"/>
+                                        {{ form_field("pass","mailer_pass",'','',settings.mailer_pass)|raw }}
                                     </div>
                                 </div>
                             </div>
@@ -51,7 +51,7 @@
                                 <div class="form-group row">
                                     <label class="col-sm-4 col-form-label text-sm-left text-md-right">{{ lang(db_def.settings.mailer_from.label) }}</label>
                                     <div class="col-sm-8">
-                                        <input type="email" class="form-control" name="mailer_from" value="{{ settings.mailer_from }}"/>
+                                        {{ form_field("text","mailer_from",'','',settings.mailer_from)|raw }}
                                     </div>
                                 </div>
                             </div>
@@ -59,7 +59,7 @@
                                 <div class="form-group row">
                                     <label class="col-sm-4 col-form-label text-sm-left text-md-right">{{ lang(db_def.settings.mailer_replyto.label) }}</label>
                                     <div class="col-sm-8">
-                                        <input type="email" class="form-control" name="mailer_replyto" value="{{ settings.mailer_replyto }}"/>
+                                        {{ form_field("text","mailer_replyto",'','',settings.mailer_replyto)|raw }}
                                     </div>
                                 </div>
                             </div>
@@ -69,7 +69,7 @@
                                 <div class="form-group row">
                                     <label class="col-sm-4 col-form-label text-sm-left text-md-right">{{ lang(db_def.settings.mailer_fromname.label) }}</label>
                                     <div class="col-sm-8">
-                                        <input type="text" class="form-control" name="mailer_fromname" value="{{ settings.mailer_fromname }}"/>
+                                        {{ form_field("text","mailer_fromname",'','',settings.mailer_fromname)|raw }}
                                     </div>
                                 </div>
                             </div>
@@ -77,7 +77,7 @@
                                 <div class="form-group row">
                                     <label class="col-sm-4 col-form-label text-sm-left text-md-right">{{ lang(db_def.settings.mailer_replytoname.label) }}</label>
                                     <div class="col-sm-8">
-                                        <input type="text" class="form-control" name="mailer_replytoname" value="{{ settings.mailer_replytoname }}"/>
+                                        {{ form_field("text","mailer_replytoname",'','',settings.mailer_replytoname)|raw }}
                                     </div>
                                 </div>
                             </div>

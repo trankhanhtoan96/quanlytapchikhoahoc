@@ -29,6 +29,12 @@
                         <p>Thư viện</p>
                     </a>
                 </li>
+                <li class="nav-item">
+                    <a href="{{ base_url }}/admin/feedback" class="nav-link {% if uri[1]=='feedback' %}active{% endif %}">
+                        <i class="nav-icon far fa-quote-left "></i>
+                        <p>Feedback</p>
+                    </a>
+                </li>
                 <li class="nav-item has-treeview {% if uri[1]=='setting' %}menu-open{% endif %}">
                     <a href="#" class="nav-link">
                         <i class="nav-icon far fa-cogs"></i>

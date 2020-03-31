@@ -127,8 +127,8 @@ $app->add(function (ServerRequestInterface $rq, ResponseInterface $rs, $n) use (
                 break;
             case "datetime":
                 if ($val == 'now') $val = date($GLOBALS['config']['date_format'] . ' H:i');
-                else{
-                    $d=date($GLOBALS['config']['date_format'] . ' H:i', strtotime($val));
+                else {
+                    $d = date($GLOBALS['config']['date_format'] . ' H:i', strtotime($val));
                 }
                 $html = '<div class="input-group">
                                 <input type="text" class="form-control datetimepicker" value="' . $d . '" name="' . $name . '" ' . $required . '/>
@@ -138,9 +138,9 @@ $app->add(function (ServerRequestInterface $rq, ResponseInterface $rs, $n) use (
                               </div>';
                 break;
             case "date":
-                if ($val== 'now') $d = date($GLOBALS['config']['date_format']);
+                if ($val == 'now') $d = date($GLOBALS['config']['date_format']);
                 else {
-                    $d=date($GLOBALS['config']['date_format'], strtotime($val));
+                    $d = date($GLOBALS['config']['date_format'], strtotime($val));
                 }
                 $html = '<div class="input-group">
                                 <input type="text" class="form-control datepicker" value="' . $d . '" name="' . $name . '" ' . $required . '/>
@@ -187,9 +187,28 @@ $app->add(function (ServerRequestInterface $rq, ResponseInterface $rs, $n) use (
                 break;
             case "image":
                 $html = '<div class="input-group">
-                                <input readonly type="text" class="form-control file-image" value="' . $val . '" name="' . $name . '" ' . $required . '/>
-                                <div class="input-group-append">
-                                  <span class="input-group-text"><i class="far fa-calendar"></i></span>
+                                <input type="text" class="form-control file-value" value="' . $val . '" name="' . $name . '" ' . $required . '/>
+                                <div class="input-group-append" style="cursor:pointer" onclick="buttonChooseFieldUpload(\'' . $name . '\',\'Images\')">
+                                    <span class="input-group-text"><i class="far fa-file-upload"></i></span>
+                                </div>
+                              </div>
+                              <div style="margin-top:3px" class="embed-responsive file-preview-' . $name . '">' . ($val ? '<img class="img-thumbnail" src="' . $val . '" style="height: 100px;width: auto"/>' : '') . '</div>';
+                break;
+            case "file":
+                $html = '<div class="input-group">
+                                <input type="text" class="form-control file-value" value="' . $val . '" name="' . $name . '" ' . $required . '/>
+                                <div class="input-group-append" style="cursor:pointer" onclick="buttonChooseFieldUpload(\'' . $name . '\',\'Files\')">
+                                    <span class="input-group-text"><i class="far fa-file-upload"></i></span>
+                                </div>
+                              </div>';
+                break;
+            case "pass":
+                $kte = new KTEncrypt();
+                $val = $kte->decode($val, 'tkt');
+                $html = '<div class="input-group">
+                                <input type="password" class="form-control field-pass-value" value="' . $val . '" name="' . $name . '" ' . $required . ' ' . (empty($val) ? '' : 'readonly') . '/>
+                                <div class="input-group-append" title="Edit" data-toggle="tooltip" style="cursor:pointer" onclick="$(this).parent().find(\'.field-pass-value\').prop(\'readonly\',false)">
+                                    <span class="input-group-text"><i class="far fa-pencil"></i></span>
                                 </div>
                               </div>';
                 break;
@@ -223,6 +242,9 @@ $app->add(function (ServerRequestInterface $rq, ResponseInterface $rs, $n) use (
                 $d = date($GLOBALS['config']['date_format'], strtotime($val));
                 $html = "<div data-field-name='{$name}' data-field-value='{$val}'>{$d}</div>";
                 break;
+            case "image":
+                $html = "<div data-field-name='{$name}' data-field-value='{$val}'><img class='img-thumbnail' style='width: 100px;height: auto' src='{$val}'/> </div>";
+                break;
         }
         return $html;
     });
@@ -231,6 +253,16 @@ $app->add(function (ServerRequestInterface $rq, ResponseInterface $rs, $n) use (
     $extFunction = new TwigFunction("lang", function ($key, $location = 'app') {
         if (isset($GLOBALS['lang'][$location][$key])) return $GLOBALS['lang'][$location][$key];
         return $key;
+    });
+    $view->addFunction($extFunction);
+
+    $extFunction = new TwigFunction("getDBRecords", function ($sql) use ($container) {
+        return getDBRecords($container->db, $sql);
+    });
+    $view->addFunction($extFunction);
+
+    $extFunction = new TwigFunction("getDBRecord", function ($sql) use ($container) {
+        return getDBRecord($container->db, $sql);
     });
     $view->addFunction($extFunction);
 

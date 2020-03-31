@@ -1,20 +1,7 @@
 <?php
 
-use Slim\Http\UploadedFile;
 use PHPMailer\PHPMailer\PHPMailer;
 use PHPMailer\PHPMailer\SMTP;
-
-function moveUploadedFile($directory, UploadedFile $uploadedFile)
-{
-    $extension = pathinfo($uploadedFile->getClientFilename(), PATHINFO_EXTENSION);
-    try {
-        $basename = bin2hex(random_bytes(8));
-    } catch (Exception $e) {
-    }
-    $filename = sprintf('%s.%0.8s', $basename, $extension);
-    $uploadedFile->moveTo($directory . DIRECTORY_SEPARATOR . $filename);
-    return $filename;
-}
 
 class KTEncrypt
 {
@@ -185,17 +172,6 @@ function createID()
         $id .= $stringToRandom[rand(0, 61)];
     }
     return $id;
-}
-
-function getDBDef($table)
-{
-    if (file_exists('app/database/' . $table . '.php')) {
-        include 'app/database/' . $table . '.php';
-        if (!empty($tables[$table])) {
-            return $tables[$table];
-        }
-    }
-    return false;
 }
 
 function getAllDBDef()
