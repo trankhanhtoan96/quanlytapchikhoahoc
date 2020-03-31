@@ -1,0 +1,54 @@
+{% extends "app/base.twig" %}
+{% block content %}
+    <div class="content-header">
+        <div class="container-fluid">
+            <div class="row mb-2">
+                <div class="col-sm-12 text-center">
+                    <h1 class="m-0 text-dark">{{ lang('LBL_modulenametkt') }}</h1>
+                </div>
+            </div>
+        </div>
+    </div>
+    <section class="content">
+        <div class="container-fluid">
+            <div class="card">
+                <div class="card-body buton-action-record">
+                    <div class="row">
+                        <div class="col-sm-12 text-left">
+                            <a href="{{ base_url }}/admin/modulenametkt/create" class="btn btn-info">
+                                <i class="far fa-plus"></i> {{ lang('LBL_CREATE') }}
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="card card-info">
+                <div class="card-header">
+                    <h3 class="card-title">{{ lang('LBL_GENERAL_INFO') }}</h3>
+                </div>
+                <div class="card-body">
+                    <table class="table table-bordered table-hover datatable">
+                        <thead>
+                        <tr>
+                            <th class="text-center">{{ lang(db_def.modulenametkt.name.label) }}</th>
+                            <th class="text-center">{{ lang(db_def.modulenametkt.for_lang.label) }}</th>
+                        </tr>
+                        </thead>
+                        <tbody>
+                        {% for record in records %}
+                            <tr>
+                                <td><a href="{{ base_url }}/admin/modulenametkt/detail/{{ record.id }}">{{ record.name }}</a></td>
+                                <td>
+                                    {% for l in record.for_lang %}
+                                        <label class="badge badge-info">{{ config.languages[l] }}</label>
+                                    {% endfor %}
+                                </td>
+                            </tr>
+                        {% endfor %}
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </section>
+{% endblock %}

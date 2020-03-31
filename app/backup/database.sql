@@ -1,3 +1,44 @@
+CREATE TABLE `abc` (
+  `id` varchar(36) NOT NULL,
+  `name` varchar(255) DEFAULT NULL,
+  `description` text,
+  `created_at` datetime DEFAULT NULL,
+  `modified_at` datetime DEFAULT NULL,
+  `created_by` varchar(36) DEFAULT NULL,
+  `modified_by` varchar(36) DEFAULT NULL,
+  `for_lang` varchar(255) DEFAULT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+insert into abc(id,name,description,created_at,modified_at,created_by,modified_by,for_lang) values('90c1c00859f3c050039844cbe2a07593CEod','aaaf','asfadfdsa','2020-03-31 18:33:19','2020-03-31 18:33:24','','','a:2:{i:0;s:2:"vi";i:1;s:2:"en";}');
+
+
+CREATE TABLE `abcx` (
+  `id` varchar(36) NOT NULL,
+  `name` varchar(255) DEFAULT NULL,
+  `description` text,
+  `created_at` datetime DEFAULT NULL,
+  `modified_at` datetime DEFAULT NULL,
+  `created_by` varchar(36) DEFAULT NULL,
+  `modified_by` varchar(36) DEFAULT NULL,
+  `for_lang` varchar(255) DEFAULT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+
+CREATE TABLE `asdf` (
+  `id` varchar(36) NOT NULL,
+  `name` varchar(255) DEFAULT NULL,
+  `description` text,
+  `created_at` datetime DEFAULT NULL,
+  `modified_at` datetime DEFAULT NULL,
+  `created_by` varchar(36) DEFAULT NULL,
+  `modified_by` varchar(36) DEFAULT NULL,
+  `for_lang` varchar(255) DEFAULT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+
 CREATE TABLE `category` (
   `id` varchar(36) NOT NULL,
   `name` varchar(255) DEFAULT NULL,
@@ -223,7 +264,7 @@ CREATE TABLE `settings` (
   `phone` varchar(30) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
-insert into settings(favicon,logo,mailer_host,mailer_user,mailer_port,mailer_secure,mailer_replyto,mailer_from,mailer_fromname,mailer_replytoname,name,email,head_office,branch_office,mailer_pass,phone) values('http://localhost/binh/asokalaw/upload/images/c8e96ee736408145.png','http://localhost/binh/asokalaw/upload/images/c8e96ee736408145.png','12q1e','2dd@gm.come','','','6aea@gm.vme','3aa@gm.cmwwwwe','43ee','7e','AsokaLaw','consult@asokalaw.vn','228 Nguyễn Hoàng, Phường An Phú, Quận 2, Tp. Hồ Chí Minh','23.OT09, Landmark 81, 208 Nguyễn Hữu Cảnh, Quận Bình Thạnh, Tp. Hồ Chí Minh','hNlJSG2dGYw6D+//Xl80G1crpgMMftl5r61O3AZhlLdLpha+EnTbFU8lhIsYw0I7FyevU94kqSTkN2Nu19PsFA==','');
+insert into settings(favicon,logo,mailer_host,mailer_user,mailer_port,mailer_secure,mailer_replyto,mailer_from,mailer_fromname,mailer_replytoname,name,email,head_office,branch_office,mailer_pass,phone) values('http://localhost/binh/asokalaw/upload/images/c8e96ee736408145.png','http://localhost/binh/asokalaw/upload/images/c8e96ee736408145.png','12q1e','2dd@gm.come','','','6aea@gm.vme','3aa@gm.cmwwwwe','43ee','7e','AsokaLaw','consult@asokalaw.vn','228 Nguyễn Hoàng, Phường An Phú, Quận 2, Tp. Hồ Chí Minh','23.OT09, Landmark 81, 208 Nguyễn Hữu Cảnh, Quận Bình Thạnh, Tp. Hồ Chí Minh','hNlJSG2dGYw6D+//Xl80G1crpgMMftl5r61O3AZhlLdLpha+EnTbFU8lhIsYw0I7FyevU94kqSTkN2Nu19PsFA==','(028) 62.789.228');
 
 
 CREATE TABLE `tags` (

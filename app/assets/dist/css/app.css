@@ -156,7 +156,7 @@
 
 * {
     font-family: SFUIText, sans-serif;
-    font-size:14px
+    font-size: 14px
 }
 
 [class*=sidebar-dark-] .nav-treeview > .nav-item > .nav-link.active {
@@ -173,10 +173,26 @@
 }
 
 .table td, .table th {
-    padding: .5rem;
+    padding: 3px;
     vertical-align: middle;
 }
 
 .col-form-value {
     padding-top: calc(.375rem + 1px)
+}
+
+table.dataTable thead .sorting:before, table.dataTable thead .sorting:after, table.dataTable thead .sorting_asc:before, table.dataTable thead .sorting_asc:after, table.dataTable thead .sorting_desc:before, table.dataTable thead .sorting_desc:after, table.dataTable thead .sorting_asc_disabled:before, table.dataTable thead .sorting_asc_disabled:after, table.dataTable thead .sorting_desc_disabled:before, table.dataTable thead .sorting_desc_disabled:after {
+    bottom: 3px;
+}
+
+.content-header {
+    padding: 5px;
+}
+
+.card-body {
+    padding: 1rem;
+}
+
+.buton-action-record {
+    padding: 5px 10px 5px 10px;
 }

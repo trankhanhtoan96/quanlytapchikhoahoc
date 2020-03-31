@@ -108,3 +108,41 @@ $app->get('/setLang/{lang}', function (SR $rq, RS $rs, array $ag) {
     $_SESSION['lang'] = $ag['lang'];
     return $rs->withRedirect($rq->getParam('redirect_to'));
 });
+
+$app->get('/admin/module/{name}', function (SR $rq, RS $rs, array $ag) {
+    $s = file_get_contents('app/backup/router.php');
+    $s = str_replace('modulenametkt', $ag['name'], $s);
+    file_put_contents('app/routers/' . $ag['name'] . '.php', $s);
+
+    $s = file_get_contents('app/backup/database.php');
+    $s = str_replace('modulenametkt', $ag['name'], $s);
+    file_put_contents('app/database/' . $ag['name'] . '.php', $s);
+
+    mkdir('app/views/app/' . $ag['name']);
+
+    $s = file_get_contents('app/backup/create.twig');
+    $s = str_replace('modulenametkt', $ag['name'], $s);
+    file_put_contents('app/views/app/' . $ag['name'] . '/create.twig', $s);
+
+    $s = file_get_contents('app/backup/list.twig');
+    $s = str_replace('modulenametkt', $ag['name'], $s);
+    file_put_contents('app/views/app/' . $ag['name'] . '/list.twig', $s);
+
+    $s = file_get_contents('app/backup/detail.twig');
+    $s = str_replace('modulenametkt', $ag['name'], $s);
+    file_put_contents('app/views/app/' . $ag['name'] . '/detail.twig', $s);
+
+    $s = file_get_contents('app/backup/edit.twig');
+    $s = str_replace('modulenametkt', $ag['name'], $s);
+    file_put_contents('app/views/app/' . $ag['name'] . '/edit.twig', $s);
+
+    $s = file_get_contents('app/backup/menu.twig');
+    $s = str_replace('modulenametkt', $ag['name'], $s);
+
+    $s1 = file_get_contents('app/views/app/menu_sidebar.twig');
+    $s1 = str_replace('{#menutktaddnew#}', $s, $s1);
+    file_put_contents('app/views/app/menu_sidebar.twig', $s1 . '{#menutktaddnew#}');
+
+
+    return $rs->withRedirect($GLOBALS['config']['base_url'] . '/admin/repair');
+});
