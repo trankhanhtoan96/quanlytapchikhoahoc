@@ -1,0 +1,38 @@
+{% extends "asokalaw/base.twig" %}
+{% block extra_header %}
+    <link rel="stylesheet" href="{{ base_url }}/asokalaw/views/asokalaw/pltx/style.css">
+{% endblock %}
+{% block slide_header %}
+    <section>
+        <div class="container">
+            <div class="row banner">
+                <div class="col-lg-6 title-banner">
+                    <h1>Quản trị doanh nghiệp
+                        hiệu quả <b class="light-blue">"4 trong 1"</b></h1>
+                    <p class="sub">Asoka Law có kinh nghiệm tuyệt vời để giải quyết 4 vấn đề <b class="font-weight-bold">pháp
+                            lý
+                            – hợp đồng – thuế – lao động</b>, nhằm tiết kiệm cho doanh nghiệp
+                        hơn 80% chi phí vận hành.</p>
+                    <button type="button" class="btn btn-custom">Bắt đầu dùng thử</button>
+                </div>
+            </div>
+        </div>
+    </section>
+{% endblock %}
+
+{% block content %}
+    {% include 'asokalaw/pltx/business-size.twig' %}
+    {% include 'asokalaw/pltx/list-service.twig' %}
+    {% include 'asokalaw/pltx/effective.twig' %}
+    {% include 'asokalaw/pltx/feedback-pltx.twig' %}
+    {% include 'asokalaw/pltx/support.twig' %}
+    {% include 'asokalaw/pltx/question.twig' %}
+    {% include 'asokalaw/pltx/slide-video.twig' %}
+    {% include 'asokalaw/pltx/slide-info.twig' %}
+    {% include 'asokalaw/pltx/contact.twig' %}
+
+{% endblock %}
+
+{% block extra_footer %}
+    <script src="{{ base_url }}/asokalaw/views/asokalaw/pltx/javascript.js"></script>
+{% endblock %}

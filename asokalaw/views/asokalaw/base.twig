@@ -5,7 +5,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>Home</title>
-    <link rel="icon" href="{{ base_url }}/upload/{{ settings.favicon }}" type="image/*">
+    <link rel="icon" href="{{ settings.favicon }}" type="image/*">
     <link rel="stylesheet" href="{{ base_url }}/asokalaw/assets/css/bootstrap.min.css">
     <link rel="stylesheet" href="{{ base_url }}/asokalaw/assets/font-awesome/css/all.min.css">
     <link rel="stylesheet" href="{{ base_url }}/asokalaw/assets/css/slick.css">
@@ -19,20 +19,18 @@
     </script>
     {% block extra_header %}{% endblock %}
 </head>
-<body>
-{% include 'asokalaw/header.twig' %}
-<header>
-    {% include 'asokalaw/top-header.twig' %}
-    <section class="header">
-        {% include 'asokalaw/main-menu.twig' %}
-        {% block slide_header %}{% endblock %}
-    </section>
+<body style="padding-top: 30px;">
+<header class="header">
+    {% include 'asokalaw/header.twig' %}
+    {% block slide_header %}{% endblock %}
 </header>
 {% block content %}{% endblock %}
 {% include 'asokalaw/footer.twig' %}
 <script src="{{ base_url }}/asokalaw/assets/js/jquery.min.js"></script>
+<script src="{{ base_url }}/asokalaw/assets/js/bootstrap.min.js"></script>
 <script type="text/javascript" src="{{ base_url }}/asokalaw/assets/js/slick.min.js"></script>
 <script type="text/javascript" src="{{ base_url }}/asokalaw/assets/js/app.js"></script>
 {% block extra_footer %}{% endblock %}
+{% include 'asokalaw/modal.twig' %}
 </body>
 </html>

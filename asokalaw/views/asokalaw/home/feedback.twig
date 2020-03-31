@@ -1,0 +1,35 @@
+{% set feedbacks = getDBRecords('select * from feedback order by modified_by DESC') %}
+<section id="asoka-description" class="sub">
+    <div class="container center">
+        <div class="row">
+            <div class="background-icon">
+                <img src="{{ base_url }}/asokalaw/assets/media/landingpage/feedback/quote.svg">
+            </div>
+            <div class="col-lg-12 flex-center-vertically">
+                <div class="slide-asoka-des">
+                    {% for feedback in feedbacks %}
+                        <div class="slide-item">
+                            <div class="row">
+                                <div class="content col-md-8 vertical-middle">
+                                    <div class="des-record">
+                                        <p>{{ feedback.description }}</p>
+                                    </div>
+                                    <hr>
+                                    <div class="des-record ">
+                                        <p class="font-weight-bold normal">{{ feedback.name }}</p>
+                                        <p class="text-color">{{ feedback.title }}</p>
+                                    </div>
+                                </div>
+                                <div class="col-md-4 vertical-middle d-none d-md-block">
+                                    <div class="team-user">
+                                        <img src="{{ feedback.avatar }}">
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    {% endfor %}
+                </div>
+            </div>
+        </div>
+    </div>
+</section>

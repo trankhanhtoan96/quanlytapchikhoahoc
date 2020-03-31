@@ -1,0 +1,47 @@
+{% extends "asokalaw/base.twig" %}
+
+{% block extra_header %}
+    <link rel="stylesheet" href="{{ base_url }}/asokalaw/views/asokalaw/tvls/style.css">
+{% endblock %}
+
+{% block slide_header %}
+    <section>
+        <div class="container">
+            <div class="row banner">
+                <div class="col-lg-6 title-banner">
+                    <h1>Kết nối ngay với</h1>
+                    <h1>top luật sư giỏi nhất</h1>
+                    <br>
+                    <span>Hơn <b style="color: #ffc107; font-size: large;">6.890 giờ tư vấn</b> đã được thực hiện bởi luật sư/cố vấn của Asoka Law. Dễ dàng tiếp cận ngay</span>
+                    <div class=" row search">
+                        <div class="shadow container-search flex-center-vertically">
+                            <div class="row row-search">
+                                <i class="fa fa-search"></i>
+                                <input type="text" class="input-search" placeholder="Chọn lĩnh vực bạ quan tâm">
+                                <i class="fa fa-caret-down"></i>
+                            </div>
+                        </div>
+                        <button class="shadow btn btn-warning text-color-search">Tìm kiếm</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+{% endblock %}
+
+{% block content %}
+    {% include 'asokalaw/tvls/bestlawyers.twig' %}
+    {% include 'asokalaw/tvls/list-service.twig' %}
+    {% include 'asokalaw/tvls/effective.twig' %}
+    {% include 'asokalaw/tvls/business-size.twig' %}
+    {% include 'asokalaw/tvls/popular-consultant.twig' %}
+    {% include 'asokalaw/tvls/support.twig' %}
+    {% include 'asokalaw/home/feedback.twig' %}
+    {% include 'asokalaw/tvls/question.twig' %}
+    {% include 'asokalaw/tvls/most-view.twig' %}
+    {% include 'asokalaw/tvls/contact.twig' %}
+{% endblock %}
+
+{% block extra_footer %}
+    <script type="text/javascript" src="{{ base_url }}/asokalaw/views/asokalaw/tvls/javascript.js"></script>
+{% endblock %}

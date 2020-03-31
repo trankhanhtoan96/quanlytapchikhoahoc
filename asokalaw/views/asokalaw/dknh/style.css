@@ -277,7 +277,6 @@ header nav a:hover {
     text-align: center;
     margin: auto;
     font-weight: bold;
-    font-family: "Times New Roman", Times, serif;
 }
 
 .btn-time{
@@ -301,7 +300,6 @@ header nav a:hover {
 }
 .title-info h4{
     font-weight: bold !important;
-    font-family: "Times New Roman", Times, serif;
     text-align: start;
     padding: 20px 0 10px;
 }
@@ -612,7 +610,10 @@ header nav a:hover {
 }
 .input-search{
     width: 80%;
-    border: 0px none white;
+    border: none white;
+    background: #fff;
+    -moz-appearance: none;
+    -webkit-appearance: none;
 }
 ::placeholder{
     font-size: 12px;

@@ -1,0 +1,84 @@
+<section class="fixed-top" style="background-color: #f3f3f3;">
+    <div class="bg-blue">
+        <div class="container">
+            <div class="row center">
+                <div class="col-md-3 padding d-none d-md-block">
+                    <img style="height: 20px" src="{{ base_url }}/asokalaw/assets/media/mail_icon.svg"/> {{ settings.email }}
+                </div>
+                <div class="col-md-9 center">
+                    <div class="float-right padding d-block" style="margin-top:3px">
+                        <a href="{{ base_url }}/setLang/vi?redirect_to={{ base_url }}/{{ cur_uri }}">VN</a>
+                        <span>|</span>
+                        <a href="{{ base_url }}/setLang/en?redirect_to={{ base_url }}/{{ cur_uri }}">EN</a>
+                    </div>
+                    <button class="float-right btn btn-outline-warning padding d-none d-md-block" style="margin-top: 3px;" data-toggle="modal" data-target="#exampleModal" type="button">Nhận tư vấn miễn phí
+                    </button>
+                    <div class="h-phone padding d-block">
+                        <img style="height: 20px" src="{{ base_url }}/asokalaw/assets/media/phone_icon.svg"/> {{ settings.phone }}
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <nav class="container navbar navbar-expand-md  navbar-transparent navbar-custom">
+        <!-- Brand -->
+        <a class="navbar-brand" href="#">
+            <img class="img-responsive center-block" alt="Công ty Luật TNHH Asoka" src="{{ settings.logo }}">
+        </a>
+        <div class="d-none d-md-block">
+            <div class="search nav-search">
+                <div class="container-search flex-center-vertically">
+                    <div class="row row-search">
+                        <i class="fa fa-search"></i>
+                        <select type="text" class="input-search">
+                            <option value="">Chọn lĩnh vực bạn quan tâm...</option>
+                            <option value="Doanh nghiệp">Doanh nghiệp</option>
+                            <option value="Sở hữu trí tuệ">Sở hữu trí tuệ</option>
+                            <option value="Tranh chấp thương mại">Tranh chấp thương mại</option>
+                            <option value="Lao động - nhân sự">Lao động - nhân sự</option>
+                            <option value="Sự kiện truyền thông">Sự kiện truyền thông</option>
+                            <option value="Đăng ký đầu tư">Đăng ký đầu tư</option>
+                            <option value="Ngân hàng - bảo hiểm">Ngân hàng - bảo hiểm</option>
+                            <option value="Định cư - du học">Định cư - du học</option>
+                            <option value="Lĩnh vực khác">Lĩnh vực khác</option>
+                        </select>
+                        <i class="fa fa-caret-down"></i>
+                    </div>
+                </div>
+                <button class="btn btn-warning text-color-search">Tìm kiếm</button>
+            </div>
+        </div>
+        <!-- Toggler/collapsibe Button -->
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#collapsibleNavbar">
+            <span class="navbar-toggler-icon">
+                <i class="far fa-bars"></i>
+            </span>
+        </button>
+
+        <!-- Navbar links -->
+        <div class="collapse navbar-collapse" id="collapsibleNavbar">
+            <ul class="navbar-nav ml-auto">
+                <li class="nav-item ">
+                    <a class="nav-link" href="#">VỀ ASOKA</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#">PHÁP LÝ DOANH NGHIỆP</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#">DỊCH VỤ PHÁP LÝ</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#">TIN TỨC</a>
+                </li>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#">KHÁCH HÀNG</a>
+                </li>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#">LIÊN HỆ</a>
+                </li>
+            </ul>
+        </div>
+    </nav>
+</section>

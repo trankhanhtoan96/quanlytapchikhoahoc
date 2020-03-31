@@ -22,6 +22,13 @@
 
 @font-face {
     font-family: 'Montserrat';
+    src: url('../fonts/Montserrat/Montserrat-Light.ttf');
+    font-weight: 400;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'Montserrat';
     src: url('../fonts/Montserrat/Montserrat-Regular.ttf');
     font-weight: normal;
     font-style: normal;
@@ -29,42 +36,42 @@
 
 @font-face {
     font-family: 'Montserrat';
-    src: url('../fonts/Montserrat/Montserrat-SemiBold.ttf');
+    src: url('../fonts/Montserrat/Montserrat-Medium.ttf');
     font-weight: bold;
     font-style: normal;
 }
 
 @font-face {
     font-family: 'Montserrat';
-    src: url('../fonts/Montserrat/Montserrat-SemiBold.ttf');
+    src: url('../fonts/Montserrat/Montserrat-Medium.ttf');
     font-weight: 500;
     font-style: normal;
 }
 
 @font-face {
     font-family: 'Montserrat';
-    src: url('../fonts/Montserrat/Montserrat-SemiBold.ttf');
+    src: url('../fonts/Montserrat/Montserrat-Medium.ttf');
     font-weight: 600;
     font-style: normal;
 }
 
 @font-face {
     font-family: 'Montserrat';
-    src: url('../fonts/Montserrat/Montserrat-Bold.ttf');
+    src: url('../fonts/Montserrat/Montserrat-Medium.ttf');
     font-weight: 700;
     font-style: normal;
 }
 
 @font-face {
     font-family: 'Montserrat';
-    src: url('../fonts/Montserrat/Montserrat-Bold.ttf');
+    src: url('../fonts/Montserrat/Montserrat-Medium.ttf');
     font-weight: 800;
     font-style: normal;
 }
 
 @font-face {
     font-family: 'Montserrat';
-    src: url('../fonts/Montserrat/Montserrat-Bold.ttf');
+    src: url('../fonts/Montserrat/Montserrat-Medium.ttf');
     font-weight: 900;
     font-style: normal;
 }
@@ -93,6 +100,13 @@
 
 @font-face {
     font-family: 'Montserrat';
+    src: url('../fonts/Montserrat/Montserrat-LightItalic.ttf');
+    font-weight: 400;
+    font-style: italic;
+}
+
+@font-face {
+    font-family: 'Montserrat';
     src: url('../fonts/Montserrat/Montserrat-Italic.ttf');
     font-weight: normal;
     font-style: italic;
@@ -100,49 +114,51 @@
 
 @font-face {
     font-family: 'Montserrat';
-    src: url('../fonts/Montserrat/Montserrat-SemiBoldItalic.ttf');
+    src: url('../fonts/Montserrat/Montserrat-MediumItalic.ttf');
     font-weight: bold;
     font-style: italic;
 }
 
 @font-face {
     font-family: 'Montserrat';
-    src: url('../fonts/Montserrat/Montserrat-SemiBoldItalic.ttf');
+    src: url('../fonts/Montserrat/Montserrat-MediumItalic.ttf');
     font-weight: 500;
     font-style: italic;
 }
 
 @font-face {
     font-family: 'Montserrat';
-    src: url('../fonts/Montserrat/Montserrat-SemiBoldItalic.ttf');
+    src: url('../fonts/Montserrat/Montserrat-MediumItalic.ttf');
     font-weight: 600;
     font-style: italic;
 }
 
 @font-face {
     font-family: 'Montserrat';
-    src: url('../fonts/Montserrat/Montserrat-BoldItalic.ttf');
+    src: url('../fonts/Montserrat/Montserrat-MediumItalic.ttf');
     font-weight: 700;
     font-style: italic;
 }
 
 @font-face {
     font-family: 'Montserrat';
-    src: url('../fonts/Montserrat/Montserrat-BoldItalic.ttf');
+    src: url('../fonts/Montserrat/Montserrat-MediumItalic.ttf');
     font-weight: 800;
     font-style: italic;
 }
 
 @font-face {
     font-family: 'Montserrat';
-    src: url('../fonts/Montserrat/Montserrat-BoldItalic.ttf');
+    src: url('../fonts/Montserrat/Montserrat-MediumItalic.ttf');
     font-weight: 900;
     font-style: italic;
 }
 
 * {
     font-family: Montserrat, sans-serif;
+    font-size:14px;
 }
+
 /***********************************************************/
 
 .footer {
@@ -157,7 +173,8 @@
 
 .bg-image {
     color: black;
-    background: url(../media/footer-bg.jpg) bottom center no-repeat;
+    background: url(../media/landingpage/BG.jpg) bottom center no-repeat;
+    background-size: cover;
 }
 
 .bg-grey {
@@ -188,7 +205,7 @@ ul {
     padding-left: 0;
 }
 
-.footer  li a {
+.footer li a {
     color: #a7a7a7;
 }
 
@@ -206,12 +223,13 @@ header a:hover {
     color: white;
     text-decoration: none;
 }
+
 header nav a:hover {
     color: orange;
     text-decoration: none;
 }
 
-.padding{
+.padding {
     padding: 5px 20px;
     text-align: center;
     margin: auto;
@@ -233,11 +251,11 @@ header nav a:hover {
     border-radius: 50%;
 }
 
-.social a{
+.social a {
     color: #fff;
 }
 
-.primary{
+.primary {
     color: orange;
     font-size: 20px;
 }
@@ -245,27 +263,31 @@ header nav a:hover {
 .h-phone {
     font-size: 22px;
     font-weight: 600;
-    float:right;
+    float: right;
 }
+
 .header {
     background-image: url(../media/background.jpg);
-    background-size:cover ;
-    background-position: center;
-    height: 700px;
+    background-size: cover;
+    background-position: bottom;
+    height: 600px;
 }
-.slide-item{
+
+.slide-item {
     padding: 20px;
 }
-#slide-video{
+
+#slide-video {
     background: #f4f4f6;
 }
-.title h1{
+
+.title h1 {
     text-align: center;
     margin: auto;
     font-weight: bold;
 }
 
-.btn-time{
+.btn-time {
     background: #7ec8e9;
     padding: 10px;
     width: 130px;
@@ -276,149 +298,171 @@ header nav a:hover {
     z-index: 2;
     margin-left: 20px;
 }
-.img-info{
+
+.img-info {
     width: 100%;
     height: 200px;
-    margin-top:-15px;
+    margin-top: -15px;
     position: relative;
     z-index: 1;
     border-radius: 10px;
 }
-.title-info h4{
+
+.title-info h4 {
     font-weight: bold !important;
     text-align: start;
     padding: 20px 0 10px;
 }
 
-.title-des p{
+.title-des p {
     text-align: justify;
     font-size: 13px;
     color: #8f8f90;
 }
-.info-see-all hr{
+
+.info-see-all hr {
     width: 150px;
     background: #7ec8e9;
     margin-top: 0 !important;
 }
-.info-see-all a{
-    color:#7ec8e9 ;
+
+.info-see-all a {
+    color: #7ec8e9;
     font-size: 12px;
     font-style: italic;
 }
-.img-partner{
+
+.img-partner {
     max-width: 100%;
 }
-#effective{
+
+#effective {
     background-image: url(../media/landingpage/effect/background_1.svg);
     background-size: cover;
     padding-bottom: 100px;
     background-repeat: no-repeat;
     position: relative;
 }
-.effective-img{
-    width:100%;
+
+.effective-img {
+    width: 100%;
     border-radius: 20px;
 }
-.effective-content{
+
+.effective-content {
     margin-top: 60px;
 }
-.title-record h4{
-    float:right;
+
+.title-record h4 {
+    float: right;
     font-weight: bold;
     margin-left: 20px;
     font-size: 17px;
 }
+
 .des-record p {
     margin-left: 45px;
     font-size: 14px;
     text-align: justify;
     color: #8f8f90;
 }
-.content-record i{
+
+.content-record i {
     color: #ffb111;
     font-size: 30px;
 }
-#statistical hr{
+
+#statistical hr {
     margin-top: -10px;
     margin-bottom: 10px;
     width: 30px;
     border: 2px solid #ffb111;
     margin-left: 0;
 }
-.statistical-number{
+
+.statistical-number {
     font-size: 3rem;
     font-weight: bold;
     color: #474747;
 }
-.statistical-label{
+
+.statistical-label {
     font-weight: 600;
     font-size: 13px;
     color: #7a7a7a;
 }
-#statistical .row{
-    justify-content:space-around;
+
+#statistical .row {
+    justify-content: space-around;
 }
 
-#team{
+#team {
     background-image: url(../media/landingpage/team/background.svg);
     background-size: cover;
     padding-top: 100px;
 }
-#team .title h1{
+
+#team .title h1 {
     text-align: start;
 }
-#team .des-record p{
+
+#team .des-record p {
     margin-left: 0px;
 }
 
-#team hr{
+#team hr {
     margin-top: 0;
     width: 200px;
     border: 2px solid #7ec8e9;
     margin-left: 0;
 }
-.team-user{
+
+.team-user {
     background: white;
     border-radius: 10px;
     padding-bottom: 10px;
 }
-.team-user img{
+
+.team-user img {
     width: 100%;
     height: 100%;
     object-fit: cover;
 }
-.team-user p{
+
+.team-user p {
     margin: 0;
 }
 
-.user-name{
+.user-name {
     margin-top: 10px;
 }
-.job{
+
+.job {
     font-size: 13px;
     color: #7a7a7a;
 }
-.name{
+
+.name {
     font-weight: 600 !important;
 }
 
-.list-slide-team{
+.list-slide-team {
     margin-top: -35px;
 }
 
-#price-list .des-record p{
-    text-align: center!important;
+#price-list .des-record p {
+    text-align: center !important;
     margin: 0;
 }
 
-.price-list-price p{
+.price-list-price p {
     font-weight: bold;
-    color:#1a73e8;
+    color: #1a73e8;
     font-size: 20px;
     margin: 0;
 }
 
-.price-list-price sup{
+.price-list-price sup {
     font-size: 10px;
     font-weight: normal;
 }
@@ -428,22 +472,26 @@ header nav a:hover {
     font-size: 14px;
     color: #777777;
 }
-.price-list-item{
+
+.price-list-item {
     text-align: start;
     padding: 20px 30px;
     border: 1px solid white;
     border-radius: 10px;
     box-shadow: 0px 0px 51px 30px #f2f2f2;
 }
-.list-rule p{
+
+.list-rule p {
     font-size: 12px;
 }
-.list-rule p:hover{
-    color:#7ec8e9;
+
+.list-rule p:hover {
+    color: #7ec8e9;
     cursor: pointer;
 }
-.btn-custom{
-    border: 1px solid #ffb111 ;
+
+.btn-custom {
+    border: 1px solid #ffb111;
     padding-left: 25px;
     padding-right: 25px;
     color: #ffb111;
@@ -452,12 +500,14 @@ header nav a:hover {
     margin-top: 10px;
     margin-bottom: 20px;
 }
+
 .flex-center-vertically {
     display: flex;
     justify-content: center;
     flex-direction: column;
 }
-#asoka-description .des-record p{
+
+#asoka-description .des-record p {
     font-size: 15px;
     font-style: italic;
     color: #25405b;
@@ -466,89 +516,102 @@ header nav a:hover {
     margin-left: 0px;
     margin-bottom: 0px;
 }
-#asoka-description hr{
+
+#asoka-description hr {
     background: #25405b;
     width: 300px;
 }
-.normal{
+
+.normal {
     font-style: normal !important;
 }
-.text-color{
+
+.text-color {
     font-style: normal !important;
     font-weight: 400 !important;
     font-size: 13px !important;
     color: #ffb111 !important;
 }
-.background-icon img{
+
+.background-icon img {
     width: 100px;
     height: 100px;
     position: absolute;
     margin: 25px 0 0 -15px;
 }
-#asoka-description .content i{
+
+#asoka-description .content i {
     font-size: 10px;
     color: #515151;
     margin: 0 2px;
 }
-#asoka-description .content .bold{
+
+#asoka-description .content .bold {
     font-size: 13px !important;
-    color: #ffb111!important;
+    color: #ffb111 !important;
     margin: 0 2px;
 }
 
-.flex-center-hor{
+.flex-center-hor {
     display: flex;
     justify-content: center;
     flex-direction: row;
 }
-.service-item{
+
+.service-item {
     text-align: center;
     width: 25%;
 }
-.service-item .title{
+
+.service-item .title {
     font-size: 17px;
     font-weight: 600;
 }
-.service-item p.sub-title{
+
+.service-item p.sub-title {
     font-size: 12px;
     color: #70706f;
     margin-bottom: 0px;
 }
-.service-item i{
+
+.service-item i {
     font-size: 40px;
-    color: #ffb111 ;
+    color: #ffb111;
     margin-bottom: 10px;
 }
 
-.service-item hr.horizontal{
-    background:#70706f ;
+.service-item hr.horizontal {
+    background: #70706f;
     width: 100%;
     size: 2px;
     margin-bottom: 0px;
     margin-top: 40px;
 }
-.list-service hr.vertical{
-    background:#70706f ;
+
+.list-service hr.vertical {
+    background: #70706f;
     height: 100%;
     width: 1px;
     margin: 0;
 }
-.service-item .content{
+
+.service-item .content {
     margin: 0px 40px;
 }
 
-#service .title h1{
+#service .title h1 {
     margin-bottom: 30px;
 }
 
 #service .sub {
     padding-bottom: 0px !important;
 }
-#service .content-2{
+
+#service .content-2 {
     margin: 40px 40px 0;
 }
 
-#service .btn-custom{
+#service .btn-custom {
     color: white;
     font-weight: bold;
     padding: 10px 30px;
@@ -556,21 +619,25 @@ header nav a:hover {
     text-align: center;
     font-size: 17px;
 }
-.banner{
+
+.banner {
     margin-top: 100px;
 }
-.banner h1{
+
+.banner h1 {
     font-weight: bold;
 }
-.text-color-search{
+
+.text-color-search {
     color: white;
     font-size: 13px;
     border-radius: 50px;
-    padding-left:  25px;
-    padding-right:  25px;
+    padding-left: 25px;
+    padding-right: 25px;
     height: 35px;
 }
-.container-search{
+
+.container-search {
     width: 60%;
     height: 35px;
     color: white;
@@ -581,76 +648,93 @@ header nav a:hover {
     margin-right: 10px;
     margin-left: 20px;
 }
-.search{
+
+.search {
     margin-top: 50px;
 }
-.search .fa-search{
+
+.search .fa-search {
     color: #6c757d;
     font-size: 20px;
     margin-top: 5px;
 }
-.search .fa-caret-down{
+
+.search .fa-caret-down {
     color: #6c757d;
     font-size: 10px;
     margin-top: 8px;
 }
-.row-search{
+
+.row-search {
     padding: 0 20px 0 10px;
     justify-content: space-between;
 }
-.input-search{
+
+.input-search {
     width: 80%;
-    border: 0px none white;
+    border: none white;
+    background: #fff;
+    -moz-appearance: none;
+    -webkit-appearance: none;
+    font-style: italic;
 }
-::placeholder{
+
+::placeholder {
     font-size: 12px;
     font-style: italic;
 }
 
-#service{
+#service {
     margin-top: 30px;
 }
-.nextArrowBtn{
+
+.nextArrowBtn {
     position: absolute;
     z-index: 1000;
     top: 50%;
     right: -20px;
     color: #BFAFB2;
 }
-.prevArrowBtn{
+
+.prevArrowBtn {
     position: absolute;
     z-index: 1000;
     top: 50%;
     left: -20px;
     color: #BFAFB2;
 }
-.slick-dots{
+
+.slick-dots {
     display: flex;
     justify-content: center;
     flex-direction: row;
 }
-.slick-dots li{
+
+.slick-dots li {
     padding: 0 5px;
 }
-.slick-dots li i{
+
+.slick-dots li i {
     font-size: 12px;
     color: #6c757d;
 }
 
-.slide-asoka-des li.slick-active i{
-    font-size: 15px!important;
-    color: #ffb111!important; ;
+.slide-asoka-des li.slick-active i {
+    font-size: 15px !important;
+    color: #ffb111 !important;;
 }
-.price-list-item img{
+
+.price-list-item img {
     position: absolute;
     width: 30%;
     right: 50px;
 }
 
-.price-list-item h5{
+.price-list-item h5 {
     margin-top: 20px;
 }
-.price-list-price{
+
+.price-list-price {
     margin-left: -30px;
     background-image: url(../media/landingpage/price/background.svg);
     margin-top: 30px;
@@ -658,32 +742,36 @@ header nav a:hover {
     padding-left: 30px;
     background-repeat: no-repeat;
 }
-.list-rule i{
-    color:#7ec8e9;
+
+.list-rule i {
+    color: #7ec8e9;
 }
 
-#service img{
+#service img {
     height: 50px;
     margin-bottom: 10px;
 }
-.effect-img img{
+
+.effect-img img {
     width: 200px;
     position: absolute;
     bottom: 90px;
     right: 180px;
 }
-.title-record img{
+
+.title-record img {
     width: 25px;
 }
 
-img.arrows{
+img.arrows {
     width: 20px;
 }
 
-img.news{
+img.news {
     width: 50px;
 }
-img.prevArrowBtnNews{
+
+img.prevArrowBtnNews {
     position: absolute;
     z-index: 1000;
     top: 110px;
@@ -691,20 +779,21 @@ img.prevArrowBtnNews{
     color: #BFAFB2;
 }
 
-img.nextArrowBtnNews{
+img.nextArrowBtnNews {
     position: absolute;
     z-index: 1000;
     top: 110px;
     right: 0;
     color: #BFAFB2;
 }
-img.icon{
+
+img.icon {
     width: 20px;
     padding-top: 5px;
     margin-right: 10px;
 }
 
-.prevArrowBtnVideo{
+.prevArrowBtnVideo {
     position: absolute;
     z-index: 1000;
     top: 70px;
@@ -712,7 +801,7 @@ img.icon{
     color: #BFAFB2;
 }
 
-img.nextArrowBtnVideo{
+img.nextArrowBtnVideo {
     position: absolute;
     z-index: 1000;
     top: 70px;
@@ -720,7 +809,7 @@ img.nextArrowBtnVideo{
     color: #BFAFB2;
 }
 
-.btn-play{
+.btn-play {
     width: 100px;
     height: 100px;
     position: absolute;
@@ -728,6 +817,29 @@ img.nextArrowBtnVideo{
     top: calc(100% - 208px);
 }
 
-#slide-video .slide-item{
+#slide-video .slide-item {
     position: relative;
+}
+
+.vertical-middle {
+    margin-top: auto;
+    margin-bottom: auto;
+}
+
+.nav-fixed {
+    background-color: #f3f3f3;
+    border-bottom: solid 1px #ccc;
+}
+
+.nav-fixed .navbar-brand {
+    width: 72px;
+}
+
+.nav-search {
+    display: none;
+}
+
+.nav-fixed .nav-search {
+    display: flex !important;
+    margin-top: unset !important;
 }

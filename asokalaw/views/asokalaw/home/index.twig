@@ -1,29 +1,41 @@
 {% extends "asokalaw/base.twig" %}
 
 {% block slide_header %}
-    <div class="container">
-        <div class="row banner">
-            <div class="col-lg-6 title-banner">
-                <h1>Lorem Isum Dolor Sit Amet
-                    Consectetuer Adipirt</h1>
-                <div class=" row search">
-                    <div class="container-search flex-center-vertically">
-                        <div class="row row-search" >
-                            <i class="fa fa-search"></i>
-                            <input type="text" class="input-search" placeholder="Chọn lĩnh vực bạ quan tâm">
-                            <i class="fa fa-caret-down"></i>
+    <section>
+        <div class="container">
+            <div class="row banner" style="height: 600px">
+                <div class="col-md-7 title-banner vertical-middle">
+                    <h1>Lorem Isum Dolor Sit Amet Consectetuer Adipirt</h1>
+                    <div class="row search">
+                        <div class="container-search flex-center-vertically">
+                            <div class="row row-search">
+                                <i class="fa fa-search"></i>
+                                <select type="text" class="input-search">
+                                    <option value="">Chọn lĩnh vực bạn quan tâm</option>
+                                    <option value="Doanh nghiệp">Doanh nghiệp</option>
+                                    <option value="Sở hữu trí tuệ">Sở hữu trí tuệ</option>
+                                    <option value="Tranh chấp thương mại">Tranh chấp thương mại</option>
+                                    <option value="Lao động - nhân sự">Lao động - nhân sự</option>
+                                    <option value="Sự kiện truyền thông">Sự kiện truyền thông</option>
+                                    <option value="Đăng ký đầu tư">Đăng ký đầu tư</option>
+                                    <option value="Ngân hàng - bảo hiểm">Ngân hàng - bảo hiểm</option>
+                                    <option value="Định cư - du học">Định cư - du học</option>
+                                    <option value="Lĩnh vực khác">Lĩnh vực khác</option>
+                                </select>
+                                <i class="fa fa-caret-down"></i>
+                            </div>
                         </div>
+                        <button class="btn btn-warning text-color-search">Tìm kiếm</button>
                     </div>
-                    <button class="btn btn-warning text-color-search">Tìm kiếm</button>
                 </div>
             </div>
         </div>
-    </div>
+    </section>
 {% endblock %}
 
 {% block content %}
     {% include 'asokalaw/home/service.twig' %}
-    {% include 'asokalaw/home/asoka-description.twig' %}
+    {% include 'asokalaw/home/feedback.twig' %}
     {% include 'asokalaw/home/price.twig' %}
     {% include 'asokalaw/home/asoka-about.twig' %}
     {% include 'asokalaw/home/statistical.twig' %}
