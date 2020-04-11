@@ -18,3 +18,6 @@
 - `TwigFunction("view_field", function ($type, $name, $val, $listOption = array())`
 - `TwigFunction("lang", function ($key, $location = 'app')`
 - `TwigFunction("form_field", function ($type, $name, $required = "", $listOption = array(), $val = "", $addNullOption = 0)`
+
+# Create new module
+`http://<project>/admin/module/<module_name>`

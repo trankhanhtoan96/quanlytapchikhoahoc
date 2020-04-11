@@ -140,8 +140,8 @@ $app->get('/admin/module/{name}', function (SR $rq, RS $rs, array $ag) {
     $s = str_replace('modulenametkt', $ag['name'], $s);
 
     $s1 = file_get_contents('app/views/app/menu_sidebar.twig');
-    $s1 = str_replace('{#menutktaddnew#}', $s, $s1);
-    file_put_contents('app/views/app/menu_sidebar.twig', $s1 . '{#menutktaddnew#}');
+    $s1 = str_replace('{#menutktaddnew#}', $s . '{#menutktaddnew#}', $s1);
+    file_put_contents('app/views/app/menu_sidebar.twig', $s1);
 
 
     return $rs->withRedirect($GLOBALS['config']['base_url'] . '/admin/repair');
