@@ -72,6 +72,16 @@
                 var s = d[0][f.indexOf('YYYY')] + '-' + d[0][f.indexOf('MM')] + '-' + d[0][f.indexOf('DD')] + (d.length === 2 ? ' ' + d[1] : '');
                 $(this).val(s);
             });
+
+            var fieldRequiredIsInputed = true;
+            $('.form-control[required]').each(function () {
+                if ($(this).val() == '') fieldRequiredIsInputed = false;
+            });
+            if (fieldRequiredIsInputed == false) {
+                toastr.error("Input fields that required before submit!");
+                return;
+            }
+
             $('#form-record-edit').submit();
         }
     </script>
