@@ -196,3 +196,7 @@ table.dataTable thead .sorting:before, table.dataTable thead .sorting:after, tab
 .buton-action-record {
     padding: 5px 10px 5px 10px;
 }
+
+.table-striped tbody tr:nth-of-type(odd) {
+    background-color: rgba(0, 0, 0, 0.03);
+}
