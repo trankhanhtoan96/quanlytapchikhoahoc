@@ -40,7 +40,7 @@
                                 <td><a href="{{ base_url }}/admin/modulenametkt/detail/{{ record.id }}">{{ record.name }}</a></td>
                                 <td>
                                     {% for l in record.for_lang %}
-                                        <label class="badge badge-info">{{ config.languages[l] }}</label>
+                                        <span class="badge badge-info">{{ config.languages[l] }}</span>
                                     {% endfor %}
                                 </td>
                             </tr>

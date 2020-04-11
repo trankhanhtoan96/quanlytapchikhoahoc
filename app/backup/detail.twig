@@ -50,7 +50,7 @@
                                 <label class="col-sm-4 col-form-label text-sm-left text-md-right">{{ lang(db_def.modulenametkt.for_lang.label) }}</label>
                                 <div class="col-sm-8 col-form-value">
                                     {% for key in record.for_lang %}
-                                        <label class="badge badge-info">{{ config.languages[key] }}</label>
+                                        <span class="badge badge-info">{{ config.languages[key] }}</span>
                                     {% endfor %}
                                 </div>
                             </div>
