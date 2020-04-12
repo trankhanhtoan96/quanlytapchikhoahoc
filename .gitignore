@@ -4,4 +4,4 @@
 /composer.lock
 /composer.phar
 /config.php
-.log
+*.log
