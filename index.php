@@ -269,6 +269,17 @@ $app->add(function (ServerRequestInterface $rq, ResponseInterface $rs, $n) use (
     });
     $view->addFunction($extFunction);
 
+    $extFunction = new TwigFunction("dateFormat", function ($date, $format = 'Y-m-d H:i', $timezone = 'Asia/Ho_Chi_Minh') {
+        $userTimezone = new DateTimeZone($timezone);
+        $gmtTimezone = new DateTimeZone('GMT');
+        $myDateTime = new DateTime($date, $gmtTimezone);
+        $offset = $userTimezone->getOffset($myDateTime);
+        $inter = DateInterval::createFromDateString((string)$offset . 'seconds');
+        $myDateTime->add($inter);
+        return $myDateTime->format($format);
+    });
+    $view->addFunction($extFunction);
+
     return $n($rq, $rs);
 });
 
