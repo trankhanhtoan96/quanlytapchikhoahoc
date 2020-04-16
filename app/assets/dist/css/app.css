@@ -1,0 +1,202 @@
+/*normal*/
+@font-face {
+    font-family: 'SFUIText';
+    src: url('../../font/SFUIText/SFUIText-Light.ttf');
+    font-weight: 100;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'SFUIText';
+    src: url('../../font/SFUIText/SFUIText-Light.ttf');
+    font-weight: 200;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'SFUIText';
+    src: url('../../font/SFUIText/SFUIText-Light.ttf');
+    font-weight: 300;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'SFUIText';
+    src: url('../../font/SFUIText/SFUIText-Light.ttf');
+    font-weight: 400;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'SFUIText';
+    src: url('../../font/SFUIText/SFUIText-Regular.ttf');
+    font-weight: normal;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'SFUIText';
+    src: url('../../font/SFUIText/SFUIText-Medium.ttf');
+    font-weight: bold;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'SFUIText';
+    src: url('../../font/SFUIText/SFUIText-Medium.ttf');
+    font-weight: 500;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'SFUIText';
+    src: url('../../font/SFUIText/SFUIText-Medium.ttf');
+    font-weight: 600;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'SFUIText';
+    src: url('../../font/SFUIText/SFUIText-Medium.ttf');
+    font-weight: 700;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'SFUIText';
+    src: url('../../font/SFUIText/SFUIText-Medium.ttf');
+    font-weight: 800;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'SFUIText';
+    src: url('../../font/SFUIText/SFUIText-Medium.ttf');
+    font-weight: 900;
+    font-style: normal;
+}
+
+/*italic*/
+@font-face {
+    font-family: 'SFUIText';
+    src: url('../../font/SFUIText/SFUIText-LightItalic.ttf');
+    font-weight: 100;
+    font-style: italic;
+}
+
+@font-face {
+    font-family: 'SFUIText';
+    src: url('../../font/SFUIText/SFUIText-LightItalic.ttf');
+    font-weight: 200;
+    font-style: italic;
+}
+
+@font-face {
+    font-family: 'SFUIText';
+    src: url('../../font/SFUIText/SFUIText-LightItalic.ttf');
+    font-weight: 300;
+    font-style: italic;
+}
+
+@font-face {
+    font-family: 'SFUIText';
+    src: url('../../font/SFUIText/SFUIText-LightItalic.ttf');
+    font-weight: 400;
+    font-style: italic;
+}
+
+@font-face {
+    font-family: 'SFUIText';
+    src: url('../../font/SFUIText/SFUIText-RegularItalic.ttf');
+    font-weight: normal;
+    font-style: italic;
+}
+
+@font-face {
+    font-family: 'SFUIText';
+    src: url('../../font/SFUIText/SFUIText-MediumItalic.ttf');
+    font-weight: bold;
+    font-style: italic;
+}
+
+@font-face {
+    font-family: 'SFUIText';
+    src: url('../../font/SFUIText/SFUIText-MediumItalic.ttf');
+    font-weight: 500;
+    font-style: italic;
+}
+
+@font-face {
+    font-family: 'SFUIText';
+    src: url('../../font/SFUIText/SFUIText-MediumItalic.ttf');
+    font-weight: 600;
+    font-style: italic;
+}
+
+@font-face {
+    font-family: 'SFUIText';
+    src: url('../../font/SFUIText/SFUIText-MediumItalic.ttf');
+    font-weight: 700;
+    font-style: italic;
+}
+
+@font-face {
+    font-family: 'SFUIText';
+    src: url('../../font/SFUIText/SFUIText-MediumItalic.ttf');
+    font-weight: 800;
+    font-style: italic;
+}
+
+@font-face {
+    font-family: 'SFUIText';
+    src: url('../../font/SFUIText/SFUIText-MediumItalic.ttf');
+    font-weight: 900;
+    font-style: italic;
+}
+
+* {
+    font-family: SFUIText, sans-serif;
+    font-size: 14px
+}
+
+[class*=sidebar-dark-] .nav-treeview > .nav-item > .nav-link.active {
+    background-color: #17a2b8;
+    color: #fff;
+}
+
+.buton-action-record {
+    padding: 7px 14px 7px 14px;
+}
+
+.badge {
+    font-size: 97%;
+}
+
+.table td, .table th {
+    padding: 3px;
+    vertical-align: middle;
+}
+
+.col-form-value {
+    padding-top: calc(.375rem + 1px)
+}
+
+table.dataTable thead .sorting:before, table.dataTable thead .sorting:after, table.dataTable thead .sorting_asc:before, table.dataTable thead .sorting_asc:after, table.dataTable thead .sorting_desc:before, table.dataTable thead .sorting_desc:after, table.dataTable thead .sorting_asc_disabled:before, table.dataTable thead .sorting_asc_disabled:after, table.dataTable thead .sorting_desc_disabled:before, table.dataTable thead .sorting_desc_disabled:after {
+    bottom: 3px;
+}
+
+.content-header {
+    padding: 5px;
+}
+
+.card-body {
+    padding: 1rem;
+}
+
+.buton-action-record {
+    padding: 5px 10px 5px 10px;
+}
+
+.table-striped tbody tr:nth-of-type(odd) {
+    background-color: rgba(0, 0, 0, 0.03);
+}

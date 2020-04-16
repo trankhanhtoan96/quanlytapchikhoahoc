@@ -1,0 +1,99 @@
+{% extends "app/base.twig" %}
+{% block content %}
+    <div class="content-header">
+        <div class="container-fluid">
+            <div class="row mb-2">
+                <div class="col-sm-12 text-center">
+                    <h1 class="m-0 text-dark">{{ lang('LBL_SETTING_EMAIL') }}</h1>
+                </div>
+            </div>
+        </div>
+    </div>
+    <section class="content">
+        <div class="container-fluid">
+            <form class="form-horizontal" method="post" action="{{ base_url }}/admin/setting/email">
+                <div class="card card-info">
+                    <div class="card-header">
+                        <h3 class="card-title">{{ lang('LBL_GENERAL_INFO') }}</h3>
+                    </div>
+                    <div class="card-body">
+                        <div class="row">
+                            <div class="col-sm-6">
+                                <div class="form-group row">
+                                    <label class="col-sm-4 col-form-label text-sm-left text-md-right">{{ lang(db_def.settings.mailer_host.label) }}</label>
+                                    <div class="col-sm-8">
+                                        {{ form_field("text","mailer_host",'','',settings.mailer_host)|raw }}
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-sm-6"></div>
+                        </div>
+                        <div class="row">
+                            <div class="col-sm-6">
+                                <div class="form-group row">
+                                    <label class="col-sm-4 col-form-label text-sm-left text-md-right">{{ lang(db_def.settings.mailer_user.label) }}</label>
+                                    <div class="col-sm-8">
+                                        {{ form_field("text","mailer_user",'','',settings.mailer_user)|raw }}
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-sm-6">
+                                <div class="form-group row">
+                                    <label class="col-sm-4 col-form-label text-sm-left text-md-right">{{ lang(db_def.settings.mailer_pass.label) }}</label>
+                                    <div class="col-sm-8">
+                                        {{ form_field("pass","mailer_pass",'','',settings.mailer_pass)|raw }}
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-sm-6">
+                                <div class="form-group row">
+                                    <label class="col-sm-4 col-form-label text-sm-left text-md-right">{{ lang(db_def.settings.mailer_from.label) }}</label>
+                                    <div class="col-sm-8">
+                                        {{ form_field("text","mailer_from",'','',settings.mailer_from)|raw }}
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-sm-6">
+                                <div class="form-group row">
+                                    <label class="col-sm-4 col-form-label text-sm-left text-md-right">{{ lang(db_def.settings.mailer_replyto.label) }}</label>
+                                    <div class="col-sm-8">
+                                        {{ form_field("text","mailer_replyto",'','',settings.mailer_replyto)|raw }}
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-sm-6">
+                                <div class="form-group row">
+                                    <label class="col-sm-4 col-form-label text-sm-left text-md-right">{{ lang(db_def.settings.mailer_fromname.label) }}</label>
+                                    <div class="col-sm-8">
+                                        {{ form_field("text","mailer_fromname",'','',settings.mailer_fromname)|raw }}
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-sm-6">
+                                <div class="form-group row">
+                                    <label class="col-sm-4 col-form-label text-sm-left text-md-right">{{ lang(db_def.settings.mailer_replytoname.label) }}</label>
+                                    <div class="col-sm-8">
+                                        {{ form_field("text","mailer_replytoname",'','',settings.mailer_replytoname)|raw }}
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="card">
+                    <div class="card-body buton-action-record">
+                        <div class="row">
+                            <div class="col-sm-12 text-center">
+                                <button type="submit" class="btn btn-info">{{ lang('SAVE') }}</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </section>
+{% endblock %}

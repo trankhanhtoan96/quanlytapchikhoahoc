@@ -1,0 +1,65 @@
+<aside class="main-sidebar sidebar-dark-info elevation-4">
+    <a href="{{ base_url }}/admin" class="brand-link text-center">
+        <span class="brand-text font-weight-light">Adminitration Center</span>
+    </a>
+    <div class="sidebar">
+        <nav class="mt-2">
+            <ul class="nav nav-pills nav-sidebar flex-column nav-child-indent" data-widget="treeview" role="menu" data-accordion="farse">
+                <li class="nav-item">
+                    <a href="{{ base_url }}/admin" class="nav-link {% if cur_uri=='admin' %}active{% endif %}">
+                        <i class="nav-icon far fa-tachometer-alt "></i>
+                        <p>Dashboard</p>
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a href="{{ base_url }}/admin/category" class="nav-link {% if uri[1]=='category' %}active{% endif %}">
+                        <i class="nav-icon far fa-cube "></i>
+                        <p>Danh mục bài viết</p>
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a href="{{ base_url }}/admin/post" class="nav-link {% if uri[1]=='post' %}active{% endif %}">
+                        <i class="nav-icon far fa-file "></i>
+                        <p>Bài viết</p>
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a href="{{ base_url }}/app/assets/ckfinder/ckfinder.html?langCode={{ cur_lang }}" class="nav-link" target="_blank">
+                        <i class="nav-icon far fa-images"></i>
+                        <p>Thư viện</p>
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a href="{{ base_url }}/admin/feedback" class="nav-link {% if uri[1]=='feedback' %}active{% endif %}">
+                        <i class="nav-icon far fa-quote-left "></i>
+                        <p>Feedback</p>
+                    </a>
+                </li>
+                {#menutktaddnew#}
+                <li class="nav-item has-treeview {% if uri[1]=='setting' %}menu-open{% endif %}">
+                    <a href="#" class="nav-link">
+                        <i class="nav-icon far fa-cogs"></i>
+                        <p>
+                            Cài đặt
+                            <i class="far fa-angle-left right"></i>
+                        </p>
+                    </a>
+                    <ul class="nav nav-treeview">
+                        <li class="nav-item">
+                            <a href="{{ base_url }}/admin/setting" class="nav-link {% if cur_uri=='admin/setting' %}active{% endif %}">
+                                <i class="far fa-cog nav-icon"></i>
+                                <p>Cài đặt chung</p>
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="{{ base_url }}/admin/setting/email" class="nav-link {% if cur_uri=='admin/setting/email' %}active{% endif %}">
+                                <i class="far fa-cog nav-icon"></i>
+                                <p>Email</p>
+                            </a>
+                        </li>
+                    </ul>
+                </li>
+            </ul>
+        </nav>
+    </div>
+</aside>

@@ -1,0 +1,24 @@
+SỬ DỤNG CLUSTER ĐỂ MULTI-TENNACY
+Bước 1: Tạo các cluster cho mỗi site
+- Vào file elasticsearch(trong máy em là /home/admin/elasticsearch-6.5.0)và mở teminal lên
+- Nhập câu lênh tạo cluster(ví dụ tạo cluster cho site dotbedu)
+./bin/elasticsearch -E node.name=edu -E node.data=true -Epath.data=/home/admin/elasticsearch-6.5.0/data/dotbedu -Ecluster.name=dotb-edu -Ehttp.port=9200 -Etransport.tcp.port=9300
+Trong đó node.name: là tên của node
+         node.data: sủ dụng node để lưu dữ liệu
+         path.data: Nơi lưu
+         cluster.name: Tên cluster
+         http.port: Cổng giao tiếp (mỗi site sẽ có port và transport riêng cho từng site ví dụ site edu có port:9200 transport:9300 thì site all có thể là 9201 và 9301)
+         transport.tcp.port: Cổng chuyền
+- Bước 2: Config source config.php và deployment_config/config.php
+full_text_engine' =>
+        array (
+            'Elastic' =>
+                array (
+                    'host' => 'localhost',
+                    'port' => '9201',
+                ),
+        ),
+trong đó: port là số port tương ứng đã config cho site trên bước 1
+Bước 3: Index lại dữ liệu
+
+         

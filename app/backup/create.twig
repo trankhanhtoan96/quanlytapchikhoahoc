@@ -1,0 +1,87 @@
+{% extends "app/base.twig" %}
+{% block content %}
+    <div class="content-header">
+        <div class="container-fluid">
+            <div class="row mb-2">
+                <div class="col-sm-12 text-center">
+                    <h1 class="m-0 text-dark">{{ lang('LBL_modulenametkt') }}</h1>
+                </div>
+            </div>
+        </div>
+    </div>
+    <section class="content">
+        <div class="container-fluid">
+            <form id="form-record-edit" class="form-horizontal" method="post" action="{{ base_url }}/admin/modulenametkt/create">
+                <div class="card card-info">
+                    <div class="card-header">
+                        <h3 class="card-title">{{ lang('LBL_GENERAL_INFO') }}</h3>
+                    </div>
+                    <div class="card-body">
+                        <div class="row">
+                            <div class="col-sm-6">
+                                <div class="form-group row">
+                                    <label class="col-sm-4 col-form-label text-sm-left text-md-right">{{ lang(db_def.modulenametkt.name.label) }} (*)</label>
+                                    <div class="col-sm-8">
+                                        {{ form_field("text","name","required")|raw }}
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-sm-6">
+                                <div class="form-group row">
+                                    <label class="col-sm-4 col-form-label text-sm-left text-md-right">{{ lang(db_def.modulenametkt.for_lang.label) }}</label>
+                                    <div class="col-sm-8">
+                                        {{ form_field("multienum","for_lang","",config.languages,cur_lang)|raw }}
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-sm-12">
+                                <div class="form-group row">
+                                    <label class="col-sm-2 col-form-label text-sm-left text-md-right">{{ lang(db_def.modulenametkt.description.label) }}</label>
+                                    <div class="col-sm-10">
+                                        {{ form_field("textarea","description")|raw }}
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="card">
+                    <div class="card-body buton-action-record">
+                        <div class="row">
+                            <div class="col-sm-12 text-center">
+                                <button type="button" onclick="formOnSubmit()" class="btn btn-info">{{ lang('SAVE') }}</button>
+                                <a href="{{ base_url }}/admin/modulenametkt" class="btn btn-outline-danger">{{ lang('LBL_CANCEL') }}</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </section>
+{% endblock %}
+{% block extra_footer %}
+    <script>
+        function formOnSubmit() {
+            $('.datetimepicker,.datepicker').each(function () {
+                var d = $(this).val().split(' ');
+                d[0] = $(this).val().split('/');
+                var f = config.date_format_js.split('/');
+                var s = d[0][f.indexOf('YYYY')] + '-' + d[0][f.indexOf('MM')] + '-' + d[0][f.indexOf('DD')] + (d.length === 2 ? ' ' + d[1] : '');
+                $(this).val(s);
+            });
+
+            var fieldRequiredIsInputed = true;
+            $('.form-control[required]').each(function () {
+                if ($(this).val() == '') fieldRequiredIsInputed = false;
+            });
+            if (fieldRequiredIsInputed == false) {
+                toastr.error("Input fields that required before submit!");
+                return;
+            }
+
+            $('#form-record-edit').submit();
+        }
+    </script>
+{% endblock %}

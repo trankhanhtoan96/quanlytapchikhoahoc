@@ -1,0 +1,73 @@
+{% extends "app/base.twig" %}
+{% block content %}
+    <div class="content-header">
+        <div class="container-fluid">
+            <div class="row mb-2">
+                <div class="col-sm-12 text-center">
+                    <h1 class="m-0 text-dark">{{ lang('LBL_modulenametkt') }}</h1>
+                </div>
+            </div>
+        </div>
+    </div>
+    <section class="content">
+        <div class="container-fluid">
+            <div class="card">
+                <div class="card-body buton-action-record">
+                    <div class="row">
+                        <div class="col-sm-12 text-left">
+                            <a href="{{ base_url }}/admin/modulenametkt/edit/{{ record.id }}" class="btn btn-info">
+                                <i class="far fa-pencil"></i> {{ lang('LBL_EDIT') }}
+                            </a>
+                            <a href="{{ base_url }}/admin/modulenametkt/create" class="btn btn-outline-info">
+                                <i class="far fa-plus"></i> {{ lang('LBL_CREATE') }}
+                            </a>
+                            <a href="{{ base_url }}/admin/modulenametkt" class="btn btn-outline-info">
+                                <i class="far fa-tasks"></i> {{ lang('LBL_LIST') }}
+                            </a>
+                            <a href="{{ base_url }}/admin/modulenametkt/delete/{{ record.id }}" class="btn btn-outline-danger">
+                                <i class="far fa-trash"></i> {{ lang('LBL_DELETE') }}
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="card card-info">
+                <div class="card-header">
+                    <h3 class="card-title">{{ lang('LBL_GENERAL_INFO') }}</h3>
+                </div>
+                <div class="card-body">
+                    <div class="row">
+                        <div class="col-sm-6">
+                            <div class="form-group row">
+                                <label class="col-sm-4 col-form-label text-sm-left text-md-right">{{ lang(db_def.modulenametkt.name.label) }}</label>
+                                <div class="col-sm-8 col-form-value">
+                                    {{ view_field('text','name',record.name)|raw }}
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-sm-6">
+                            <div class="form-group row">
+                                <label class="col-sm-4 col-form-label text-sm-left text-md-right">{{ lang(db_def.modulenametkt.for_lang.label) }}</label>
+                                <div class="col-sm-8 col-form-value">
+                                    {% for key in record.for_lang %}
+                                        <span class="badge badge-info">{{ config.languages[key] }}</span>
+                                    {% endfor %}
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-sm-12">
+                            <div class="form-group row">
+                                <label class="col-sm-2 col-form-label text-sm-left text-md-right">{{ lang(db_def.modulenametkt.description.label) }}</label>
+                                <div class="col-sm-10 col-form-value">
+                                    {{ view_field('text','description',record.description)|raw }}
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+{% endblock %}
